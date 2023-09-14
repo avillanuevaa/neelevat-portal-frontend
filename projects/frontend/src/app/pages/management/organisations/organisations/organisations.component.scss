@@ -1,0 +1,26 @@
+:host {
+  thead {
+    .organisationName,
+    .organisationLegal,
+    .mainContactPerson {
+      width: 15%;
+    }
+
+    .access {
+      width: 12%;
+    }
+
+    .contactEmail,
+    .maintenance {
+      width: 10%;
+    }
+
+    .address {
+      width: 14%;
+    }
+
+    .role {
+      width: 9%;
+    }
+  }
+}

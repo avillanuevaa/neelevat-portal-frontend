@@ -1,0 +1,240 @@
+//
+// Button Mixins
+//
+
+// Custom variant
+@mixin button-custom-variant(
+  $color,
+  $icon-color,
+  $border-color,
+  $bg-color,
+  $color-active,
+  $icon-color-active,
+  $border-color-active,
+  $bg-color-active
+) {
+
+  @if ($color != null) {
+    color: $color;
+  }
+
+  @if ($icon-color != null) {
+    i,
+    .svg-icon {
+      color: $icon-color;
+    }
+
+    &.dropdown-toggle:after {
+      color: $icon-color;
+    }
+  }
+
+  @if ($border-color != null) {
+    border-color: $border-color;
+  }
+
+  @if ($bg-color != null) {
+    background-color: $bg-color;
+  }
+
+  .btn-check:checked + &,
+  .btn-check:active + &,
+  &:focus:not(.btn-active),
+  &:hover:not(.btn-active),
+  &:active:not(.btn-active),
+  &.active,
+  &.show,
+  .show > & {
+    @if ($color-active != null) {
+      color: $color-active;
+    }
+
+    @if ($icon-color-active != null) {
+      i,
+      .svg-icon {
+        color: $icon-color-active;
+      }
+
+      &.dropdown-toggle:after {
+        color: $icon-color-active;
+      }
+    }
+
+    @if ($border-color-active != null) {
+      border-color: $border-color-active;
+    }
+
+    @if ($bg-color-active != null) {
+      background-color: $bg-color-active !important;
+    }
+  }
+}
+
+@mixin button-active-state() {
+  .btn-check:checked + &,
+  .btn-check:active + &,
+  &:focus:not(.btn-active),
+  &:hover:not(.btn-active),
+  &:active:not(.btn-active),
+  &.active,
+  &.show,
+  .show > & {
+    @content;
+  }
+}
+
+
+.btn-whitebg:hover .svg-icon-white {
+  fill: white !important;
+}
+
+.with-hover-text:hover .svg-icon-white {
+  fill: #266791 !important;
+}
+
+.svg-icon-white {
+  fill: #266791;
+}
+
+//
+.btn-red-wheel:hover .svg-red-wheel {
+  fill: white !important;
+}
+
+.svg-red-wheel {
+  fill: #99626C;
+}
+
+//
+.btn-blue-faqs:hover .svg-blue-faqs {
+  fill: white !important;
+}
+
+.svg-blue-faqs {
+  fill: #266791;
+}
+
+//
+.btn-green-log:hover .svg-green-log {
+  fill: white !important;
+}
+
+.svg-green-log {
+  fill: #62996B;
+}
+
+// menu-button
+.btn-menu-blue:hover .svg-menu-blue {
+  fill: white !important;
+}
+
+.svg-menu-blue {
+  fill: #266791;
+}
+
+.svg-asd{
+  width: auto !important;
+  height: auto;
+}
+
+.navbar-item:hover .svg-icon-gray {
+  fill: white !important;
+}
+
+.navbar-item.active .svg-icon-gray {
+  fill: white !important;
+}
+
+.svg-icon-gray {
+  fill: #8191A4;
+}
+
+li:hover .custom-circle-green,
+li:hover .custom-circle-gray,
+li:hover .custom-circle-blue {
+  background-color: white !important;
+}
+
+li:hover .btn-white-border {
+  color: white;
+}
+
+.mat-expansion-panel-body {
+  padding: 0 0 0 0 !important;
+}
+
+.mat-expansion-panel-content{
+  font-family: 'Inter', sans-serif;
+}
+
+.toast-fixed-custom{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.btn-cancel-form{
+  color: var(--nv-primary, #266791);
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-decoration-line: underline;
+}
+.btn-cancel-form:hover{
+  color: #266791;
+}
+
+.btn-update-form{
+  color: #FFF;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  display: flex;
+  width: 100%;
+  height: 35px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 5px;
+  background: #266791;
+}
+.btn-update-form:hover{
+  color: #266791;
+  background: #FFF;
+  border: 1px solid #266791 !important;
+}
+
+.btn-home-filter{
+  background-color: #FFFFFF;
+  display: flex;
+  width: 170px;
+  height: 48px;
+  padding: 10px !important;
+  justify-content: center;
+  align-items: center;
+  gap: 30px !important;
+  flex-shrink: 0;
+
+  color: #266791;
+  text-align: center !important;
+  font-size: 16px !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  line-height: normal !important;
+}
+.btn-home-filter:hover{
+  background-color: #FFFFFF;
+  color: #266791;
+}
+
+
+
+
+
+

@@ -1,0 +1,8 @@
+<span *ngIf="label" class="fw-bold" [ngClass]="{'px-0 label': true, 'disabled-label': disabled, 'disabled-blue': useBlackFont}">{{ label | translate }}</span>
+<select [disabled]="disabled" [(ngModel)]="value"
+        class="form-select input-select form-select-sm form-select-solid {{ classes }}"
+        data-control="select2" data-placeholder="Latest" data-hide-search="true">
+  <option value="" disabled selected hidden>{{ (placeholder || 'buttons.select') | translate }}</option>
+  <option *ngFor="let option of options"
+          [value]="option?.value || option">{{ (option?.name || option) | translate }}</option>
+</select>

@@ -1,0 +1,13 @@
+<div class="d-flex justify-content-center">
+  <ul class="li-class d-flex m-0 {{containerClass}}">
+    <li class="position-relative space-between-li {{liClass}}" *ngFor="let step of steps; let i=index" [ngClass]="{'active': step.isActive}">
+      <div class="progress-line {{barClass}}" [ngClass]="{'last-item': i === steps.length - 1}"
+           >
+        <span class="icon-progress-bar" [inlineSVG]="step.svgIcon"></span>
+        <span class="text-li px-3">{{ step.name | translate: { number: i+1 } }}</span>
+      </div>
+    </li>
+  </ul>
+</div>
+
+

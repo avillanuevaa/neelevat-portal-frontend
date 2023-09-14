@@ -1,0 +1,4 @@
+<div [routerLink]="tab.link" [class.active]="!tab.link" class="tab" *ngFor="let tab of tabs">
+  {{ tab.name | translate }}
+</div>
+<div class="tab empty"></div>

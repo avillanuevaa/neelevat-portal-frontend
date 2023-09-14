@@ -1,0 +1,10 @@
+<!-- collapsible-section.component.html -->
+<div class="fs-2 pb-2 pt-1">
+  <span class="red-text">{{ title }}</span>
+  <div class="border-bottom-div fw-bold fs-2 pb-0 me-1 pt-1"></div>
+  <div class="arrow" (click)="toggleSection()"></div>
+</div>
+<div [ngClass]="{'collapsible': true, 'active': expanded}">
+  <!-- Contenido de la sección aquí -->
+  <ng-content></ng-content>
+</div>

@@ -1,0 +1,11 @@
+// CSS variables can be added depending on the organization
+
+html {
+  &.oostvogels {}
+
+  &.neelevat {}
+
+  &.mammoet {}
+
+  &.nvd_asia {}
+}

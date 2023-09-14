@@ -1,0 +1,79 @@
+<div *ngIf="title && !labelOnBlock" class="fv-row py-2">{{ title | translate }}</div>
+
+<span *ngIf="title && labelOnBlock" class="fw-bold px-0 opacity-100 label">
+  {{ title | translate }}
+</span>
+
+<div class="card-body pt-0 px-7" [class.px-7]="!withoutPadding" [class.without-padding]="withoutPadding">
+
+  <app-f-dropzone [(model)]="model" [maxSize]="1000000"></app-f-dropzone>
+
+  <div class="fv-row mb-2 mt-6">
+    <div id="kt_customers_table_wrapper">
+      <div class="table-responsive">
+
+        <table class="table table-hover fs-6 gy-2 border-1" id="kt_customers_table">
+
+          <thead>
+            <tr class="text-start fw-bold fs-6 gs-0">
+              <th class="p-lg-2 min-w-80px sorting border-none"
+                [class.text-center]="column.name === 'tables.headers.action'" *ngFor="let column of fileColumns"
+                tabindex="0" aria-controls="kt_customers_table" rowspan="1" colspan="1">
+                {{ column.name | translate }}
+              </th>
+            </tr>
+          </thead>
+
+          <tbody class="fw-semibold text-black">
+
+            <ng-container *ngIf="files?.length">
+              <tr class="odd" *ngFor="let file of files">
+
+                <ng-container *ngFor="let column of fileColumns">
+
+                  <td class="p-lg-2 file-name" *ngIf="column.value === 'fileName'">
+                    <div class="">{{ file.fileName }}</div>
+                  </td>
+
+                  <td [class.document-type]="column.value === 'documentType'" [class.status]="column.value === 'status'"
+                    *ngIf="column.value === 'documentType' || column.value === 'status'">
+                    <app-select [specialClasses]="'fs-6 py-2'" [placeholder]="column.name"
+                      [disabled]="file.status === '1'" [value]="file[column.value]"
+                      [options]="column.value === 'status' ? statusOptions : docsSelectOption">
+                    </app-select>
+
+                  </td>
+
+                  <td class="comments" *ngIf="column.value === 'comments'">
+                    <app-input [disabled]="file.status === '1'" [placeholder]="'tables.headers.comments'"
+                      [value]="file.comments">
+                    </app-input>
+                  </td>
+
+                  <td *ngIf="column.name === 'tables.headers.action'" class="text-center pb-0 actions">
+
+                    <app-action *ngIf="file.status === '1'" [name]="'edit'"></app-action>
+
+                    <app-action *ngIf="file.status !== '1' && file.status !== '3'" [name]="'save'"></app-action>
+
+                    <app-action [name]="'delete'"></app-action>
+
+                  </td>
+                </ng-container>
+              </tr>
+            </ng-container>
+
+            <ng-container *ngIf="!files?.length">
+              <tr class="text-center">
+                <td [attr.colspan]="fileColumns.length" class="py-6">
+                  <span class="text-gray-400">{{ "users.noData" | translate }}</span>
+                </td>
+              </tr>
+            </ng-container>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

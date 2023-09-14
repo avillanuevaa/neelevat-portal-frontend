@@ -1,0 +1,21 @@
+:host{
+  .section-text{
+    color: #8191A4;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px; /* 112.5% */
+  }
+
+  .popover-title{
+    color: #3F9AD5;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 150% */
+  }
+
+  .custom-modal .modal-dialog {
+    max-width: 700px; /* Aquí puedes ajustar el ancho del modal según tus necesidades */
+  }
+}

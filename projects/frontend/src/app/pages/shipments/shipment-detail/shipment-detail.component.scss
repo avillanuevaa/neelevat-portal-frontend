@@ -1,0 +1,37 @@
+:host{
+  .header-info-title{
+    color: var(--gray-gray-7, #8C8C8C);
+    font-family: Inter, 'sans-serif';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px; /* 157.143% */
+  }
+  .black-text-content{
+    color: var(--gray-gray-9, #262626);
+    font-family: Inter, 'sans-serif';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+  }
+  .gap-4px{
+    gap: 4px;
+  }
+  .gap-10px{
+    gap: 10px;
+  }
+  .padding-row-header{
+    padding: 4px 24px 8px 8px;
+  }
+
+  .address-name{
+    color: var(--gray-gray-9, #262626);
+    font-family: Inter,'sans-serif';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 150% */
+  }
+
+}

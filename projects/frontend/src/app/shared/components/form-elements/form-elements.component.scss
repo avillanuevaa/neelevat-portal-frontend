@@ -1,0 +1,17 @@
+:host {
+  .label {
+    transform: translateX(20px) translateY(9px);
+    color: #266791;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500 !important;
+    line-height: 14px; /* 140% */
+
+    background-color: #FFFFFF;
+    border-left: 4px solid #FFFFFF;
+    border-right: 4px solid #FFFFFF;
+    border-radius: 5px;
+    width: fit-content;
+    z-index: 100;
+  }
+}

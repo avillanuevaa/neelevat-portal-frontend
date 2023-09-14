@@ -1,0 +1,125 @@
+ :host {
+   .form-control.disabled-input-323232:disabled {
+     color: #323232;
+     font-size: 14px;
+     font-style: normal;
+     font-weight: 400;
+     line-height: 24px; /* 171.429% */
+   }
+
+   .disabled-label.disabled-blue{
+     color: #266791 !important;
+   }
+  .height-29 {
+    height: 29%;
+  }
+   .h-32px{
+     height: 32px;
+   }
+
+  .form-control:disabled {
+    color: #C5C5C5;
+    background-color: #FFFFFF;
+    border-color: #E5E5E5;
+    opacity: 1;
+  }
+
+  .form-control::placeholder {
+    color: #C5C5C5;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 171.429% */
+  }
+
+  /* Styles for the default state */
+  .form-control {
+    color: #323232;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 171.429% */
+  }
+
+  /* Styles for the hover state */
+  .form-control:hover {
+    /* Styles for the hover state here */
+    border: 1px solid #f1416c;
+  }
+
+  /* Styles for the disabled state */
+  .form-control:disabled:hover {
+    /* Styles for the disabled state here */
+    border: 1px solid var(--nv-input-border, #E5E5E5) !important;
+  }
+
+
+  /* Styles for the pressed state */
+  .form-control:active {
+    /* Styles for the pressed state here */
+    border: 1px solid #f1416c;
+  }
+
+  /* Styles for the typing state */
+  .form-control:focus {
+    /* Styles for the typing state here */
+    border: 1px solid #f1416c;
+  }
+
+  /* Styles for the filled state */
+  .form-control:not([value=""]) {
+    /* Styles for the filled state here */
+  }
+
+  /* Styles for the incomplete state */
+  .form-control.invalid-input {
+    /* Styles for the incomplete state here */
+  }
+
+  /* Styles for the success state */
+  .form-control.success-input {
+    /* Styles for the success state here */
+  }
+
+  /* Styles for the disabled state */
+  .form-control:disabled {
+    /* Styles for the disabled state here */
+    border: 1px solid var(--nv-input-border, #E5E5E5);
+    :hover{
+      border: 1px solid var(--nv-input-border, #E5E5E5);
+    }
+  }
+
+  .disabled-label {
+    color: #C5C5C5 !important;
+  }
+
+  .form-control:not(.is-invalid):focus {
+    border-color: #266791 !important;
+  }
+
+  .form-control:not(.is-invalid):hover {
+    border-color: #266791 ;
+  }
+  .form-control:not(.is-invalid):active {
+
+  }
+  .form-control.is-invalid{
+    background-image: url('../../../../../assets/media/icons/duotune/general/input_error.svg');
+  }
+
+   .nv-input-gray-bg{
+     background-color: #F8F8F8;
+     font-size: 14px;
+   }
+
+   .disabled-input-c5 {
+     color: #C5C5C5;
+   }
+
+
+
+
+
+
+}

@@ -1,0 +1,28 @@
+//
+// 3rd-party config
+//
+
+
+// Prismjs
+// TODO: will be changed after the implementation of the design for dark mode
+// $prismjs-bg-dark: #151521;
+$prismjs-bg-dark: #1e1e3f;
+
+$prismjs-border-dark: rgba($white, 0.1);
+
+// TODO: will be changed after the implementation of the design for dark mode
+// $prismjs-btn-bg-dark: lighten($prismjs-bg-dark, 9%);
+$prismjs-btn-bg-dark: lighten($prismjs-bg, 9%);
+// TODO: will be changed after the implementation of the design for dark mode
+// $prismjs-btn-bg-hover-dark: lighten($prismjs-bg-dark, 9%);
+$prismjs-btn-bg-hover-dark: lighten($prismjs-bg, 9%);
+
+$prismjs-btn-color-dark: rgba($white, 0.75);
+$prismjs-btn-color-hover-dark: $primary;
+
+// TODO: will be changed after the implementation of the design for dark mode
+// $prismjs-scrollbar-color-dark: lighten($prismjs-bg-dark, 12%);
+$prismjs-scrollbar-color-dark: lighten($prismjs-bg, 12%);
+// TODO: will be changed after the implementation of the design for dark mode
+// $prismjs-scrollbar-color-hover-dark: lighten($prismjs-bg-dark, 15%);
+$prismjs-scrollbar-color-hover-dark: lighten($prismjs-bg, 15%);

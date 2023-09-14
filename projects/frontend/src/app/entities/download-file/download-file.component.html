@@ -1,0 +1,42 @@
+<!--<app-button [matMenuTriggerFor]="exportMenu" [name]="'buttons.exportTo'" [btnColor]="btnColor" style="position: relative !important; right: 0px !important;"-->
+<!--  [svg]="'assets/media/icons/duotune/general/export.svg'">-->
+<!--</app-button>-->
+
+<span class="label pe-12">{{ "buttons.exportTo" | translate }}</span>
+<div class=" d-flex">
+  <div style="min-height: 30px !important;" [matMenuTriggerFor]="subMenu" [matMenuTriggerData]="{ methodName: 'exportToXLSX' }" mat-menu-item class="option">
+    <span [inlineSVG]="'assets/media/icons/duotune/general/xlsx.svg'"></span>
+  </div>
+  <div style="min-height: 30px !important;" [matMenuTriggerFor]="subMenu" [matMenuTriggerData]="{ methodName: 'exportToCsv' }" mat-menu-item class="option">
+    <span [inlineSVG]="'assets/media/icons/duotune/general/csv.svg'"></span>
+  </div>
+  <div style="min-height: 30px !important;" [matMenuTriggerFor]="subMenu" [matMenuTriggerData]="{ methodName: 'exportToPDF' }" mat-menu-item class="option mat-mdc-menu-item-last">
+    <span [inlineSVG]="'assets/media/icons/duotune/general/pdf.svg'"></span>
+  </div>
+</div>
+
+<!--<mat-menu #exportMenu="matMenu" class="export-menu" xPosition="before">-->
+<!--  <div [matMenuTriggerFor]="subMenu" [matMenuTriggerData]="{ methodName: 'exportToXLSX' }" mat-menu-item class="option">-->
+<!--    <span class="label">{{ "buttons.excel" | translate }}</span>-->
+<!--    <span [inlineSVG]="'assets/media/icons/duotune/general/xlsx.svg'"></span>-->
+<!--  </div>-->
+<!--  <div [matMenuTriggerFor]="subMenu" [matMenuTriggerData]="{ methodName: 'exportToCsv' }" mat-menu-item class="option">-->
+<!--    <span class="label">{{ "buttons.csv" | translate }}</span>-->
+<!--    <span [inlineSVG]="'assets/media/icons/duotune/general/csv.svg'"></span>-->
+<!--  </div>-->
+<!--  <div [matMenuTriggerFor]="subMenu" [matMenuTriggerData]="{ methodName: 'exportToPDF' }" mat-menu-item class="option">-->
+<!--    <span class="label">{{ "buttons.pdf" | translate }}</span>-->
+<!--    <span [inlineSVG]="'assets/media/icons/duotune/general/pdf.svg'"></span>-->
+<!--  </div>-->
+<!--</mat-menu>-->
+
+<mat-menu #subMenu="matMenu" class="export-menu">
+  <ng-template matMenuContent let-methodName="methodName">
+    <div mat-menu-item (click)="this[methodName]()" class="option">
+      <span class="label">{{ "buttons.downloadCurrent" | translate }}</span>
+    </div>
+    <div mat-menu-item (click)="this[methodName](true)" class="option">
+      <span class="label">{{ "buttons.downloadAll" | translate }}</span>
+    </div>
+  </ng-template>
+</mat-menu>

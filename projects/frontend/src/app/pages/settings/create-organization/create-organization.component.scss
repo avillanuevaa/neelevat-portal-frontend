@@ -1,0 +1,43 @@
+:host{
+  .section-text{
+    color: #8191A4;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px; /* 112.5% */
+  }
+
+  .p-top-5px{
+    padding-top: 10px !important;
+  }
+  .min-h-50px{
+    min-height: 50px !important;
+  }
+  .card-header {
+    padding: 0 !important;
+    margin-bottom: 20px;
+
+    .tabs-container {
+      padding: 45px 20px 20px;
+      margin-left: 11px;
+    }
+  }
+  .select-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+
+
+  .icon-wrapper {
+    position: absolute;
+    right: 15px;
+    padding-top: 5px;
+    top: 0;
+    font-size: 25px;
+    color: #4b00ff;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

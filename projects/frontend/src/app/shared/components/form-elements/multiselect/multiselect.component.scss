@@ -1,0 +1,142 @@
+:host {
+  .ng-select::ng-deep {
+    color: var(--nv-text-placeholder, #C5C5C5);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+
+    @media (max-height: 835px) {
+      .ng-select-container{
+        font-size: 12px;
+        line-height: 10px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+      }
+      .ng-value {
+        &-label {
+          font-size: 12px;
+          line-height: 14px;
+        }
+      }
+    }
+    @media (max-width: 1650px) {
+      .ng-select-container{
+        font-size: 12px;
+        line-height: 10px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+      }
+      .ng-value {
+        &-label {
+          font-size: 12px;
+          line-height: 14px;
+        }
+      }
+    }
+    @media (min-height: 835px) {
+      .ng-select-container {
+        font-size: 14px;
+        line-height: 15px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+      .ng-value {
+        &-label {
+          font-size: 15px;
+          line-height: 16px;
+        }
+      }
+    }
+    @media (min-width: 1650px) {
+      .ng-select-container {
+        font-size: 14px;
+        line-height: 15px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+      .ng-value {
+        background-color: #B1E0FF !important;
+        border-radius: 5px !important;
+
+        &-label {
+          font-size: 15px;
+          line-height: 16px;
+        }
+      }
+    }
+
+    .ng-select-container {
+      //min-height: 30px;
+      //border: 1px solid #E5E5E5 !important;
+      //border-radius: 10px !important;
+      //background-color: #FFFFFF !important;
+      //box-shadow: var(--bs-box-shadow-inset);
+
+      display: flex;
+      border-radius: 8px !important;
+      min-height: 10px;
+      flex-direction: column;
+      align-items: flex-start;
+      flex: 1 0 0;
+
+      color: var(--nv-text-placeholder, #C5C5C5) !important;
+      font-style: normal;
+      font-weight: 400;
+      border: 1px solid var(--nv-input-border, #E5E5E5) !important;
+      background: #FFF;
+
+      .ng-value-container{
+        padding-top: 0px !important;
+
+        padding-left: 8px !important;
+        .ng-input{
+          padding-bottom: 0px !important;
+        }
+      }
+    }
+
+    .ng-placeholder {
+      padding-bottom: 0px !important;
+      margin-top: 0px;
+      color: var(--bs-gray-400) !important;
+    }
+
+    .ng-value {
+      background-color: #B1E0FF !important;
+      border-radius: 5px !important;
+
+      &-label {
+        font-weight: 400;
+      }
+
+      .right {
+        border: none !important;
+        padding-left: 0 !important;
+        font-size: 12px;
+      }
+    }
+
+    .ng-arrow-wrapper {
+      //.ng-arrow {
+      //  border-color: none !important;
+      //  border-style: none !important;
+      //  border-width: 0 !important;
+      //}
+      //
+      //background-image: url('/assets/media/icons/duotune/general/arrow-down.svg');
+      //background-repeat: no-repeat;
+      //background-size: 13px;
+      //margin-bottom: -13px;
+      display: none;
+    }
+  }
+
+  .ng-select-opened::ng-deep {
+    .ng-arrow-wrapper {
+      margin-bottom: 13px;
+      transform: rotateX(180deg);
+    }
+  }
+
+}

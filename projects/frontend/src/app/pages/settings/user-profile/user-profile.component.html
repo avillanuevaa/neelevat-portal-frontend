@@ -1,0 +1,35 @@
+<app-title [title]="'pageName.userProfile'" [breadcrumbs]="breadcrumbs"></app-title>
+
+<div id="kt_app_content" class="app-content flex-column-fluid">
+  <div id="kt_app_content_container" class="app-container container-xxl">
+    <div class="card row border-card-custom rounded-2">
+      <div class="card-header row border-0 pe-3 mb-sm-1 mb-0 pb-0 min-h-50px">
+        <div class="d-flex fs-2 tabs-container pb-0 p-top-5px">
+          <app-tabs [tabs]="tabs" [activeTab]="activeTab" [width]="'250px'" [isPageTabs]="true"
+                    (changeTab)="setActiveTab($event)"></app-tabs>
+        </div>
+      </div>
+
+      <form class="form" novalidate>
+        <div class="card-body pt-5 ps-3 pe-5">
+          <div class="tab-content">
+
+
+            <div class="tab-pane" [ngClass]="{ active: activeTab === 'myProfile' }">
+              <app-user-form [user]="user"></app-user-form>
+            </div>
+
+            <div class="tab-pane" [ngClass]="{ active: activeTab === 'myOrganizations' }">
+<!--              <app-organisation-form class="mb-2 pb-2" [description]="'settings.organisationDescription'"-->
+<!--                                     [organisation]="organisation">-->
+<!--              </app-organisation-form>-->
+              <app-my-organizations [tenant]="tenants" class="mb-2 pb-2">
+              </app-my-organizations>
+            </div>
+
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

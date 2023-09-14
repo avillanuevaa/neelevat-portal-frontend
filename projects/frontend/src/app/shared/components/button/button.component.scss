@@ -1,0 +1,66 @@
+:host {
+  .full-width {
+    width: 100%;
+  }
+
+  .with-hover-text:hover {
+    transition: width 10s ease-in-out;
+    width: fit-content;
+    background-color: white !important;
+    color: #266791 !important;
+
+    .hover-text {
+      opacity: 1;
+      font-size: 14px;
+      width: auto;
+    }
+  }
+
+  .with-hover-text .hover-text {
+    transition: opacity 2000ms;
+    opacity: 0;
+    color: #266791 !important;
+    white-space: nowrap;
+    font-size: 0;
+    width: 0;
+    margin: 0;
+  }
+
+  .btn:disabled, .btn.disabled, fieldset:disabled .btn {
+    color: var(--bs-btn-disabled-color);
+    pointer-events: none;
+    background-color: #266791;
+    border-color: var(--bs-btn-disabled-border-color);
+    opacity: var(--bs-btn-disabled-opacity);
+    box-shadow: none;
+  }
+
+  .custom-circle-green {
+    background-color: #17B427;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  .custom-circle-blue {
+    background-color: #266791;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  .custom-circle-gray {
+    background-color: #E9E9E9;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+
+}

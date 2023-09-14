@@ -1,0 +1,245 @@
+<app-title [title]="'buttons.createOrder'" [breadcrumbs]="breadcrumbs"></app-title>
+<!--end::Toolbar-->
+<!--begin::Content-->
+<div id="kt_app_content" class="app-content flex-column-fluid">
+  <!--begin::Content container-->
+  <div id="kt_app_content_container" class="app-container container-xxl">
+    <!--begin::Card-->
+    <div class="card row border-card-custom rounded-2">
+      <!--begin::Card header-->
+      <div class="card-header border-0 mb-2 px-7">
+        <!--begin::Card title-->
+        <div class="card-title pb-0 mb-0 mt-1">
+          <div class="h-100 fs-4 pb-2 pt-10">
+            <div class="red-text fw-bold pb-0 mb-0">{{ "order.subTitle" | translate }}</div>
+          </div>
+        </div>
+        <!--begin::Card toolbar-->
+        <div class="card-toolbar pb-0 mb-0 mt-1">
+          <!--begin::Toolbar-->
+          <div class="d-flex justify-content-end pb-0 mb-0" data-kt-customer-table-toolbar="base">
+            <div class="fs-5 pb-2 pt-2">
+              <!--begin::Input group-->
+              <div class="mb-0 fv-row fv-plugins-icon-container">
+                <div class="d-flex justify-content-end gap-1">
+                  <app-select class="row d-flex w-100 pe-2 pt-1 mx-1" [label]="'labels.carrier'"
+                    [formControl]="selectorControl" [options]="selectOptions"
+                    [placeholder]="'Neele Vat Rad transport'"></app-select>
+                </div>
+              </div>
+              <!--end::Input group-->
+            </div>
+          </div>
+          <!--end::Toolbar-->
+        </div>
+        <!--end::Card toolbar-->
+        <div class="border-bottom-div w-100"></div>
+
+      </div>
+      <!--end::Card header-->
+      <!--begin::Card body-->
+      <div class="card-body pt-0 px-6">
+        <!--begin::Input group-->
+        <div class="w-100 mb-0 pb-0 fv-row fv-plugins-icon-container pt-4">
+          <div class="d-flex gap-5">
+            <div class="border-card-custom rounded-2 row d-flex w-100 pt-1 pb-7 mx-0">
+              <span class="fw-bold toolbar-title-text fs-7 m-0 p-0 label">
+                {{ "labels.customerDetails" | translate }}</span>
+              <div class="row d-flex ps-6">
+                <span class="fs-6">Oostvogels Logistic BV,</span>
+                <span class="fs-6">Hazeldonk 6389</span>
+                <span class="fs-6">4836LE, Breda</span>
+              </div>
+            </div>
+            <div class="border-card-custom rounded-2 row d-flex w-100 pt-1 pb-7 mx-0">
+              <span class="fw-bold toolbar-title-text fs-7 m-0 p-0 label">
+                {{ "labels.unloadingAddress" | translate }}</span>
+              <div class="row d-flex ps-6">
+                <span class="fs-6">AB Kauno Grudal,</span>
+                <span class="fs-6">H. ir O. Minkovslu g. 63</span>
+                <span class="fs-6">46550, Kaunas - 18</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--end::Input group-->
+
+        <!--begin::Input group-->
+        <div class="w-100 mb-0 pb-0 fv-row fv-plugins-icon-container">
+          <div class="d-flex gap-1">
+
+            <app-select class="row d-flex w-100 pe-2 pt-1 mx-1" [placeholder]="'OUTB2301-01'"
+              [label]="'labels.referenceNumber'" [options]="refSelectOption" [formControl]="selectorControl">
+            </app-select>
+
+            <app-datepicker class="row d-flex w-100 pt-1 mx-0"
+              [label]="'labels.requestedDeliveryDate'"></app-datepicker>
+
+            <app-datepicker class="row d-flex w-100 pt-1 mx-0" [label]="'labels.shipDate'"></app-datepicker>
+          </div>
+        </div>
+        <!--end::Input group-->
+
+        <!--begin::Input group-->
+        <div class="mb-0 pb-0 fv-row fv-plugins-icon-container ">
+          <div class="d-flex gap-3">
+            <div class="row d-flex w-100 pt-0 mx-1 pb-2" data-kt-customer-table-toolbar="base">
+              <!--begin::Card toolbar-->
+              <span class="fw-bold px-0 label-secondary">
+                {{ "labels.bondedGoods" | translate }}</span>
+              <div class="card-toolbar px-5 pe-0 options-wrapper">
+                <!--begin::Toolbar-->
+                <div class="d-flex gap-3">
+                  <div class="row d-flex w-100 pt-1 mx-0">
+                    <span class="fw-bold px-0 label-thirty">
+                      {{ "labels.from" | translate }}</span>
+                    <div class="form-input-login mt-0 mb-0">
+                      <span class="menu-icon-input-right opacity-50 pb-3"><span class="pe-3"
+                          [inlineSVG]="'assets/media/icons/duotune/general/clock_gray.svg'"></span></span>
+                      <input class="form-control mb-2 py-2 px-6 text-end pe-12" value="10:10" type="text" name="time" />
+                    </div>
+                  </div>
+
+                  <div class="row d-flex w-100 pt-1 mx-0">
+                    <span class="fw-bold px-0 label-thirty">
+                      {{ "labels.to" | translate }}</span>
+                    <div class="form-input-login mt-0 mb-0">
+                      <span class="menu-icon-input-right opacity-50 pb-3"><span class="pe-3"
+                          [inlineSVG]="'assets/media/icons/duotune/general/clock_gray.svg'"></span></span>
+                      <input class="form-control mb-2 py-2 px-6 text-end pe-12" value="12:00" type="text" name="time" />
+                    </div>
+                  </div>
+                </div>
+                <!--end::Toolbar-->
+              </div>
+            </div>
+            <div class="row d-flex w-100 pt-0 mx-1 pb-2" data-kt-customer-table-toolbar="base">
+              <!--begin::Card toolbar-->
+              <span class="fw-bold px-0 label-secondary">
+                {{ "labels.bondedGoods" | translate }}</span>
+              <div class="card-toolbar px-5 pe-0 options-wrapper">
+                <!--begin::Toolbar-->
+                <div class="d-flex gap-3">
+                  <app-input class="row d-flex text-end pe-2 pt-1 mx-1" [label]="'labels.loading'" [placeholder]="''"
+                    [textPosition]="'right'" value="10%">
+                  </app-input>
+
+                  <app-input class="row d-flex text-end pe-2 pt-1 mx-1 right-0" [label]="'labels.unloading'"
+                    [placeholder]="''" [textPosition]="'right'" value="UNL Reference">
+                  </app-input>
+                </div>
+                <!--end::Toolbar-->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--end::Input group-->
+
+        <!--begin::Input group-->
+        <div class="w-100 mb-0 pb-0 fv-row fv-plugins-icon-container">
+          <div class="d-flex gap-1">
+
+            <app-input class="row d-flex text-end pe-2 pt-1 mx-1" [label]="'labels.deliveryConditions'"
+              [placeholder]="''" value="DDP - Delivery Duty Paid">
+            </app-input>
+
+            <app-input class="row d-flex text-end pe-2 pt-1 mx-1" [label]="'labels.placeConditions'" [placeholder]="''"
+              value="Kaunas - 18">
+            </app-input>
+
+            <div class="row d-flex pt-1 mx-0">
+              <span class="fw-bold px-0 label-thirty">
+                {{ "labels.transitTime" | translate }}</span>
+              <div class="form-input-login mt-0 mb-0 px-1 pe-3">
+                <span class="menu-icon-input-right opacity-50 pb-3"><span class="pe-3"
+                    [inlineSVG]="'assets/media/icons/duotune/general/clock_gray.svg'"></span></span>
+                <input class="form-control mb-2 py-2 px-6 text-end pe-12" value="12:00" type="text" name="time" />
+              </div>
+            </div>
+
+            <app-input class="row d-flex text-end pe-2 pt-1 mx-1" [label]="'labels.remarks'" [placeholder]="''"
+              value="remarks">
+            </app-input>
+
+            <app-input class="row d-flex text-end pe-2 pt-1 mx-1" [label]="'labels.extraReference'" [placeholder]="''"
+              value="Extra reference">
+            </app-input>
+          </div>
+        </div>
+        <!--end::Input group-->
+
+        <div class="row d-flex">
+          <div class="col-9">
+            <!--begin::Card body-->
+            <div class="card-body pt-10 px-0">
+              <div class="tab-content">
+                <!--begin::Table-->
+                <div id="kt_customers_table_wrapper" class="">
+                  <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-hover  fs-6 gy-2 ms-1"
+                      id="kt_customers_table">
+                      <!--begin::Table head-->
+                      <thead>
+                        <!--begin::Table row-->
+                        <tr class="fw-bold fs-6 gs-0">
+                          <th class="text-start sorting {{ column.value }}"
+                            [class.p-lg-2]="column.value === 'articleName'" *ngFor="let column of columns" tabindex="0"
+                            aria-controls="kt_customers_table" rowspan="1" colspan="1">
+                            {{ column.name | translate }}
+                          </th>
+                        </tr>
+                        <!--end::Table row-->
+                      </thead>
+                      <!--end::Table head-->
+                      <!--begin::Table body-->
+                      <tbody class="fw-semibold text-black">
+                        <tr class="odd" *ngFor="let artLine of articleLines">
+                          <ng-container *ngFor="let column of columns">
+
+                            <td *ngIf="column.value !== 'actions'" [class.p-lg-2]="column.value === 'articleName'">
+                              <div>{{ artLine[column.value] }}</div>
+                            </td>
+
+                            <td *ngIf="column.value === 'actions'">
+
+                              <app-action [name]="'delete'"></app-action>
+                            
+                            </td>
+
+                          </ng-container>
+                        </tr>
+                      </tbody>
+                      <!--end::Table body-->
+                    </table>
+                  </div>
+                </div>
+                <!--end::Table-->
+              </div>
+            </div>
+            <!--end::Card body-->
+          </div>
+          <div class="col-3">
+
+            <!--begin::Card body-->
+            <div class="card-body pt-4 px-0">
+              <div class="tab-content">
+                <app-files-table
+                  class="row d-flex fv-plugins-icon-container border border-dashed border-gray-300 rounded mb-0 pb-0 px-2 mx-1 mt-5"
+                  [title]="'labels.documentUpload'" [labelOnBlock]="true" [files]="files" [fileColumns]="filesColumn"
+                  [withoutPadding]="true">
+                </app-files-table>
+              </div>
+            </div>
+
+          </div>
+          <!--end::Card body-->
+        </div>
+
+      </div>
+      <!--end::Card body-->
+    </div>
+    <!--end::Card-->
+  </div>
+  <!--end::Content container-->
+</div>
+<!--end::Content-->

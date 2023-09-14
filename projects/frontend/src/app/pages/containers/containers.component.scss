@@ -1,0 +1,43 @@
+:host {
+  .label {
+    transform: translateX(15px) translateY(23px);
+    color: #8191A4;
+    background-color: #FFFFFF;
+    border-left: 4px solid #FFFFFF;
+    border-right: 4px solid #FFFFFF;
+    border-radius: 5px;
+    font-size: 12px;
+    height: 18px;
+    width: fit-content;
+  }
+
+  .options-section {
+    background: #F8F8F8;
+    border: 1px dashed #C5C5C5;
+    border-radius: 5px;
+    height: 80px;
+  }
+
+  .status-list {
+    box-shadow: none;
+
+    &-item {
+      &-first {
+        border-radius: 5px 0px 0px 5px;
+      }
+
+      &-last {
+        border-radius: 0px 5px 5px 0px;
+      }
+    }
+
+    .tab-link {
+      padding-top: 0.35rem;
+      padding-bottom: 0.35rem;
+    }
+  }
+
+  .chart-icon-wrapper {
+    transform: translateX(15px) translateY(40px);
+  }
+}

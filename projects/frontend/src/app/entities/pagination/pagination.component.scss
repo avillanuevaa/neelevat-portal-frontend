@@ -1,0 +1,94 @@
+:host {
+  .dataTables_length {
+    color: #323232;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .page-item {
+    cursor: pointer;
+
+    &.disabled {
+      cursor: not-allowed;
+    }
+
+    .page-number {
+      border: 1px solid #E5E5E5;
+    }
+
+    &.active {
+      a {
+        background-color: #266791;
+      }
+    }
+  }
+
+  .next-text {
+    padding: 0 7px 0 7px;
+    color: #878787;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .next-link {
+    padding: 0;
+  }
+
+  .last-page {
+    margin-left: -8px;
+
+    .last-page-link {
+      padding: 0;
+    }
+  }
+
+  .arrow-line-block {
+    .arrow-line {
+      ::ng-deep {
+        svg {
+          filter: invert(48%) sepia(79%) saturate(0%) hue-rotate(155deg) brightness(95%) contrast(95%);
+        }
+      }
+    }
+
+    &:hover {
+      .last-page-link {
+        ::ng-deep {
+          svg {
+            filter: invert(45%) sepia(79%) saturate(2445%) hue-rotate(174deg) brightness(99%) contrast(101%);
+          }
+        }
+      }
+    }
+  }
+
+  .first-page {
+    transform: rotate(180deg);
+    padding: 0;
+    margin: 0;
+    margin-right: -8px;
+
+    a {
+      padding: 0;
+    }
+  }
+
+  .prev-text {
+    padding: 0 15px 0 7px;
+  }
+
+  .previous {
+    padding: 0;
+
+    .page-link {
+      padding: 0;
+      margin-top: 2px;
+    }
+  }
+  
+  .next-text-block {
+    margin-top: -2px;
+  }
+}

@@ -1,0 +1,112 @@
+<app-title [title]="'pageName.teams'" [breadcrumbs]="breadcrumbs"></app-title>
+
+<div id="kt_app_content" class="app-content flex-column-fluid">
+  <div id="kt_app_content_container" class="app-container container-xxl">
+    <div class="card row border-card-custom rounded-2">
+      <div class="card-header row border-0 pt-6 mb-1 pe-0">
+
+        <div class=" fs-2 pb-2 pt-8">
+          <div class="red-text border-bottom-div fw-bold fs-4 pb-2 me-4">{{ "teams.teamsList" | translate }}</div>
+        </div>
+
+      </div>
+      <div class="row d-flex">
+        <div class="card-title pe-0">
+          <div class="fv-row col-7 fv-plugins-icon-container mb-0 mx-3">
+            <div class="d-flex gap-3 ms-2 me-0 mt-3">
+
+              <div class="row d-flex w-100 pe-0 pt-0 pe-1" data-kt-customer-table-toolbar="base">
+                <app-input class="form-input-login mt-0 mb-0" [placeholder]="'labels.teamName'"
+                  [svg]="'assets/media/icons/duotune/general/search.svg'">
+                </app-input>
+              </div>
+
+              <div class="row d-flex w-100 pe-0 pt-0 px-1" data-kt-customer-table-toolbar="base">
+                <app-input class="form-input-login mt-0 mb-0" [placeholder]="'labels.teamLeader'"
+                  [svg]="'assets/media/icons/duotune/general/search.svg'">
+                </app-input>
+              </div>
+
+              <div class="row d-flex w-100 pe-0 pt-0 px-1" data-kt-customer-table-toolbar="base">
+                <app-input class="form-input-login mt-0 mb-0" [placeholder]="'labels.organisation'"
+                  [svg]="'assets/media/icons/duotune/general/search.svg'">
+                </app-input>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="card-toolbar mb-6 mt-4">
+          <div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
+            <div class="d-flex align-items-center gap-2 gap-lg-3">
+
+              <div class="m-0">
+                <app-button [btnColor]="btnColor" [name]="'buttons.addTeam'" [link]="'/management/teams/add'"
+                  [svg]="'assets/media/icons/duotune/general/supervisor_account.svg'">
+                </app-button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-body pt-0">
+        <div id="kt_customers_table_wrapper">
+          <div class="table-responsive">
+
+            <table class="table table-bordered table-striped table-hover  fs-6 gy-2" id="kt_customers_table">
+              <thead>
+
+                <tr class="text-start align-top fw-bold fs-6 gs-0">
+                  <th class="align-top  sorting py-3 {{ column.value }}" *ngFor="let column of columns" tabindex="0"
+                    aria-controls="kt_customers_table" rowspan="1" colspan="1">
+                    {{ column.name | translate }}
+                  </th>
+                </tr>
+
+              </thead>
+
+              <tbody class="text-black fw-semibold align-middle">
+                <tr class="odd" *ngFor="let team of teamsDataMock">
+
+                  <ng-container *ngFor="let column of columns">
+
+                    <ng-container [ngSwitch]="column.value">
+
+                      <td *ngSwitchCase="'members'">
+                        <div class="fs-6 text-center align-middle">
+                          <span class="menu-icon toolbar-title-text fs-6">{{ team[column.value] }}
+                            <span class="btn-label"
+                              [inlineSVG]="'./assets/media/icons/duotune/general/supervisor_account.svg'">
+                            </span>
+                          </span>
+                        </div>
+                      </td>
+
+                      <td *ngSwitchCase="'maintenance'" class="py-0 my-0">
+                        <div class="d-flex justify-content-center py-0 my-0">
+
+                          <app-action [name]="'edit'"></app-action>
+
+                          <app-action [name]="'delete'"></app-action>
+
+                        </div>
+                      </td>
+
+                      <td *ngSwitchDefault [class.p-lg-2]="column.value === 'teamName'">
+                        <div class="fs-6">{{ team[column.value] }}</div>
+                      </td>
+
+                    </ng-container>
+                  </ng-container>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

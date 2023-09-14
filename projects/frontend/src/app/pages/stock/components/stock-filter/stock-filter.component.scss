@@ -1,0 +1,42 @@
+:host {
+  padding: 0;
+  margin: 0 auto;
+
+  form {
+    padding: 0;
+    margin: 0 auto; 
+  }
+
+  .section {
+    display: grid;
+
+    &-content {
+      background: #F8F8F8;
+      border: 1px dashed #C5C5C5;
+      border-radius: 5px;
+    }
+  }
+
+  .main-label {
+    transform: translateX(15px) translateY(15px);
+    color: #8191A4;
+    background-color: #FFFFFF;
+    border-left: 4px solid #FFFFFF;
+    border-right: 4px solid #FFFFFF;
+    border-radius: 5px;
+    font-size: 14px;
+    width: fit-content;
+    max-height: 18px;
+  }
+
+  .label {
+    transform: translateX(20px) translateY(9px);
+    color: #266791;
+    background-color: #FFFFFF;
+    border-left: 4px solid #FFFFFF;
+    border-right: 4px solid #FFFFFF;
+    border-radius: 5px;
+    font-size: 12px;
+    width: fit-content;
+  }
+}

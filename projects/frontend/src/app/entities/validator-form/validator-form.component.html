@@ -1,0 +1,15 @@
+<form [formGroup]="form" (ngSubmit)="sendForm()">
+  <div *ngFor="let field of fields">
+    <label>{{ field.label }}:</label>
+    <input [type]="field.type" [formControlName]="field.name">
+    <div *ngIf="form.controls[field.name].touched">
+      <div *ngFor="let validation of field.validations">
+        <div *ngIf="form.controls[field.name].errors?.[validation.type]">
+          {{ validation.message }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="form.invalid">Guardar</button>
+</form>

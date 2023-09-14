@@ -1,0 +1,80 @@
+<app-title [title]="'pageName.stock'" [breadcrumbs]="breadcrumbs"
+           [titleButton]="titleButton">
+</app-title>
+
+<div id="kt_app_content" class="app-content flex-column-fluid">
+  <div id="kt_app_content_container" class="app-container container-xxl">
+    <div class="card row border-card-custom rounded-2 margin-10">
+
+      <div class="card-header row border-0 pe-3 mb-sm-1 mb-0 pb-0" style="min-height: 50px !important;">
+        <div class="d-flex fs-2 tabs-container pt-8 pt-md-3" style="padding-bottom: 0 !important;">
+          <app-tabs [tabs]="tabs" (changeTab)="changeTab($event)" [isPageTabs]="true" [activeTab]="'/stock/products'">
+          </app-tabs>
+        </div>
+      </div>
+
+      <div class="card-body pt-0">
+        <div id="kt_customers_table_wrapper">
+          <div class="row content gx-5 mt-2">
+
+            <div class="table-wrapper">
+
+              <div class="d-flex justify-content-between" style="height: 50px">
+
+                <buttons-filter [buttonsFilterItems]="buttonsFilterItems"  ></buttons-filter>
+
+                <app-download-file class="justify-content-end d-flex align-items-center gap-2 gap-lg-3">
+                </app-download-file>
+              </div>
+
+              <div class="table-responsive position-relative table-wrap mb-5 table-height">
+                <table class="table table-bordered table-striped table-hover mb-0 fs-6 gy-2" id="kt_customers_table">
+                  <thead class="thead-sticky">
+
+                  <tr class="text-start fw-bold fs-6 gs-0">
+                    <th class="sorting col-{{ column.value }}" [class.p-lg-2]="column.value === 'row'"
+                        *ngFor="let column of columns" tabindex="0" aria-controls="kt_customers_table" rowspan="1"
+                        colspan="1">
+                      {{ column.name | translate }}
+                    </th>
+                  </tr>
+
+                  </thead>
+
+                  <tbody class="fw-semibold text-black">
+
+                  <tr class="odd" *ngFor="let stock of stocksDataMock">
+
+                    <ng-container *ngFor="let column of columns">
+
+                      <td *ngIf="column.value !== 'status'" [class.p-lg-2]="column.value === 'row'">
+                        <div>{{ stock[column.value] }}</div>
+                      </td>
+
+                      <td *ngIf="column.value === 'status'" class="text-center">
+
+                        <app-status [status]="'received'"></app-status>
+
+                      </td>
+
+                    </ng-container>
+                  </tr>
+
+                  </tbody>
+                </table>
+
+              </div>
+              <app-pagination [amountItems]="4"></app-pagination>
+            </div>
+            <div class="right-filter align-items-center card-toolbar-content" style="border: 1px solid #E5E5E5">
+
+              <app-columns-filter  [columns]="columns">
+              </app-columns-filter>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

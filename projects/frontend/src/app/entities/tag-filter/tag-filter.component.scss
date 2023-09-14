@@ -1,0 +1,61 @@
+:host{
+  .label{
+    transform: translateX(30px) translateY(4px) !important;
+    height: 12px !important;
+  }
+  .tag-input-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  }
+
+  .tags-container {
+    max-height: 45px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 5px; /* Espacio entre etiquetas y el input */
+  }
+  input{
+  }
+
+  .tag {
+    background-color: #b1e0ff;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    height: 10px;
+
+    color: var(--nv-text-principal, #323232);
+    font-family: Inter,'sans-serif';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px; /* 133.333% */
+  }
+
+  .tag-remove {
+    margin-left: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    color: red;
+    font-weight: bold;
+  }
+
+  .tag-input-wrapper {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+  }
+
+  .tag-input {
+    border: none;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+  }
+}

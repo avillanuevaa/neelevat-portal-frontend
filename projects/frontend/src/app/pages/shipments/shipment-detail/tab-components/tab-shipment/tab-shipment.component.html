@@ -1,0 +1,75 @@
+<div class="row p-0">
+
+  <div class="mb-0 pb-0 fv-row fv-plugins-icon-container">
+    <div class="d-flex gap-5">
+
+      <app-input class="row d-flex w-100 pt-1 mx-0" [label]="'labels.sender'"
+                 [placeholder]="'17/11/2021'">
+      </app-input>
+
+      <app-input class="row d-flex w-100 pt-1 mx-0" [label]="'labels.receiver'"
+                 [placeholder]="'17/11/2021'">
+      </app-input>
+
+    </div>
+  </div>
+
+  <div class="mb-0 pb-0 fv-row fv-plugins-icon-container w-100">
+    <div class="d-flex w-100 gap-5 pt-2">
+      <app-textarea-address class="row d-flex w-100 mx-0"
+                            [label]="'labels.loadingAddress'"></app-textarea-address>
+      <app-textarea-address class="row d-flex w-100 mx-0"
+                            [label]="'labels.loadingAddress'"></app-textarea-address>
+    </div>
+    <div class="d-flex w-100 gap-5 pt-2">
+      <app-textarea-address class="row d-flex w-100 mx-0"
+                            [label]="'labels.contactDetails'"></app-textarea-address>
+      <app-textarea-address class="row d-flex w-100 mx-0  "
+                            [label]="'labels.contactDetails'"></app-textarea-address>
+    </div>
+  </div>
+
+  <div class="mb-0 pb-0 fv-row fv-plugins-icon-container">
+    <div class="d-flex gap-5">
+
+      <app-input class="row d-flex w-100 pt-2 mx-0" [label]="'labels.loadingDate'"
+                 [placeholder]="'17/11/2021'">
+      </app-input>
+
+      <app-input class="row d-flex w-100 pt-2 mx-0" [label]="'labels.unloadingDate'"
+                 [placeholder]="'17/11/2021'">
+      </app-input>
+
+    </div>
+
+    <div class="d-flex gap-5">
+
+      <app-input class="row d-flex w-100 pt-1 mx-0" [label]="'labels.poNumber'"
+                 [placeholder]="'1A234567'">
+      </app-input>
+
+      <app-input class="row d-flex w-100 pt-1 mx-0" [label]="'labels.incoterm'"
+                 [placeholder]="'DAP'">
+      </app-input>
+
+    </div>
+
+    <div class="row gap-5">
+
+      <app-input class="row d-flex w-50 pt-1 mx-0" [label]="'labels.modeOfShipment'"
+                 [placeholder]="'Road'">
+      </app-input>
+
+    </div>
+
+    <div class="row p-0 m-0 pt-1">
+      <app-button class="col-sm-3 col-xl-2 col-xxl-1 px-0" [name]="'buttons.edit'"
+                  [btnColor]="btnColor.blue" [btnPadding]="btnPadding.padding"></app-button>
+    </div>
+
+  </div>
+
+
+
+
+</div>

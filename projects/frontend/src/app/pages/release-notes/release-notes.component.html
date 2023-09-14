@@ -1,0 +1,96 @@
+<app-title [title]="'pageName.releaseNotes'" [breadcrumbs]="breadcrumbs"></app-title>
+
+<!--begin::Content-->
+<div id="kt_app_content" class="app-content flex-column-fluid">
+  <!--begin::Content container-->
+  <div id="kt_app_content_container" class="app-container container-xxl">
+    <!--begin::Card-->
+    <div class="card row border-card-custom rounded-2">
+      <!--begin::Card header-->
+      <div class="card-header row border-0 pt-6 mb-6 pe-0">
+        <div class=" fs-2 pb-2 pt-8">
+          <div class="red-text border-bottom-div fw-bold fs-2 pb-2 me-4">{{ "releaseNotes.versions" | translate }}</div>
+        </div>
+      </div>
+      <!--end::Card header-->
+      <!--begin::Card body-->
+      <div class="row card-body pt-0">
+        <div class="row mb-12">
+          <!--begin::Col-->
+          <div class="col-md-8 pe-md-10 mb-10 mb-md-0">
+            <!--begin::Accordion-->
+
+            <!--begin::Section-->
+            <div class="m-0 mb-6" *ngFor="let rNote of releaseNotes;">
+              <div
+                class="d-flex align-items-center justify-content-between collapsible cursor-pointer py-3 ps-6 pe-3 toggle mb-0 note-title"
+                data-bs-toggle="collapse"
+                 [attr.data-bs-target]="'#'+rNote.id" aria-expanded="false">
+                <!--begin::Title-->
+                <h4 class="toolbar-title-text fs-5 fw-normal cursor-pointer mb-0">
+                  {{rNote.name}}
+                </h4>
+                <!--end::Title-->
+                <!--begin::Icon-->
+                <div class="btn btn-sm btn-icon mw-10px mh-25px btn-active-color-primary me-5 py-0 my-0">
+                <span class="menu-icon"><span class="btn-label"
+                                              [inlineSVG]="'./assets/media/icons/duotune/general/expand_more.svg'"></span></span>
+                </div>
+              </div>
+              <!--end::Heading-->
+              <!--begin::Body-->
+              <div [attr.id]="rNote.id"  *ngFor="let mod of rNote.mod" class="collapse fs-6 ms-1 mt-4 px-6 py-5 note-info">
+                <!--begin::Note 1-->
+                <div class="row d-flex">
+                  <!--begin::Note name-->
+                <span class="menu-link px-0">
+                  <span class="menu-icon ps-4 px-3"
+                        [inlineSVG]="'./assets/media/icons/duotune/general/flag.svg'"></span>
+                  <span class="text-black fw-bold fs-5 align-bottom">{{mod.modName}}</span>
+                </span>
+                  <!--end::Note name-->
+                  <!--begin::Date-->
+                  <span class="text-gray-500 fs-6 ps-12">{{mod.releaseDate}}</span>
+                  <!--end::Date-->
+                  <div class="row d-flex m-0 p-0" *ngFor="let not of mod.note">
+                    <!--begin::Title-->
+                    <span class="text-black pt-1 fs-6 ps-12 fw-bold">{{not.title}}</span>
+                    <!--end::Title-->
+                    <!--begin::Description-->
+                    <span class="text-black fs-6 px-12" [innerHTML]="not.description"></span>
+                    <!--end::Description-->
+                  </div>
+                </div>
+                <!--end::Note 1-->
+
+              </div>
+              <!--end::Content-->
+            </div>
+            <!--end::Section-->
+
+            <!--end::Accordion-->
+          </div>
+          <!--end::Col-->
+
+          <!--begin::Col-->
+          <div class="border-card-custom rounded-2 col-md-4 mx-0 px-0">
+            <div class="row w-100 ps-8 pe-2">
+              <span class="text-center fs-3 py-2 mt-5 note-header">{{ "home.widgetsType.notes" | translate }}</span>
+            </div>
+            <div class="px-8 pt-12 pb-6">
+              <img class="image- w-100 h-100" src="/assets/media/illustrations/release_notes.png" alt=""/>
+            </div>
+            <div class="row d-flex text-start px-6 pt-2 pb-8">
+              <span class="label-mini fs-5">{{ "releaseNotes.notesDescription" | translate }}</span>
+            </div>
+          </div>
+          <!--end::Col-->
+        </div>
+      </div>
+      <!--end::Card body-->
+    </div>
+    <!--end::Card-->
+  </div>
+  <!--end::Content container-->
+</div>
+<!--end::Content-->

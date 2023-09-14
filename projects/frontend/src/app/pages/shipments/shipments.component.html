@@ -1,0 +1,36 @@
+<app-title [title]="'pageName.shipments'" [markForCheck]="markForCheck" [breadcrumbs]="breadcrumbs"
+           [titleButton]="titleButton">
+</app-title>
+
+
+
+<div id="kt_app_content" class="app-content flex-column-fluid">
+  <div id="kt_app_content_container" class="app-container container-xxl">
+    <div class="card row border-card-custom border-content margin-10">
+
+      <div class="card-header row border-0 pe-3 mb-sm-1 mb-0 pb-0 min-h-50px">
+        <div class="d-flex fs-2 tabs-container pb-0 p-top-5px">
+          <app-tabs [tabs]="tabs" [activeTab]="activeTab" (changeTab)="setActiveTab($event)"
+                    [width]="'150px'">
+          </app-tabs>
+        </div>
+      </div>
+
+      <div class="card-body pt-0">
+        <div id="kt_customers_table_wrapper">
+          <div class="tab-content">
+
+            <app-road-shipments class="tab-pane" [class.active]="activeTab === 'Road'">
+
+            </app-road-shipments>
+
+            <app-containers-shipments class="tab-pane" [class.active]="activeTab === 'Containers'">
+
+            </app-containers-shipments>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

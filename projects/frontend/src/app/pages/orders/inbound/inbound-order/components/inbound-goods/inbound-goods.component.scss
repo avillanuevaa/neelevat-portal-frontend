@@ -1,0 +1,21 @@
+:host {
+  thead {
+    z-index: 3;
+    position: relative;
+    background-color: white !important;
+
+    .thead-block {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &-text {
+        white-space: nowrap;
+      }
+
+      .sort-icon {
+        margin-top: -2px;
+      }
+    }
+  }
+}

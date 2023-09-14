@@ -1,0 +1,34 @@
+:host {
+  thead {
+    .module {
+      width: 63%;
+    }
+
+    .add,
+    .edit,
+    .delete {
+      width: 9%;
+    }
+
+    .display {
+      width: 10%;
+    }
+
+    .menu-title {
+      padding-right: 20px;
+    }
+
+    &.only-view {
+      .module {
+        width: 50%;
+      }
+
+      .add,
+      .edit,
+      .delete,
+      .display {
+        width: 12.5%;
+      }
+    }
+  }
+}

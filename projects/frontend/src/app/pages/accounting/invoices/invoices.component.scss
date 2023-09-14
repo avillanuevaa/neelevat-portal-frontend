@@ -1,0 +1,20 @@
+:host {
+  .customer {
+    min-width: 80px;
+  }
+
+  .invoiceNumber {
+    min-width: 60px;
+  }
+
+  .invoiceDate {
+    min-width: 125px;
+  }
+
+  .amount,
+  .invoiceDueDate,
+  .outstandingAmount,
+  .amountPastDue {
+    min-width: 90px;
+  }
+}

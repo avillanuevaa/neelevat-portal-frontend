@@ -1,0 +1,13 @@
+<span *ngIf="label" class="fw-bold px-0 label">
+  {{ label | translate }}
+</span>
+<ng-select [items]="items || []" (change)="onChangeWithoutEvent.emit(value)" [placeholder]="placeholder | translate" [(ngModel)]="value" [clearable]="false" [multiple]="true">
+  <ng-template ng-label-tmp let-item="item" let-clear="clear">
+    <span class="ng-value-label">{{ item }}</span>
+    <span class="ng-value-icon right" (click)="clear(item)" aria-hidden="true">×</span>
+  </ng-template>
+
+  <ng-template ng-option-tmp let-item="item">
+    {{ item }}
+  </ng-template>
+</ng-select>

@@ -1,0 +1,44 @@
+/* Estilos para la barra de progreso */
+.progress-container {
+  width: 100%;
+  max-width: 500px; /* Establece un ancho máximo si lo deseas */
+  margin: 0 auto; /* Centra la barra de progreso horizontalmente */
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+.progress-bar {
+  display: flex;
+  background-color: #3498db;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+/* Estilos para los pasos individuales */
+.progress-step {
+  flex: 1;
+  text-align: center;
+  padding: 10px 0;
+  color: white;
+  font-weight: bold;
+}
+
+/* Estilos para el paso activo */
+.progress-step.active {
+  background-color: #27ae60;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .progress-container {
+    padding: 10px;
+  }
+
+  .progress-bar {
+    flex-direction: column;
+  }
+
+  .progress-step {
+    padding: 10px;
+  }
+}

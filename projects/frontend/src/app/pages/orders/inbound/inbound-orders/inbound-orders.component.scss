@@ -1,0 +1,27 @@
+:host {
+  .orderID {
+    min-width: 80px;
+  }
+
+  .mod {
+    min-width: 60px;
+  }
+
+  .reference {
+    min-width: 125px;
+  }
+
+  .fileNumber,
+  .ETA,
+  .ATA {
+    min-width: 90px;
+  }
+
+  .status {
+    min-width: 80px;
+  }
+
+  .user {
+    min-width: 125px;
+  }
+}

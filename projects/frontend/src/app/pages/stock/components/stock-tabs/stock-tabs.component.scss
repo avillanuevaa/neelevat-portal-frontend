@@ -1,0 +1,40 @@
+:host {
+  width: 100%;
+  display: flex;
+
+  .empty {
+    width: 100%;
+    border-bottom: 2px solid #CCCCCC;
+    flex-grow: 1;
+  }
+
+  .tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    width: 207px;
+    padding: 20px 0;
+    color: #D2D7DD;
+
+    &:not(.empty) {
+      cursor: pointer;
+    }
+
+    &:not(.active) {
+      border-bottom: 2px solid #CCCCCC;
+
+      &:not(.empty):hover {
+        color: #323232;
+        border-bottom: 5px solid #3F9AD5;
+      }
+    }
+
+    &.active {
+      color: #323232;
+      border-bottom: 5px solid #3F9AD5;
+    }
+  }
+}

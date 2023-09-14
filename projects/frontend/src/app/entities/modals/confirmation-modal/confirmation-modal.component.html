@@ -1,0 +1,27 @@
+
+
+
+<div class="modal-content" style="z-index: 101">
+  <div class="modal-header">
+    <span class="btn-label" [inlineSVG]="'./assets/media/icons/duotune/general/warning-popover.svg'"></span>
+    <label class="popover-title-warning ps-3">
+      Attention</label>
+    <button type="button" class="btn-close" (click)="cancel()"
+            aria-label="Close"></button>
+  </div>
+  <div class="modal-body">
+    <div class="d-flex align-items-center">
+      <label class="text-modal-body">Are you sure you want to create a new shipment?</label>
+    </div>
+  </div>
+  <div class="modal-footer">
+
+    <app-button class="px-0" data-bs-dismiss="modal" [name]="'buttons.cancel'"
+                (click)="cancel()"
+                [btnColor]="btnColor.filterButtonWhiteBg"></app-button>
+    <app-button class="px-0" [name]="'buttons.yes'"
+                (click)="confirm()"
+                [btnColor]="btnColor.filterButton"></app-button>
+  </div>
+</div>
+

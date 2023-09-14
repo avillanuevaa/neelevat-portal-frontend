@@ -1,0 +1,139 @@
+<div class="row content gx-5 mt-2">
+
+  <div class="mb-0 pb-0 fv-row fv-plugins-icon-container">
+    <div class="d-flex gap-5">
+
+      <app-select class="row d-flex w-100 mx-0 pt-1" [placeholder]="'Organisation A'"
+                  [label]="'labels.status'" [options]="">
+      </app-select>
+
+      <app-select class="row d-flex w-50 mx-0 pt-1" [placeholder]="'Organisation A'"
+                  [label]="'labels.fileNumber'" [options]="">
+      </app-select>
+
+      <app-select class="row d-flex w-50 mx-0 pt-1" [placeholder]="'Organisation A'"
+                  [label]="'labels.reference'" [options]="">
+      </app-select>
+
+      <app-select class="row d-flex w-50 mx-0 pt-1" [placeholder]="'Organisation A'"
+                  [label]="'labels.containerN'" [options]="">
+      </app-select>
+
+      <app-select class="row d-flex w-50 mx-0 pt-1" [placeholder]="'Organisation A'"
+                  [label]="'labels.mbl'" [options]="">
+      </app-select>
+
+    </div>
+
+    <div class="d-flex py-4 justify-content-center">
+      <div class="row d-flex fv-row fv-plugins-icon-container px-0 py-4">
+        <div class="d-flex px-0">
+          <div *ngFor="let chart of charts; let last = last" class="col-4 d-flex pt-0 px-0"
+               data-kt-customer-table-toolbar="base">
+            <!--begin::Card toolbar-->
+            <span class="row fw-bold px-0 icon-chart-statistics">
+                      <div class="d-flex symbol align-items-center px-0">
+                        <img class="symbol-size" [src]="chart.icon"/>
+                      </div></span>
+            <div
+              class="row d-flex m-0 p-0 gap-0 text-center align-items-end justify-content-center border-chart">
+              <!--begin::Toolbar-->
+              <span class="chart-number">{{chart.amount}}</span>
+              <div class="border-bottom-div chart-bar p-0 m-0 w-65px"></div>
+              <span class="chart-label">{{ chart.name | translate }}</span>
+              <!--end::Toolbar-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex m-0 p-0 pb-10">
+      <div class="mt-3 w-100">
+
+        <div class="d-flex justify-content-between">
+          <div class="d-flex gap-3">
+
+            <app-checkbox class="w-100"
+                          [label]="'Exclude cancelled orders'">
+            </app-checkbox>
+
+            <app-button class="px-0" [name]="'buttons.priority'"
+                        [btnColor]="btnColor.blue" [btnPadding]="btnPadding.padding"></app-button>
+
+          </div>
+
+          <app-columns-filter class="border-bottom-tab d-block" style="height: 40px" (save)="saveChanges($event)"
+                              [columns]="columns" [oneColumn]="true">
+          </app-columns-filter>
+        </div>
+
+        <div class="table-responsive position-relative table-wrap mb-xxl-5 mb-md-2 table-height mt-2">
+          <table class="table table-bordered table-striped table-hover mb-0 fs-6 gy-2" id="kt_customers_table">
+            <thead class="thead-sticky">
+
+            <tr class="text-start font-thead fw-bold fs-6 gs-0"
+                cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="onColumnDrop($event)">
+              <ng-container *ngFor="let column of columns">
+                <th *ngIf="column.display" cdkDrag class="p-lg-2 min-w-80px sorting padding-cells-thead"
+                    tabindex="0"
+                    aria-controls="kt_customers_table" rowspan="1" colspan="1">
+                  <div class="thead-block">
+                            <span class="thead-block-text">
+                              {{ column.name | translate }}
+                            </span>
+
+                    <span class="sort-icon ps-5"
+                          [inlineSVG]="'assets/media/icons/duotune/general/up-down-arrows-blue.svg'">
+                            </span>
+
+                  </div>
+                </th>
+              </ng-container>
+            </tr>
+
+            <tr class="text-start fw-bold fs-6 gs-0">
+              <ng-container *ngFor="let column of columns">
+                <th *ngIf="column.display" tabindex="0" class="align-top" aria-controls="kt_customers_table"
+                    rowspan="1" colspan="1" aria-label="Row: activate to sort column ascending">
+                  <div class="text-nowrap">
+<!--                    <app-multiselect (onChangeWithoutEvent)="applyColumnFilter($event, column.value)"-->
+<!--                                     [markForCheck]="markForCheck" [options]="mainFilter[column.value]"-->
+<!--                                     [value]="activeFilters[column.value]" [placeholder]="'labels.filter'">-->
+<!--                    </app-multiselect>-->
+                  </div>
+                </th>
+              </ng-container>
+            </tr>
+
+            </thead>
+
+            <tbody class="fw-semibold text-black">
+
+            <tr class="odd min-table-height row-font-size"
+                >
+              <ng-container *ngFor="let column of columns">
+                <td class="padding-cells-tbody" *ngIf="column.display">
+                  <div class="text-nowrap"></div>
+                </td>
+                <!--                        <td *ngIf="column.value === 'totalPallets'">{{ stock.totalPallets }}</td> &lt;!&ndash; Aquí se muestra el valor totalPallets &ndash;&gt;-->
+              </ng-container>
+            </tr>
+
+<!--            <app-spinner ></app-spinner>-->
+
+            </tbody>
+          </table>
+
+        </div>
+
+<!--        <app-pagination (onChangePage)="changePage($event)"-->
+<!--                        (onChangeNumberOfElement)="changeNumberOfElement($event)" [resetPage]="resetPage"-->
+<!--                        [amountItems]="filteredStocks?.length">-->
+<!--        </app-pagination>-->
+      </div>
+    </div>
+
+  </div>
+
+</div>

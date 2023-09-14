@@ -1,0 +1,50 @@
+//
+// App Navbar
+//
+
+.app-navbar {
+    display: flex;
+    align-items: stretch;
+
+    .app-navbar-item {
+        display: flex;
+        align-items: center;
+    }
+
+    &.app-navbar-stretch {
+        .app-navbar-item {
+            align-items: stretch;
+        }
+    }
+}
+
+app-navbar-modality.disabled .navbar-item:hover a{
+  color: #8191A4 !important;
+}
+app-navbar-modality.disabled .navbar-item:hover{
+  background-color: #FFFFFF !important;
+  color: #D9D9D9 !important;
+}
+
+app-navbar-modality.disabled .navbar-item.active {
+  background-color: #D9D9D9 !important;
+  :hover{
+    background-color: #D9D9D9 !important;
+    color: #fff !important;
+  }
+  a{
+    background-color: #D9D9D9 !important;
+    color: #FFFFFF !important;
+  }
+}
+
+app-navbar-modality.disabled .navbar-item:hover .svg-icon-gray {
+  fill: #8191A4 !important;
+}
+
+app-navbar-modality.disabled .navbar-item.active:hover .svg-icon-gray {
+  fill: #fff !important;
+}
+
+
+

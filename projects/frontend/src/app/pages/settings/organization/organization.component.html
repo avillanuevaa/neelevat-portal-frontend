@@ -1,0 +1,39 @@
+<app-title [title]="'pageName.organization'" [breadcrumbs]="breadcrumbs"></app-title>
+
+<div id="kt_app_content" class="app-content flex-column-fluid">
+  <div id="kt_app_content_container" class="app-container container-xxl">
+    <div class="card row border-card-custom rounded-2">
+      <div class="card-header row border-0 pe-3 mb-sm-1 mb-0 pb-0 min-h-50px">
+        <div class="d-flex fs-2 tabs-container pb-0 p-top-5px">
+          <app-tabs [tabs]="tabs" [activeTab]="activeTab" [width]="'250px'" [isPageTabs]="true"
+                    (changeTab)="setActiveTab($event)"></app-tabs>
+        </div>
+      </div>
+
+      <form class="form" novalidate>
+        <div class="card-body pt-5 ps-3 pe-5">
+          <div class="tab-content">
+
+
+            <div class="tab-pane" [ngClass]="{ active: activeTab === 'profile' }">
+              <app-profile></app-profile>
+            </div>
+
+            <div class="tab-pane" [ngClass]="{ active: activeTab === 'roles' }">
+              <app-roles></app-roles>
+            </div>
+
+            <div class="tab-pane" [ngClass]="{ active: activeTab === 'billing' }">
+              <app-billing></app-billing>
+            </div>
+
+            <div class="tab-pane" [ngClass]="{ active: activeTab === 'users' }">
+
+            </div>
+
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

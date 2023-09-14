@@ -1,0 +1,22 @@
+:host{
+  /* styles.css */
+  .collapsible {
+    display: none;
+  }
+
+  .collapsible.active {
+    display: block;
+  }
+
+  .arrow {
+    cursor: pointer;
+  }
+
+  .arrow::after {
+    content: "\25BC";
+  }
+
+  .arrow.active::after {
+    content: "\25B2";
+  }
+}

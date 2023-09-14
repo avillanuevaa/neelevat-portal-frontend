@@ -1,0 +1,147 @@
+/*  box-shadow: -5px 8px 16px 0px rgba(0,0,0,0.3) !important;*/
+/*  margin-bottom: 2px !important;*/
+/*}*/
+
+
+.toast-container .ngx-toastr {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  border-radius: 4px;
+  height: 64px;
+  bottom: 0;
+}
+
+/*.toast-container .toast {*/
+/*  margin: 2px !important;*/
+/*  box-shadow: none !important;*/
+/*  border-radius: 20px !important;*/
+/*  background-color: #fff !important;*/
+/*}*/
+
+.toast-success {
+  background-color: #FFFFFF !important;
+  background-image: url('../../../../assets/media/icons/duotune/general/check_circle.svg');
+}
+
+.toast-success::after {
+  content: none !important;
+}
+
+.toast-close-button {
+  color: #8C8C8C;
+  font-weight: 300;
+  font-size: 25px;
+  padding-right: 5px;
+
+}
+
+button.toast-close-button {
+  padding-right: 5px;
+  padding-top: 10px;
+}
+
+
+.toast-progress {
+  background-color: #17B427;
+  opacity: 1;
+}
+
+
+.toast-title {
+  color: #323232;
+  font-family: Inter, "sans-serif";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  position: absolute;
+  left: 46px;
+}
+
+.toast-message {
+  color: #8f8f8f !important;
+}
+
+.popover-title {
+  color: #3F9AD5 !important;
+  font-size: 16px !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  line-height: 24px !important;
+}
+
+.popover-title-warning {
+  color: #F00;
+  font-family: Inter, 'sans-serif';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px; /* 150% */
+}
+
+.popover-title-quantity {
+  color: #3F9AD5;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px; /* 150% */
+}
+
+.text-modal-body {
+  color: #323232;
+  font-family: Inter, 'sans-serif';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 171.429% */
+}
+
+
+.modal .modal-dialog {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100% - var(--bs-modal-margin) * 2);
+}
+
+.modal-content {
+  min-width: 700px; /* Aquí puedes ajustar el ancho del modal según tus necesidades */
+}
+
+.modal-content-width {
+  min-width: 800px !important;
+  max-height: 800px !important;
+}
+
+.modal-content-width .modal-content {
+  min-width: 800px !important;
+  width: 800px !important;
+  max-height: 800px !important;
+  height: 800px !important;
+}
+
+.modal-body .table-height {
+  height: 580px;
+  overflow: auto;
+}
+
+.bar-filter .popover-body{
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 0;
+  padding-right: 0;
+}
+.custom-circle {
+  background-color: #17B427;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%; /* Esto hace que el círculo sea elíptico */
+  display: inline-block;
+  margin-right: 10px; /* Puedes ajustar este valor para espaciar el círculo del texto */
+}
+
+
+
+
+

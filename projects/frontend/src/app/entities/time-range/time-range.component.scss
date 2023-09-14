@@ -1,0 +1,16 @@
+:host{
+  .range-border{
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: flex-start;
+
+    border-radius: 5px;
+    border: 1px dashed var(--nv-text-placeholder, #C5C5C5);
+    background: var(--nv-input-disabled, #F8F8F8);
+  }
+  .label{
+    transform: translateX(8px) translateY(6px) !important;
+    color: #8191A4 !important;
+  }
+}

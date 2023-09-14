@@ -1,0 +1,22 @@
+export interface IUser {
+  firstName: string;
+  lastName: string;
+  salutation: string;
+  jobTitle: string;
+  mobilePhone: string;
+  officePhone: string;
+  workLocation: string;
+  linkedin: string;
+  emailAddress: string;
+  roles: string[];
+  primaryUserID: string;
+  secondaryUserID: string;
+  createdOn: string;
+  timeZone: string;
+  birthday: Date;
+  showBirthday: boolean;
+  fullName: string;
+  avatar: string;
+  role: string;
+  rolesCheckbox: string[];
+};

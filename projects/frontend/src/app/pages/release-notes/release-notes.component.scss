@@ -1,0 +1,19 @@
+:host {
+  .note {
+    &-title {
+      border: 1px solid #E5E5E5;
+      border-radius: 5px;
+    }
+
+    &-info {
+      background: #E3FFE6;
+      border: 1px solid #E5E5E5;
+      border-radius: 5px;
+    }
+
+    &-header {
+      background: #E5E5E5;
+      color: #3F9AD5;
+    }
+  }
+}

@@ -1,0 +1,90 @@
+:host {
+  .label {
+    transform: translateX(20px) translateY(-14px);
+    background-color: #FFFFFF;
+    border-left: 4px solid #FFFFFF;
+    border-right: 4px solid #FFFFFF;
+    border-radius: 5px;
+    height: 12px;
+    width: fit-content;
+
+    &-secondary {
+      transform: translateX(15px) translateY(4px);
+      color: #8191A4;
+      background-color: #FFFFFF;
+      border-left: 4px solid #FFFFFF;
+      border-right: 4px solid #FFFFFF;
+      border-radius: 5px;
+      font-size: 12px;
+      width: fit-content;
+      height: 18px;
+
+      &.document {
+        transform: translateX(15px) translateY(-10px);
+      }
+    }
+
+    &-thirty {
+      transform: translateX(23px) translateY(9px);
+      color: #266791;
+      background-color: #FFFFFF;
+      border-left: 5px solid #FFFFFF;
+      border-right: 5px solid #FFFFFF;
+      border-radius: 5px;
+      font-size: 12px;
+      max-width: fit-content;
+      z-index: 3;
+    }
+
+    color: #8191A4;
+    background-color: #FFFFFF;
+    border-left: 4px solid #FFFFFF;
+    border-right: 4px solid #FFFFFF;
+    border-radius: 5px;
+    font-size: 12px;
+    width: fit-content;
+    height: 18px
+  }
+
+  .options-wrapper {
+    background: #F8F8F8;
+    border: 1px dashed #C5C5C5;
+    border-radius: 5px;
+    height: 80px;
+  }
+
+  .form-input-login {
+    z-index: 1;
+  }
+
+  .articleName {
+    min-width: 150px;
+  }
+
+  .articleCode,
+  .lotNumber {
+    min-width: 30px;
+  }
+
+  .prodDate,
+  .actions,
+  .shipOutAs {
+    min-width: 50px;
+  }
+
+  .customStatus {
+    min-width: 60px;
+  }
+
+  .shipOutAs {
+    text-align: center !important;
+  }
+
+  .unit,
+  .requiredQty,
+  .smallUnit,
+  .smallUnitQty {
+    min-width: 40px;
+    text-align: center !important;
+  }
+}

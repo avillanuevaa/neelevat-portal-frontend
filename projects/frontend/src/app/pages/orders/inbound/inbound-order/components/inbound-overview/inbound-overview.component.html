@@ -1,0 +1,112 @@
+<div class="row d-flex">
+  <div class="card col-9 px-7">
+
+    <span>
+      <strong>{{ "order.shipmentDetails" | translate }}</strong>
+      {{ "order.shipmentDetailsInfo" | translate }}
+    </span>
+
+    <!--begin::Input group-->
+    <div class="mb-0 pb-0 fv-row fv-plugins-icon-container">
+      <div class="d-flex gap-1">
+        <div class="row d-flex w-100 pt-0 mx-1" data-kt-customer-table-toolbar="base">
+          <app-input class="row d-flex w-100 pe-2 pt-1 mx-1" [label]="'labels.HBL'" [placeholder]="''"
+            value="XXXXXX123456789">
+          </app-input>
+        </div>
+        <div class="row d-flex w-100 pt-0 mx-1" data-kt-customer-table-toolbar="base">
+          <app-input class="row d-flex w-100 pe-2 pt-1 mx-1" [label]="'labels.carrierNumber'" [placeholder]="''"
+            value="123456789">
+          </app-input>
+        </div>
+        <div class="row d-flex w-100 pt-0 mx-1" data-kt-customer-table-toolbar="base">
+          <app-select class="row d-flex w-100 pe-2 pt-1 mx-1" [placeholder]="'labels.FOB'"
+            [label]="'labels.contractType'" [options]="selectOptions" [formControl]="selectorControl">
+          </app-select>
+        </div>
+      </div>
+    </div>
+    <!--end::Input group-->
+
+    <!--begin::Input group-->
+    <div class="mb-0 pb-0 fv-row fv-plugins-icon-container ">
+      <div class="d-flex gap-1">
+        <div class="row d-flex w-100 pt-0 mx-1" data-kt-customer-table-toolbar="base">
+          <app-select class="row d-flex w-100 pe-2 pt-1 mx-1" [placeholder]="'NLRTM'" [label]="'labels.pod'"
+            [options]="selectOptions" [formControl]="selectorControl">
+          </app-select>
+        </div>
+        <div class="row d-flex w-100 pt-0 mx-1" data-kt-customer-table-toolbar="base">
+          <app-input class="row d-flex w-100 pe-2 pt-1 mx-1" [label]="'labels.vessel'" [placeholder]="''"
+            value="Ren Jian 17">
+          </app-input>
+        </div>
+        <div class="row d-flex w-100 pt-0 mx-1" data-kt-customer-table-toolbar="base">
+          <app-datepicker class="row d-flex w-100 pt-1 mx-0 ps-1 pe-0" [label]="'labels.eta'"></app-datepicker>
+        </div>
+      </div>
+    </div>
+    <!--end::Input group-->
+
+    <!--begin::Input group-->
+    <div class="mb-0 pb-0 fv-row fv-plugins-icon-container ">
+      <div class="d-flex gap-1 justify-content-between">
+        <div class="d-flex w-75 gap-2">
+          <div class="row d-flex w-35 pt-0 mx-1 pb-2" data-kt-customer-table-toolbar="base">
+            <app-select class="row d-flex w-100 pe-2 pt-1 mx-1" [placeholder]="'Oostvogels'" [label]="'labels.haulier'"
+              [options]="selectOptions" [formControl]="selectorControl">
+            </app-select>
+          </div>
+          <div class="row d-flex w-25 pt-0 mx-1 pb-2" data-kt-customer-table-toolbar="base">
+            <app-input class="row d-flex align-items-center p-0 m-0" [placeholder]="''" value="3"
+              [label]="'labels.nContainers'" [type]="'number'">
+            </app-input>
+          </div>
+        </div>
+        <div class="row d-flex w-50 pt-0 mx-1 pb-2" data-kt-customer-table-toolbar="base">
+          <!--begin::Toolbar-->
+          <div class="row d-flex w-100 px-0" data-kt-customer-table-toolbar="base">
+            <ul class="nav nav-stretch nav-custom justify-content-end fw-bold flex-nowrap w-100 px-0 mx-0 mt-7"
+              role="tablist">
+              <li class="tab-item tab-middle bg-white tab-first">
+                <a class="tab-link fw-normal cursor-pointer py-1 fs-8 px-1 px-xxl-3">
+                  {{ "order.keepBonded" | translate}}
+                </a>
+              </li>
+              <li class="tab-item bg-white tab-last">
+                <a class="tab-link fw-normal cursor-pointer fs-8 px-1 py-1 px-xxl-2">
+                  {{ "order.toBeCleared" | translate }}
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!--end::Toolbar-->
+        </div>
+      </div>
+    </div>
+    <!--end::Input group-->
+  </div>
+  <div class="col-3 pe-7">
+    <div class="card freight-type-bg px-6">
+      <span class="span-title rounded-2 fs-6 mt-6 py-1 px-6">
+        {{ "labels.freightType" | translate }}</span>
+
+      <div class="fv-row w-50 pt-4">
+        <div *ngFor="let checkbox of freightTypeCheckboxes" class="col-lg-8 d-flex align-items-center my-1">
+          <app-checkbox [value]="checkbox.value" [label]="checkbox.name">
+          </app-checkbox>
+        </div>
+      </div>
+
+      <div class="row mb-5 mt-0 ms-0">
+        <app-switch class="col-lg-8 birthday-switch" [label]="'labels.option1'">
+        </app-switch>
+      </div>
+      <div class="mb-12 mx-3">
+        <span>
+          {{ "order.fTypeDescription" | translate }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

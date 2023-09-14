@@ -1,0 +1,22 @@
+<div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content">
+    <div class="modal-header px-9">
+      <h3>{{ title }}</h3>
+    </div>
+    <div class="modal-body pt-3 pb-5">
+      <form [formGroup]="form">
+        <ng-content></ng-content>
+      </form>
+      <div class="buttons">
+        <app-button (click)="onCancelClick()" [name]="'buttons.cancel'"
+                    [btnColor]="btnColor.filterButtonWhiteBg"></app-button>
+        <app-button
+          (click)="onCreateClick()"
+          [name]="'buttons.create'"
+          [btnColor]="btnColor.filterButton"
+          [disabled]="!form.valid"
+        ></app-button>
+      </div>
+    </div>
+  </div>
+</div>

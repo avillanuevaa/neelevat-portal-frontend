@@ -1,0 +1,11 @@
+<ul class="nav nav-stretch nav-line-tabs fw-bold border-transparent flex-nowrap h-40px" [class.page-tabs]="isPageTabs"
+  role="tablist">
+  <li class="nav-item w-{{width}} text-center" *ngFor="let tab of tabs">
+    <a class="d-block nav-link cursor-pointer w-100 mx-0 py-0" style="padding-top: 10px !important;" [class.active]="tab.value === activeTab"
+      (click)="changeTab.emit(tab.value)" role="tab">
+      <span style="height: 24px;">{{ tab.name | translate }}</span>
+    </a>
+  </li>
+  <li *ngIf="width !== '100'" class="empty nav-item w-150px text-center">
+  </li>
+</ul>

@@ -1,0 +1,100 @@
+:host {
+
+  .disabled-label.disabled-blue{
+    color: #266791 !important;
+  }
+
+  .disabled-label {
+    color: #C5C5C5 !important;
+  }
+
+  .form-control::placeholder {
+    color: #C5C5C5;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 171.429% */
+  }
+
+  /* Styles for the default state */
+  .form-control {
+    color: #323232;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 171.429% */
+  }
+
+  /* Styles for the hover state */
+  .form-select:hover {
+    /* Styles for the hover state here */
+    border: 1px solid #f1416c;
+  }
+
+  /* Styles for the disabled state */
+  .form-select:disabled:hover {
+    /* Styles for the disabled state here */
+    border: 1px solid var(--nv-input-border, #E5E5E5) !important;
+  }
+
+
+  /* Styles for the pressed state */
+  .form-select:active {
+    /* Styles for the pressed state here */
+    border: 1px solid #f1416c;
+  }
+
+  /* Styles for the typing state */
+  .form-select:focus {
+    /* Styles for the typing state here */
+    border: 1px solid #f1416c;
+  }
+
+  /* Styles for the filled state */
+  .form-select:not([value=""]) {
+    /* Styles for the filled state here */
+  }
+
+  /* Styles for the incomplete state */
+  .form-select.invalid-input {
+    /* Styles for the incomplete state here */
+  }
+
+  /* Styles for the success state */
+  .form-select.success-input {
+    /* Styles for the success state here */
+  }
+
+  /* Styles for the disabled state */
+  .form-select:disabled {
+    /* Styles for the disabled state here */
+    border: 1px solid var(--nv-input-border, #E5E5E5);
+    color: #C5C5C5;
+    :hover{
+      border: 1px solid var(--nv-input-border, #E5E5E5);
+    }
+  }
+
+  .form-select:not(.is-invalid):focus {
+    border-color: #266791 !important;
+  }
+
+  .form-select:not(.is-invalid):hover {
+    border-color: #266791 ;
+  }
+  .form-select:not(.is-invalid):active {
+  }
+  .form-select.is-invalid{
+    background-image: url('../../../../../assets/media/icons/duotune/general/input_error.svg');
+  }
+  option{
+    border-radius: 4px !important;
+    background: var(--nv-white, #FFF);
+    /* NV Shadow modals */
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  .form-select{
+    box-shadow: none !important;
+  }
+}

@@ -1,0 +1,42 @@
+<div id="kt_customers_table_wrapper">
+  <div class="row content gx-5">
+
+    <div class="table-wrapper">
+      <div class="table-responsive position-relative table-wrap min-table-height mb-5">
+        <table class="table table-bordered table-striped table-hover mb-0 fs-6 gy-2" id="kt_customers_table">
+          <thead>
+
+            <tr class="text-start fw-bold fs-6 gs-0">
+              <ng-container *ngFor="let column of columnsGoods">
+                <th *ngIf="column.display" class="p-lg-2 min-w-80px sorting" tabindex="0"
+                  aria-controls="kt_customers_table" rowspan="1" colspan="1">
+                  <div class="thead-block">
+                    <span class="thead-block-text">
+                      {{ column.name | translate }}
+                    </span>
+
+                    <span class="sort-icon" [inlineSVG]="'assets/media/icons/duotune/general/up-down-arrows-blue.svg'">
+                    </span>
+
+                  </div>
+                </th>
+              </ng-container>
+            </tr>
+
+          </thead>
+
+          <tbody class="fw-semibold text-black">
+
+            <tr class="odd" *ngFor="let gLine of goodsLines">
+              <ng-container *ngFor="let column of columnsGoods">
+                <td [class.p-lg-2]="column.value === 'productSku'">
+                  <div>{{ gLine[column.value] }}</div>
+                </td>
+              </ng-container>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

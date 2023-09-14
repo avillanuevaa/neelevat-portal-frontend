@@ -1,0 +1,25 @@
+:host{
+  .submit-success-modal-body{
+    display: flex ;
+    padding: 0px 117px 40px 117px ;
+    flex-direction: column ;
+    justify-content: center ;
+    align-items: center ;
+    gap: 22px;
+  }
+  .submit-success-title{
+    color: #17B427;
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  .submit-success-subtitle{
+    color: #878787;
+    font-size: 16px ;
+    font-style: normal ;
+    font-weight: 400 ;
+    line-height: normal ;
+  }
+}

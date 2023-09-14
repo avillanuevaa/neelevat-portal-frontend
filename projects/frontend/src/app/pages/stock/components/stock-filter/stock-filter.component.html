@@ -1,0 +1,59 @@
+<form [formGroup]="stockFilterForm" class="row col-12">
+  <div class="col-xl-9 col-xxl-9 section">
+    <span class="fw-bold main-label">
+      {{ "pageName.products" | translate }}
+    </span>
+    <div class="card-title mt-2 px-4 pb-5 section-content">
+
+      <app-multiselect class="row d-flex w-100 pe-2 pt-0" formControlName="productSku" [label]="'SKU'"
+        [markForCheck]="markForCheck" [placeholder]="'labels.sku'" [options]="filterOptions?.productSku || stockOptions">
+      </app-multiselect>
+
+      <app-multiselect class="row d-flex w-100 pe-2 pt-0" formControlName="batch" [label]="'Batch'"
+        [markForCheck]="markForCheck" [placeholder]="'tables.headers.batch'" [options]="filterOptions?.batch || stockOptions">
+      </app-multiselect>
+
+      <app-multiselect class="row d-flex w-100 pe-2 pt-0" formControlName="productDes" [label]="'Product Descrip.'"
+        [markForCheck]="markForCheck" [placeholder]="'labels.productDesc'"
+        [options]="filterOptions?.productDes || stockOptions">
+      </app-multiselect>
+
+      <app-multiselect class="row d-flex w-100 pe-2 pt-0" formControlName="hsCode" [label]="'HS-Code'"
+        [markForCheck]="markForCheck" [placeholder]="'labels.hsCode'" [options]="filterOptions?.hsCode || stockOptions">
+      </app-multiselect>
+
+    </div>
+  </div>
+
+  <div class="col-xl-3 col-xxl-3 section">
+    <span class="fw-bold main-label">
+      {{ "labels.otherItems" | translate }}
+    </span>
+    <div class="card-toolbar px-5 pb-5 pe-0 section-content">
+
+      <app-multiselect *ngIf="!showDatePicker" class="row d-flex w-100" [label]="'labels.status'" [markForCheck]="markForCheck"
+        [placeholder]="'labels.status'" [options]="stockOptions">
+      </app-multiselect>
+
+      <div *ngIf="showDatePicker" class="row d-flex w-100" data-kt-customer-table-toolbar="base">
+        <span class="fw-bold px-0 label">
+          {{ "labels.status" | translate }}
+        </span>
+
+        <!--begin::Daterangepicker(defined in src/js/layout/app.js)-->
+        <div data-kt-daterangepicker="true" data-kt-daterangepicker-opens="left" data-kt-daterangepicker-range="today"
+          class="btn btn-sm btn-light d-flex align-items-center px-4 bg-white" data-kt-initialized="1">
+          <!--begin::Display range-->
+          <div class="text-gray-600 fw-bold">16 Feb 2023</div>
+          <!--end::Display range-->
+
+          <!--begin::Svg Icon | path: icons/duotune/general/gen014.svg-->
+          <span class="svg-icon svg-icon-1 ms-2 me-0"
+            [inlineSVG]="'./assets/media/icons/duotune/general/gen014.svg'"></span>
+          <!--end::Svg Icon-->
+        </div>
+      </div>
+
+    </div>
+  </div>
+</form>

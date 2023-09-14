@@ -1,0 +1,35 @@
+<div class="dropzone p-0 border-0 my-2">
+  <div class="dropzone-file">
+    <div class="dropzone-button">
+      <ng-container *ngIf="fileName; else elseButton;">
+        <ng-container *ngIf="previewUrl; else elseFile;">
+          <img class="dropzone-img" [src]="previewUrl">
+        </ng-container>
+          <ng-template #elseFile>
+            <i class="fas fa-file ifile"></i>
+          </ng-template>
+          <div class="file-uploaded">
+            <p class="uploaded">{{fileName}}</p>
+            <i class="fas fa-times-circle" (click)="removeFile()"></i>
+          </div>
+      </ng-container>
+      <ng-template #elseButton >
+        <!--begin::Icon-->
+        <span class="menu-icon row"><span class="btn-label"
+                                          [inlineSVG]="'./assets/media/icons/duotune/general/cloud_upload.svg'"></span></span>
+        <!--end::Icon-->
+        <!--begin::Info-->
+        <div class="mx-4 row">
+          <span class="fs-7 fw-semibold text-black" for="file1">{{ "dropzone.placeholder" | translate }}</span>
+        </div>
+        <!--end::Info-->
+      </ng-template>
+    </div>
+    <input
+      type="file"
+      id="file"
+      [(ngModel)]="fileDataModel"
+      (change)="updateModel($event)">
+  </div>
+  <small>{{ errorMsg }}</small>
+</div>

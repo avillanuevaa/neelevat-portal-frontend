@@ -1,0 +1,44 @@
+<app-title [title]="'pageName.organisations'" [breadcrumbs]="breadcrumbs"></app-title>
+
+<!--begin::Content-->
+<div id="kt_app_content" class="app-content flex-column-fluid">
+  <!--begin::Content container-->
+  <div id="kt_app_content_container" class="app-container container-xxl">
+    <!--begin::Card-->
+    <div class="card row border-card-custom rounded-2">
+      <!--begin::Card header-->
+      <div class="card-header row border-0 pt-6 mb-1 pe-0">
+        <div class=" fs-2 pb-2 pt-8">
+          <div class="red-text border-bottom-div fw-bold fs-4 pb-2 me-4">{{ "organisations.addOrganisation" | translate }}</div>
+        </div>
+      </div>
+      <div class="d-flex flex-wrap">
+        <!--begin::Card title-->
+        <div class="card-title mx-6 w-100 py-4">
+          <div class="mb-5">
+            <!--begin::Primary button-->
+            <app-button [name]="'buttons.backOrganisationsList'" [iconPosition]="'left'" [btnColor]="btnColor" [link]="'/management/organisations'"
+              [svg]="'assets/media/icons/duotune/general/arrow_back.svg'">
+            </app-button>
+          </div>
+        </div>
+        <!--begin::Card title-->
+      </div>
+      <!--end::Card toolbar-->
+      <!--      </div>-->
+      <!--end::Card header-->
+      <!--begin::Card body-->
+      <div class="card-body pt-0">
+        <!--begin::Table-->
+        <app-organisation-form class="mb-12 pb-12" [isManagement]="true" [organisation]="organisation"
+          [description]="'organisations.organisationsAddDescription'">
+        </app-organisation-form>
+        <!--end::Table-->
+      </div>
+      <!--end::Card body-->
+    </div>
+    <!--end::Card-->
+  </div>
+  <!--end::Content container-->
+</div>
+<!--end::Content-->

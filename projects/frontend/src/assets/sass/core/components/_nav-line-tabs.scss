@@ -1,0 +1,134 @@
+//
+// Nav
+//
+
+// Line tabs
+.nav-line-tabs {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: var(--#{$prefix}border-color);
+
+	.nav-item {
+		margin-bottom: -1px;
+
+		// Base link
+		.nav-link {
+			color: var(--#{$prefix}gray-500);
+			border: 0;
+			border-bottom: 1px solid transparent;
+			transition: $transition-link;
+			padding: 0.5rem 0;
+			margin: 0 1rem;
+		}
+
+		// First Item
+		&:first-child {
+			.nav-link {
+				margin-left: 0;
+			}
+		}
+
+		// Last Item
+		&:last-child {
+			.nav-link {
+				margin-right: 0;
+			}
+		}
+	}
+
+	// Active & Hover States
+	.nav-item .nav-link.active,
+  	.nav-item.show .nav-link,
+	.nav-item .nav-link:hover:not(.disabled) {
+		background-color: transparent;
+		border: 0;
+		border-bottom: 1px solid var(--#{$prefix}primary);
+		transition: $transition-link;
+  	}
+
+	// 2x Line
+	&.nav-line-tabs-2x {
+		border-bottom-width: 2px;
+
+		.nav-item {
+			margin-bottom: -2px;
+
+			.nav-link {
+				border-bottom-width: 2px;
+			}
+		}
+
+		// Active & Hover States
+		.nav-item .nav-link.active,
+	  	.nav-item.show .nav-link,
+		.nav-item .nav-link:hover:not(.disabled) {
+			border-bottom-width: 2px;
+		}
+	}
+}
+
+//customized styles
+.tab-name{
+color: #B8B9BA !important;
+  &:hover{
+    background-color: #FFFFFF !important;
+  }
+}
+
+.tab-middle{
+  border-width: 1px 0px 1px 1px !important;
+}
+
+.tab-item{
+  border: 1px #D9D9D9 solid;
+}
+.nav-inbound-mode{
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+}
+
+.tab-link{
+  color: #8191A4;
+  height: 100% !important;
+  display: block;
+  &:hover{
+    color: #FFFFFF;
+    background-color: #3F9AD5;
+  }
+  &:active{
+    background-color: #266791;
+  }
+  &:focus{
+    background-color: #266791;
+  }
+}
+
+.nav-stretch{
+  .tab-link{
+    align-items: center;
+  }
+}
+
+.tab-container{
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 0;
+  width: 100%
+}
+
+.tab-container .tab-item{
+  width: 33.33%;
+  position: relative;
+  height: 100%;
+  padding: 10px;
+  float: left;
+  text-align: center;
+}
+.nav-item .nav-link.active {
+  border-bottom: 5px solid #3F9AD5 !important;
+}
+.nav-border-bottom {
+  border-bottom: 2px solid #CCCCCC !important;
+}
+
+

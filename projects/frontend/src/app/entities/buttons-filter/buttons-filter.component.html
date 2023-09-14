@@ -1,0 +1,8 @@
+<div class="d-flex gap-2">
+  <ng-container *ngFor="let element of buttonsFilterItems">
+    <app-button [btnColor]="btnColor.filterButtonWhiteBg" [name]="element.name"
+                (click)="applyFilterAndSetActive(element.filterType)"
+                [ngClass]="{ 'active': activeFilter === element.filterType || element.active === 'true', 'inactive': element.active === 'false' }">
+    </app-button>
+  </ng-container>
+</div>

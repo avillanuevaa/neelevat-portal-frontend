@@ -1,0 +1,29 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "es2020",
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "@entities/*": ["projects/frontend/src/app/entities/*"],
+      "@shared/*": ["projects/frontend/src/app/shared/*"],
+      "@services/*": ["projects/frontend/src/core/services/*"],
+      "@interfaces/*": ["projects/frontend/src/core/interfaces/*"],
+      "tools": [
+        "dist/tools/tools",
+        "dist/tools"
+      ]
+    }
+  }
+}

@@ -1,0 +1,90 @@
+<div class="row content gx-5 mt-2">
+
+  <div class="table-wrapper">
+    <div class="d-flex justify-content-between h-30px">
+
+      <buttons-filter [buttonsFilterItems]="buttonsFilterItems"></buttons-filter>
+
+      <!--                <app-download-file class="justify-content-end d-flex align-items-center gap-2 gap-lg-3"-->
+      <!--                                   [finishDisplayedRows]="finishDisplayedRows" [numbersOfElements]="numbersOfElements"-->
+      <!--                                   [rows]="filteredStocks" [columns]="columns" [fileName]="'current-stock-table'">-->
+      <!--                </app-download-file>-->
+    </div>
+
+    <div class="table-responsive position-relative table-wrap mb-xxl-5 mb-md-2 table-height mt-2">
+      <table class="table table-bordered table-striped table-hover mb-0 fs-6 gy-2" id="kt_customers_table">
+        <thead class="thead-sticky">
+
+        <tr class="text-start font-thead fw-bold fs-6 gs-0">
+          <ng-container *ngFor="let column of columns">
+            <th *ngIf="column.display" class="p-lg-2 min-w-80px sorting padding-cells-thead" tabindex="0"
+                aria-controls="kt_customers_table" rowspan="1" colspan="1">
+              <div class="thead-block">
+                            <span class="thead-block-text">
+                              {{ column.name | translate }}
+                            </span>
+
+                <span class="sort-icon ps-5" (click)="sortByParam(column.value)"
+                      [inlineSVG]="'assets/media/icons/duotune/general/up-down-arrows-blue.svg'">
+                            </span>
+
+              </div>
+            </th>
+          </ng-container>
+        </tr>
+
+        <tr class="text-start fw-bold fs-6 gs-0">
+          <ng-container *ngFor="let column of columns">
+            <th *ngIf="column.display" tabindex="0" class="align-top" aria-controls="kt_customers_table"
+                rowspan="1" colspan="1" aria-label="Row: activate to sort column ascending">
+              <div class="text-nowrap">
+                <!--                          <app-multiselect (onChangeWithoutEvent)="applyColumnFilter($event, column.value)"-->
+                <!--                                           [markForCheck]="markForCheck" [options]="mainFilter[column.value]"-->
+                <!--                                           [value]="activeFilters[column.value]" [placeholder]="'labels.filter'">-->
+                <!--                          </app-multiselect>-->
+              </div>
+            </th>
+          </ng-container>
+        </tr>
+
+        </thead>
+
+        <tbody class="fw-semibold text-black">
+
+        <tr class="odd min-table-height row-font-size"
+            *ngFor="let stock of filteredRoads | slice: finishDisplayedRows - numbersOfElements: finishDisplayedRows">
+          <ng-container *ngFor="let column of columns">
+            <td class="padding-cells-tbody" *ngIf="column.display">
+              <div class="text-nowrap">{{ stock[column.value] }}</div>
+            </td>
+          </ng-container>
+        </tr>
+
+        <!--                  <app-spinner *ngIf="loader"></app-spinner>-->
+
+        </tbody>
+      </table>
+
+    </div>
+
+    <app-pagination (onChangePage)="changePage($event)"
+                    (onChangeNumberOfElement)="changeNumberOfElement($event)" [resetPage]="resetPage"
+                    [amountItems]="filteredRoads?.length">
+    </app-pagination>
+  </div>
+  <div class="right-filter align-items-center card-toolbar-content border-gray-neelevat">
+
+    <div class="row d-flex justify-content-center pb-3 border-gray-bottom">
+      <label class="fw-bold fs-7 pt-2 toolbar-title-text">Unloading Date</label>
+      <app-button [btnColor]="btnColor.graybgBluefont" [name]="'buttons.today'"
+                  [isFullWidth]="true" class="pt-3 text-center"></app-button>
+      <app-datepicker [size]="'small'" [label]="'labels.from'"></app-datepicker>
+
+      <app-datepicker [size]="'small'" [label]="'labels.to'"></app-datepicker>
+    </div>
+
+    <app-right-filter class="px-3" (save)="saveChanges($event)" [columns]="columns">
+    </app-right-filter>
+
+  </div>
+</div>

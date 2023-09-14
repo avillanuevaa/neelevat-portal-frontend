@@ -1,0 +1,15 @@
+<button class="btn btn-sm {{ btnClass }} {{ btnPaddingClass }} {{ fontSizeClass}} "
+   [class.with-hover-text]="hoverText"
+   [class.full-width]="isFullWidth"
+   [routerLink]="link"
+   [attr.disabled]="disabled ? true : null"
+   data-bs-target="#kt_modal_create_app">
+  <span *ngIf="circleColor" class="custom-circle-{{customColor}}"></span>
+  <span *ngIf="!!hoverText" class="hover-text">{{ hoverText | translate }}</span>
+  <span *ngIf="svg && btnPaddings && iconPosition === 'left'" id="btn-icon-left" class="btn-label svg-icon-2"
+    [inlineSVG]="svg"></span>
+  <span *ngIf="!btnPaddings && svg && iconPosition === 'left'" id="btn-icon-left2" class="btn-label svg-menu-blue"
+        [inlineSVG]="'./assets/media/icons/duotune/general/arrow_back.svg'"></span>
+  {{ name | translate }}
+  <span *ngIf="svg && iconPosition === 'right'" id="btn-icon-right" class="svg-icon-white svg-icon-2 {{rightIconClass}}" [setSVGAttributes]="{id: 'btn-icon-right'}" [inlineSVG]="svg"></span>
+</button>

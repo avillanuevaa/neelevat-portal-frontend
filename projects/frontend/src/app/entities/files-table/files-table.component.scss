@@ -1,0 +1,56 @@
+:host {
+  table {
+    border: 2px #E5E5E5 solid;
+
+    thead tr,
+    tbody {
+      border-bottom: 2px #E5E5E5 solid;
+    }
+
+    .file-name {
+      width: 28%;
+    }
+
+    .document-type {
+      width: 18%;
+    }
+
+    .comments {
+      width: 25%;
+    }
+
+    .status {
+      width: 12%;
+    }
+
+    .actions {
+      width: 17%;
+    }
+
+    tbody tr {
+      vertical-align: initial;
+    }
+  }
+
+  .card-body {
+    &.without-padding {
+      padding: 0;
+    }
+  }
+
+  .label {
+    transform: translateX(15px) translateY(-10px);
+    color: #8191A4;
+    background-color: #FFFFFF;
+    border-left: 4px solid #FFFFFF;
+    border-right: 4px solid #FFFFFF;
+    border-radius: 5px;
+    font-size: 12px;
+    width: fit-content;
+    height: 18px !important;
+    font-family: Inter, 'sans-serif' !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    line-height: 14px !important; /* 140% */
+  }
+}

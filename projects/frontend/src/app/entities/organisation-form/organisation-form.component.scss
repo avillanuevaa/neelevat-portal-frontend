@@ -1,0 +1,41 @@
+:host {
+  display: block;
+
+  .section-text{
+    color: #8191A4;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px; /* 112.5% */
+  }
+
+  .popover-title{
+    color: #3F9AD5;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 150% */
+  }
+
+  .custom-modal .modal-dialog {
+    max-width: 700px; /* Aquí puedes ajustar el ancho del modal según tus necesidades */
+  }
+
+  .image-container {
+    background-color: #E7F5FF;
+
+    .image-input {
+      border: 0px solid #C5C5C5;
+      border-radius: 50%;
+
+      &-wrapper {
+        border: 1px solid #C5C5C5;
+        border-radius: 50%;
+      }
+    }
+
+    .full-name {
+      background-color: #3F9AD5;
+    }
+  }
+}

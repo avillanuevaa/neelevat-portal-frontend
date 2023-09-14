@@ -1,0 +1,77 @@
+<div class="d-flex flex-column">
+  <div class="d-flex justify-content-start pe-xxl-6 pe-sm-4">
+
+    <button class="btn btn-icon btn-color-gray-400 translate-button btn-active-color-primary justify-content-end mt-0"
+            data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-overflow="true">
+
+      <span class="menu-icon"><span class="btn-label"
+                                    [inlineSVG]="'./assets/media/icons/duotune/general/translate.svg'"></span></span>
+    </button>
+    <ng-container *ngIf="toggleEnabled">
+      <!--begin::Sidebar toggle-->
+      <div id="kt_app_sidebar_toggle"
+           class="btn btn-icon btn-sm btn-color-muted btn-active-color-primary body-bg h-30px w-30px position-absolute start-100 translate-middle rotate"
+           [ngClass]="toggleButtonClass" data-kt-toggle="true" [attr.data-kt-toggle-state]="toggleState"
+           data-kt-toggle-target="body" [attr.data-kt-toggle-name]="toggleAttr">
+        <span [inlineSVG]="'./assets/media/icons/duotune/general/toggle_sidebar.svg'" class="btn-label rotate-180"></span>
+      </div>
+      <!--end::Sidebar toggle-->
+    </ng-container>
+  </div>
+  <div class="footer-buttons d-flex justify-content-center mt-xxl-2 mt-sm-3">
+
+    <a
+      type="button"
+      [routerLink]="'/settings/organization'"
+      placement="top-left"
+      triggers="click"
+      class="btn btn-flex button-footer-border flex-center btn-custom overflow-hidden text-nowrap rounded-0 btn-red-wheel">
+      <span class="btn-label">{{ 'pageName.settings' | translate }}
+      <span [inlineSVG]="'assets/media/icons/duotune/general/settings.svg'"
+            class="btn-label"></span>
+      </span>
+    </a>
+
+    <!-- Contenido del popover -->
+<!--    <ng-template #popoverContent>-->
+<!--      <ul class="">-->
+<!--        <li><a [routerLink]="['/settings/user-profile']">{{ 'pageName.userProfile' | translate }}</a></li>-->
+<!--        <li><a [routerLink]="['/settings/organization']">{{ 'pageName.organization' | translate }}</a></li>-->
+<!--        <li><a [routerLink]="['/settings/create-organization']">{{ 'pageName.createOrganization' | translate }}</a></li>-->
+<!--      </ul>-->
+<!--    </ng-template>-->
+
+    <a *ngFor="let item of sidebarFooterItems" [routerLink]="item.name !== 'pageName.logout' ? item.route : null"
+       (click)="item.name === 'pageName.logout' ? logout() : null"
+       class="btn btn-flex flex-center btn-custom overflow-hidden text-nowrap rounded-0 {{ item.classes }}"
+       [ngClass]="{
+       'py-4': item.name !== 'pageName.faqs',
+       'py-0': item.name === 'pageName.faqs',
+       'button-footer-border': item.name !== 'pageName.faqs',
+       'border-0': item.name === 'pageName.faqs'
+       }"
+       data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click">
+      <span class="btn-label">{{ item.name | translate }}
+        <span [inlineSVG]="item.svg" class="btn-label"></span>
+      </span>
+      <span *ngIf="item.name === 'pageName.faqs'" [inlineSVG]="'./assets/media/icons/duotune/general/three-points-horizontal.svg'"
+            class="svg-red-wheel btn-icon svg-icon-2 m-0 border-0"></span>
+      <span *ngIf="item.name !== 'pageName.faqs'" [inlineSVG]="''"
+            class="svg-red-wheel btn-icon svg-icon-2 m-0"></span>
+    </a>
+
+  </div>
+
+
+  <a class="btn btn-flex flex-center btn-custom text-center rls-notes rls-notes-bg rounded-0 py-4"
+     routerLink="/release-notes">
+    <span
+      class="btn-label version-text fs-6 fw-bold m-0 p-0">{{ "pageName.version" | translate: {name: "1.0.0"} }}
+      <span [inlineSVG]="'./assets/media/icons/duotune/general/release-notes.svg'" class="svg-icon svg-icon-2"></span>
+    </span>
+    <span [inlineSVG]="'./assets/media/icons/duotune/general/release-notes.svg'" class="svg-icon btn-icon svg-icon-2">
+    </span>
+  </a>
+
+</div>
+

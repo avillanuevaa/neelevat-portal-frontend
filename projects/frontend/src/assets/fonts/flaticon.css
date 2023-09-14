@@ -1,0 +1,69 @@
+@font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff2") format("woff2"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+.fimanager:before {
+      display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    display: block;
+}
+
+.flaticon-001-right:before { content: "\f100"; }
+.flaticon-002-down:before { content: "\f101"; }
+.flaticon-003-refresh:before { content: "\f102"; }
+.flaticon-004-align-left:before { content: "\f103"; }
+.flaticon-005-bluetooth:before { content: "\f104"; }
+.flaticon-006-up-arrow:before { content: "\f105"; }
+.flaticon-007-send:before { content: "\f106"; }
+.flaticon-008-right:before { content: "\f107"; }
+.flaticon-009-up-right:before { content: "\f108"; }
+.flaticon-010-up-left:before { content: "\f109"; }
+.flaticon-011-user:before { content: "\f10a"; }
+.flaticon-012-mail:before { content: "\f10b"; }
+.flaticon-013-down-right:before { content: "\f10c"; }
+.flaticon-014-down-left:before { content: "\f10d"; }
+.flaticon-015-picture:before { content: "\f10e"; }
+.flaticon-016-align-center:before { content: "\f10f"; }
+.flaticon-017-inbox:before { content: "\f110"; }
+.flaticon-018-fast-forward:before { content: "\f111"; }
+.flaticon-019-backward:before { content: "\f112"; }
+.flaticon-020-add:before { content: "\f113"; }
+.flaticon-021-add-to-queue:before { content: "\f114"; }
+.flaticon-022-scan:before { content: "\f115"; }
+.flaticon-023-fast-forward:before { content: "\f116"; }
+.flaticon-024-settings:before { content: "\f117"; }
+.flaticon-025-cancel:before { content: "\f118"; }
+.flaticon-026-folder:before { content: "\f119"; }
+.flaticon-027-home:before { content: "\f11a"; }
+.flaticon-028-backwards:before { content: "\f11b"; }
+.flaticon-029-done:before { content: "\f11c"; }
+.flaticon-030-camera:before { content: "\f11d"; }
+.flaticon-031-light:before { content: "\f11e"; }
+.flaticon-032-back:before { content: "\f11f"; }
+.flaticon-033-previous:before { content: "\f120"; }
+.flaticon-034-list:before { content: "\f121"; }

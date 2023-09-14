@@ -1,0 +1,157 @@
+:host {
+
+  .disabled-label.disabled-blue{
+    color: #266791 !important;
+  }
+
+  .address-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: #F8F8F8;
+    border-radius: 5px;
+  }
+
+  .disabled-label {
+    color: #C5C5C5 !important;
+  }
+
+  .address-textarea {
+    flex: 1;
+    resize: none;
+  }
+
+  .address-book-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding-top: 6px;
+  }
+
+  .popover {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    min-width: 200px;
+    z-index: 1;
+  }
+
+  .address-list {
+    max-height: 150px;
+    overflow-y: auto;
+  }
+
+  .address-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .address-list li {
+    cursor: pointer;
+    padding: 5px;
+  }
+
+  .address-list li:last-child {
+    border-bottom: none;
+  }
+
+  .popover-title {
+    color: #3F9AD5;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 150% */
+  }
+
+  .modal-content {
+    min-width: 262px !important;
+  }
+
+  li:hover {
+    background: #E7F5FF;
+  }
+
+  .form-control::placeholder {
+    color: #C5C5C5;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 171.429% */
+  }
+
+  /* Styles for the default state */
+  .form-control {
+    color: #323232;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 171.429% */
+  }
+
+  /* Styles for the hover state */
+  .form-control:hover {
+    /* Styles for the hover state here */
+    border: 1px solid #f1416c;
+  }
+
+  /* Styles for the disabled state */
+  .form-control:disabled:hover {
+    /* Styles for the disabled state here */
+    border: 1px solid var(--nv-input-border, #E5E5E5) !important;
+  }
+
+
+  /* Styles for the pressed state */
+  .form-control:active {
+    /* Styles for the pressed state here */
+    border: 1px solid #f1416c;
+  }
+
+  /* Styles for the typing state */
+  .form-control:focus {
+    /* Styles for the typing state here */
+    border: 1px solid #f1416c;
+  }
+
+  /* Styles for the filled state */
+  .form-control:not([value=""]) {
+    /* Styles for the filled state here */
+  }
+
+  /* Styles for the incomplete state */
+  .form-control.invalid-input {
+    /* Styles for the incomplete state here */
+  }
+
+  /* Styles for the success state */
+  .form-control.success-input {
+    /* Styles for the success state here */
+  }
+
+  /* Styles for the disabled state */
+  .form-control:disabled {
+    /* Styles for the disabled state here */
+    border: 1px solid var(--nv-input-border, #E5E5E5);
+    color: #C5C5C5;
+    background-color:#FFFFFF;
+
+    :hover {
+      border: 1px solid var(--nv-input-border, #E5E5E5);
+    }
+  }
+
+  .form-control:not(.is-invalid):focus {
+    border-color: #266791 !important;
+  }
+
+  .form-control:not(.is-invalid):hover {
+    border-color: #266791;
+  }
+}

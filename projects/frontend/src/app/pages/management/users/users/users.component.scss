@@ -1,0 +1,24 @@
+:host {
+  thead {
+    .firstName,
+    .lastName {
+      width: 17%;
+    }
+
+    .emailAddress {
+      width: 22%;
+    }
+
+    .organisations {
+      width: 16%;
+    }
+
+    .role {
+      width: 13%;
+    }
+
+    .maintenance {
+      width: 15%;
+    }
+  }
+}

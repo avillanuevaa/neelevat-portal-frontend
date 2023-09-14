@@ -1,0 +1,7 @@
+<div (click)="onClick.emit()" class="{{ checkboxClass }} form-check form-check-solid form-switch form-check-custom fv-row py-1">
+  <input class="form-check-input w-45px h-20px" type="checkbox" id="allowmarketing1" [checked]="checked" style="width: 36px !important;
+height: 18px !important;">
+  <label class="form-check-label"></label>
+</div>
+
+<label class="col-form-label fw-semibold w-auto fs-6" [class.py-1]="!bigPadding" [class.py-2]="bigPadding">{{ label | translate }}</label>

@@ -1,0 +1,68 @@
+<div id="kt_customers_table_wrapper" [class.px-4]="onlyView">
+  <div class="table-responsive">
+
+    <table class="table table-bordered table-striped table-hover fs-6 gy-2" id="kt_customers_table">
+
+      <thead [class.only-view]="onlyView">
+
+        <tr class="text-start w-100 text fw-bold fs-6 gs-0">
+
+          <th class=" sorting {{ column.value }}" [ngClass]="column.value === 'module' ? 'p-lg-2' : 'text-center'"
+            *ngFor="let column of columns" tabindex="0" aria-controls="kt_customers_table" rowspan="1" colspan="1">
+
+            <ng-container *ngIf="column.value === 'module'">
+              {{ column.name | translate }}
+            </ng-container>
+
+            <ng-container *ngIf="column.value !== 'module'">
+              <span class="menu-link px-0 py-0 d-flex">
+                <span class="menu-icon me-1"
+                  [inlineSVG]="'assets/media/icons/duotune/general/' + roleIcons[column.value] + '.svg'"></span>
+                <span class="menu-title mx-auto">{{ column.name | translate }}</span>
+              </span>
+            </ng-container>
+
+          </th>
+        </tr>
+      </thead>
+
+      <tbody class="text-black fw-semibold align-middle">
+
+        <tr class="odd" *ngFor="let option of roleData">
+          <ng-container *ngFor="let column of columns">
+
+            <td [class.p-lg-2]="column.value === 'module'">
+
+              <div class="fs-6" *ngIf="column.value === 'module'">{{ option[column.value] }}</div>
+
+              <ng-container *ngIf="column.value !== 'module'">
+
+                <app-checkbox *ngIf="!onlyView" [checked]="option[column.value]"></app-checkbox>
+
+                <div *ngIf="onlyView" class="text-center">
+                  <span class="menu-icon me-1"
+                    [inlineSVG]="'assets/media/icons/duotune/general/' + (option[column.value] ? 'green-check' : 'red-cross') +'.svg'">
+                  </span>
+                </div>
+
+              </ng-container>
+            </td>
+          </ng-container>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row g-3 mb-2 justify-content-end pt-3 pb-12" *ngIf="!onlyView">
+
+  <div class="col-md-2">
+    <app-button [name]="'buttons.save'" [btnColor]="btnColor.blue"></app-button>
+  </div>
+
+  <div class="col-md-2 ">
+    <app-button [name]="'buttons.cancel'" [btnColor]="btnColor.white"></app-button>
+  </div>
+
+</div>

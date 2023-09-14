@@ -1,0 +1,39 @@
+<div id="kt_customers_table_wrapper">
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped table-hover  fs-6 gy-2" id="kt_customers_table">
+      <thead>
+
+        <tr class="text-start fw-bold fs-6 gs-0">
+          <th class="sorting col-{{ column.value }}" [class.p-lg-2]="column.value === 'name'"
+            [class.text-center]="column.value === 'status'" *ngFor="let column of columns" tabindex="0"
+            aria-controls="kt_customers_table" rowspan="1" colspan="1">
+            {{ column.name | translate }}
+          </th>
+        </tr>
+
+      </thead>
+
+      <tbody class="fw-semibold text-black">
+
+        <tr class="odd" *ngFor="let container of containers">
+          <ng-container *ngFor="let column of columns">
+
+            <td *ngIf="column.value !== 'status'" [class.p-lg-2]="column.value === 'name'">
+              <div>{{ container[column.value] }}</div>
+            </td>
+
+            <td *ngIf="column.value === 'status'" class="text-center">
+
+              <app-status [status]="container[column.value]"></app-status>
+
+            </td>
+
+          </ng-container>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <app-pagination [amountItems]="6"></app-pagination>
+
+</div>

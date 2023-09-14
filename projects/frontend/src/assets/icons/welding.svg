@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="17.945" height="21.693" viewBox="0 0 17.945 21.693">
+  <g id="Group_17" data-name="Group 17" transform="translate(-1258.433 615)">
+    <path id="Path" d="M2,1h.5a.5.5,0,0,1,0,1H2v.5a.5.5,0,0,1-1,0V2H.5a.5.5,0,0,1,0-1H1V.5a.5.5,0,0,1,1,0Z" transform="translate(1258.433 -601.307)" fill="#0e142d"/>
+    <line id="Line_1" data-name="Line 1" y1="4.188" x2="3.567" transform="translate(1262.933 -605.5)" fill="none" stroke="#0e142d" stroke-linecap="round" stroke-width="1"/>
+    <g id="Rectangle_5" data-name="Rectangle 5" transform="translate(1264.947 -606.398) rotate(-45)" fill="none" stroke="#0e142d" stroke-linejoin="round" stroke-width="1">
+      <rect width="12.165" height="4" stroke="none"/>
+      <rect x="0.5" y="0.5" width="11.165" height="3" fill="none"/>
+    </g>
+    <line id="Line_2" data-name="Line 2" y1="3" transform="translate(1262.933 -601.312)" fill="none" stroke="#0e142d" stroke-linecap="round" stroke-width="1"/>
+    <path id="Path-2" data-name="Path" d="M2,1h.5a.5.5,0,0,1,0,1H2v.5a.5.5,0,0,1-1,0V2H.5a.5.5,0,0,1,0-1H1V.5a.5.5,0,0,1,1,0Z" transform="translate(1261.433 -596.307)" fill="#0e142d"/>
+    <path id="Path-3" data-name="Path" d="M2,1h.5a.5.5,0,0,1,0,1H2v.5a.5.5,0,0,1-1,0V2H.5a.5.5,0,0,1,0-1H1V.5a.5.5,0,0,1,1,0Z" transform="translate(1264.433 -599.307)" fill="#0e142d"/>
+  </g>
+</svg>

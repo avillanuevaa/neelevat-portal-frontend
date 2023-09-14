@@ -1,0 +1,14 @@
+:host {
+  .search {
+    width: 35%;
+  }
+  .app-container{
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+  app-button{
+    .btn-sm{
+      font-size: 20px !important;
+    }
+  }
+}

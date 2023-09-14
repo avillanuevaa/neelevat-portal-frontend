@@ -1,0 +1,75 @@
+<app-title [title]="'pageName.roles'" [breadcrumbs]="breadcrumbs"></app-title>
+
+<div id="kt_app_content" class="app-content flex-column-fluid">
+  <div id="kt_app_content_container" class="app-container container-xxl">
+    <div class="card row border-card-custom rounded-2">
+
+      <div class="card-header row border-0 pt-6 mb-1 pe-0">
+        <div class=" fs-2 pb-2 pt-8">
+          <div class="red-text border-bottom-div fw-bold fs-4 pb-2 me-4">{{ "roles.rolesList" | translate }}</div>
+        </div>
+      </div>
+
+      <div class="row d-flex">
+        <div class="card-toolbar mb-6 mt-2">
+          <div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
+
+            <div class="d-flex align-items-center gap-2 gap-lg-3">
+              <div class="m-0">
+                <app-button [btnColor]="btnColor" [name]="'buttons.addRole'" [link]="'/management/roles/add'"
+                  [svg]="'assets/media/icons/duotune/general/add-role.svg'">
+                </app-button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="card-body pt-0">
+        <div id="kt_customers_table_wrapper">
+          <div class="table-responsive">
+
+            <table class="table table-bordered table-striped table-hover  fs-6 gy-2" id="kt_customers_table">
+              <thead>
+
+                <tr class="text-start w-100 text fw-bold fs-6 gs-0">
+                  <th class="sorting {{ column.value }}" [class.p-lg-2]="column.value === 'roleNickname'"
+                    [class.text-center]="column.value === 'actions'" *ngFor="let column of columns" tabindex="0"
+                    aria-controls="kt_customers_table" rowspan="1" colspan="1">
+                    {{ column.name | translate }}
+                  </th>
+                </tr>
+
+              </thead>
+
+              <tbody class="text-black fw-semibold align-middle">
+                <tr class="odd" *ngFor="let role of rolesDataMock">
+
+                  <ng-container *ngFor="let column of columns">
+
+                    <td *ngIf="column.value !== 'actions'" [class.p-lg-2]="column.value === 'roleNickname'">
+                      <div [ngClass]="column.value !== 'roleDescription' ? 'fs-6' : 'fs-7'">{{ role[column.value] }}
+                      </div>
+                    </td>
+
+                    <td *ngIf="column.value === 'actions'" class="d-flex justify-content-center py-0 my-0">
+                      
+                      <app-action [name]="'edit'" routerLink="/management/roles/edit"></app-action>
+
+                      <app-action [name]="'delete'"></app-action>
+
+                      <app-action [name]="'eye'" (click)="openModal()"></app-action>
+
+                    </td>
+
+                  </ng-container>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

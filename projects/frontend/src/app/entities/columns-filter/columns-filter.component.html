@@ -1,0 +1,78 @@
+<app-button (click)="openMenu()" class="filter-btn" [hoverText]="'buttons.filters'" [popoverClass]="'columns-filter'"
+            #popover="ngbPopover" [ngbPopover]="columnsPopover" [autoClose]="false" [placement]="'left-top'" [btnColor]="btnColor.whiteBorder"
+            [svg]="'assets/media/icons/duotune/general/fi_filter.svg'">
+</app-button>
+
+<ng-template #columnsPopover>
+  <div *ngIf="!oneColumn">
+    <div class="d-flex justify-content-between pb-2">
+      <div class="menu-title">{{ "labels.columns" | translate }}</div>
+      <span class="svg-icon-white svg-icon-2 close" (click)="popover.close()"
+            [inlineSVG]="'./assets/media/icons/duotune/general/close.svg'">
+    </span>
+    </div>
+    <div class="separator border-gray-200"></div>
+    <div>
+
+      <div class="mb-5 mt-2">
+        <div class="d-flex flex-wrap">
+          <div *ngFor="let column of columns"
+               class="form-check form-check-sm form-check-custom form-check-solid option mt-2 w-50">
+            <app-checkbox class="w-100" (onClick)="selectOnMenu(column.value)" [value]="column.value"
+                          [checked]="column.display" [label]="column.name">
+            </app-checkbox>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between align-items-center">
+        <!--      <span class="save-change">-->
+        <!--        {{ "buttons.saveChange" | translate }}-->
+        <!--      </span>-->
+        <!--      <app-button class="save-btn" (click)="popover.close(); selectAll()" [isFullWidth]="true" [btnColor]="btnColor"-->
+        <!--                  [name]="'buttons.displayAll'">-->
+        <!--      </app-button>-->
+        <!--      <app-button class="save-btn" (click)="popover.close(); saveChanges()" [isFullWidth]="true" [btnColor]="btnColor"-->
+        <!--                  [name]="'buttons.save'">-->
+        <!--      </app-button>-->
+
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="oneColumn">
+    <div class="d-flex justify-content-between pb-2">
+      <div class="menu-title">{{ "labels.columns" | translate }}</div>
+      <span class="svg-icon-white svg-icon-2 close" (click)="popover.close()"
+            [inlineSVG]="'./assets/media/icons/duotune/general/close.svg'">
+    </span>
+    </div>
+    <div class="separator border-gray-200"></div>
+    <div>
+
+      <div class="mb-5 mt-2">
+        <div class="d-flex flex-wrap">
+          <label *ngFor="let n of columns"
+                 class="form-check form-check-sm form-check-custom form-check-solid option mt-2 w-100">
+            <app-checkbox (change)="onCheckValue($event)" [value]="n.name"
+                          [checked]="n.display" [label]="n.name">
+            </app-checkbox>
+          </label>
+        </div>
+      </div>
+
+<!--      <div class="row d-flex justify-content-between align-items-center gap-3">-->
+<!--        <app-button class="save-btn w-100" (click)="storeData()" [isFullWidth]="true"-->
+<!--                    [btnColor]="btnColor.white" [name]="'buttons.save'">-->
+<!--        </app-button>-->
+<!--        <app-button class="save-btn w-100" (click)="closePopover()" [isFullWidth]="true"-->
+<!--                    [btnColor]="btnColor.blue" [name]="'buttons.cancel'">-->
+<!--        </app-button>-->
+<!--      </div>-->
+
+    </div>
+  </div>
+</ng-template>
+
+<div *ngIf="popover.isOpen()" class="overlay" (click)="closePopover()"></div>
+

@@ -1,0 +1,13 @@
+:host{
+  @media (max-width: 1650px) {
+    app-sidebar-logo{
+      height: 60px
+    }
+  }
+  @media (max-height: 835px) {
+    app-sidebar-logo{
+      height: 60px
+    }
+  }
+}
+

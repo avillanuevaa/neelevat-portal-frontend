@@ -1,0 +1,40 @@
+<div class="mb-0 pb-0 fv-row fv-plugins-icon-container ps-6 pe-10">
+  <div class="gap-1">
+    <div class="d-flex w-100 pt-0 pe-6 ps-5" data-kt-customer-table-toolbar="base">
+      <app-select class="row d-flex w-100 pe-2 pt-1 mx-1" [placeholder]="'Thomas Jan.'" [label]="'userRoles.user'"
+        [options]="selectUsers" [formControl]="selectorControl">
+      </app-select>
+      <div class="pt-7">
+        <span class="btn-label cursor-pointer" [inlineSVG]="'./assets/media/icons/duotune/general/plus_blue.svg'">
+        </span>
+      </div>
+    </div>
+
+    <div class="table-wrapper ps-6 pe-6 pt-5">
+      <div class="table-responsive position-relative table-wrap min-table-height mb-5">
+        <table class="table table-bordered table-striped table-hover mb-0 fs-6 gy-2" id="kt_customers_table2">
+
+          <tbody class="fw-semibold text-black">
+
+            <tr class="odd" *ngFor="let team of teamLines">
+              <!--begin::User=-->
+              <td class="p-lg-2">
+                <div class="d-flex ps-2 gap-1">
+                  <div class="">{{team.user}}</div>
+                  <div class="img-profile"><img [src]="team.picture"></div>
+                </div>
+              </td>
+              <!--end::User=-->
+              <!--begin::Delete icon=-->
+              <td>
+                <div class="d-flex justify-content-center"><img class="cursor-pointer" [src]="team.svgIcon"></div>
+              </td>
+              <!--end::Delete icon=-->
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

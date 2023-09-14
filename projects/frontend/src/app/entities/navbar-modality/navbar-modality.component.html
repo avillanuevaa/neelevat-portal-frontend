@@ -1,0 +1,14 @@
+
+<nav class="navbar">
+  <ul class="navbar-list pt-3 m-0 px-0">
+    <li *ngFor="let item of items; let i = index" class="cursor-pointer"
+        [ngClass]="{'navbar-item': true, 'first-item': i === 0, 'middle-item': i > 0 && i < items.length - 1, 'last-item': i === items.length - 1}"
+        routerLinkActive="active">
+      <div class="d-flex align-content-end text-end align-items-end align-self-end justify-content-end m-0 p-0 gap-2">
+        <span class="menu-icon"><span class="btn-label"
+                                      [inlineSVG]=item.svg></span></span>
+        <a [routerLink]="item.route" class="">{{ item.name | translate }}</a>
+      </div>
+    </li>
+  </ul>
+</nav>

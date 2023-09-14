@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Oostvogels Customer Portal</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="./assets/favicons/favicon.ico">
+  <link href="assets/icons/uicons-regular-straight/uicons-regular-straight.css" rel="stylesheet">
+
+  <!-- * Additional Favicon * -->
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicons/favicon-16x16.png">
+  <link rel="mask-icon" href="./assets/favicons/safari-pinned-tab.svg" color="#27e280">
+  <link rel="shortcut icon" href="./assets/favicons/oostvogels-favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  <meta name="msapplication-TileColor" content="#0e142d">
+  <meta name="msapplication-config" content="./assets/favicons/browserconfig.xml">
+  <meta name="theme-color" content="#0e142d">
+  <!-- * PWA Favicons * -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="white">
+  <meta name="msapplication-starturl" content="/">
+  <!-- * Favicons end * -->
+  <!-- Splash Screen -->
+  <link rel="stylesheet" id="layout-styles-anchor" href="./assets/splash-screen.css" />
+  <!-- Splash Screen -->
+</head>
+
+<body root id="kt_body" class="mat-typography">
+<!-- <body root id="kt_body" class="mat-typography" direction="rtl" dir="rtl" style="direction: rtl"></body> -->
+<!--begin::Theme mode setup on page load-->
+<script>
+  if (document.documentElement) {
+    var defaultThemeMode = "light";
+
+    var hasKTName = document.body.hasAttribute("data-kt-name");
+    var lsKey = "kt_" + (hasKTName ? name + "_" : "") + "theme_mode_value"
+    var themeMode = localStorage.getItem(lsKey);
+    if (!themeMode) {
+      if (defaultThemeMode === "light") {
+        themeMode =
+          window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "light";
+      } else {
+        themeMode = defaultThemeMode;
+      }
+    }
+
+    document.documentElement.setAttribute("data-bs-theme", themeMode);
+  }
+  // if (document.documentElement) {
+  //   var defaultThemeMode = "system";
+  //
+  //   var hasKTName = document.body.hasAttribute("data-kt-name");
+  //   var lsKey = "kt_" + (hasKTName ? name + "_" : "") + "theme_mode_value"
+  //   var themeMode = localStorage.getItem(lsKey);
+  //   if (!themeMode) {
+  //     if (defaultThemeMode === "system") {
+  //       themeMode =
+  //         window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  //     } else {
+  //       themeMode = defaultThemeMode;
+  //     }
+  //   }
+  //
+  //   document.documentElement.setAttribute("data-bs-theme", themeMode);
+  // }
+</script>
+<script>
+  var setFonts = function() {
+    var size = {
+      height: window.innerHeight,
+      width: window.innerWidth
+    };
+    var ratio = size.width / size.height;
+    var max = 2;
+    var factor = 1.98;
+    if (ratio > max) {
+      size.width = size.height * factor;
+    }
+    size.width = parseInt(size.width);
+    document.body.setAttribute('style', 'font-size:' + size.width / 50 + 'px');
+    window.fontSize = size.width / 26;
+  };
+</script>
+<!--end::Theme mode setup on page load-->
+<app-root></app-root>
+<app-redirect></app-redirect>
+</body>
+
+</html>

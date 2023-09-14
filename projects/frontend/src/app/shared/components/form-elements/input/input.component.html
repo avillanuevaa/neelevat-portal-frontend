@@ -1,0 +1,7 @@
+<span *ngIf="label" [ngClass]="{'px-0 label': true, 'disabled-label': disabled, 'disabled-blue': useBlackFont}">{{ label | translate }}</span>
+<span *ngIf="svg" class="{{ iconClasses }}">
+  <span class="btn-label" [inlineSVG]="svg"></span>
+</span>
+<input [type]="type" [disabled]="disabled" [(ngModel)]="value" (ngModelChange)="onChange($event.trim())"
+  class="form-control {{ classes }} {{ type }} {{height}} {{classInvalid}} {{ bgClasses }} {{heightInput}}" [placeholder]="placeholder | translate"
+       [ngClass]="useBlackFont ? 'disabled-input-323232' : 'disabled-input-c5'">

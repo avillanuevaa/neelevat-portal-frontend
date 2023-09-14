@@ -1,0 +1,65 @@
+<app-title [title]="'pageName.stock'" [breadcrumbs]="breadcrumbs"
+           [titleButton]="titleButton">
+</app-title>
+
+<div id="kt_app_content" class="app-content flex-column-fluid">
+  <div id="kt_app_content_container" class="app-container container-xxl">
+    <div class="card row border-card-custom rounded-2 margin-10">
+
+      <div class="card-header row border-0 pe-3 mb-sm-1 mb-0 pb-0" style="min-height: 50px !important;">
+        <div class="d-flex fs-2 tabs-container pt-8 pt-md-3" style="padding-bottom: 0 !important;">
+          <app-tabs [tabs]="tabs" (changeTab)="changeTab($event)" [isPageTabs]="true" [activeTab]="'/stock/history'">
+          </app-tabs>
+        </div>
+      </div>
+
+      <div class="card-body pt-0">
+        <div id="kt_customers_table_wrapper">
+          <div class="row content gx-5 mt-2">
+
+            <div class="table-wrapper">
+
+              <div class="row d-flex fv-row justify-content-center fv-plugins-icon-container ps-5 w-100" style="height: 200px !important;">
+                <div class="w-100 d-flex gap-1">
+                  <div *ngFor="let chart of charts" class="row d-flex w-25 pt-0 mx-1 pb-2 pe-10" style="max-width: 190px !important;"
+                       data-kt-customer-table-toolbar="base">
+                    <!--begin::Card toolbar-->
+                    <span class="fw-bold px-0 chart-icon-wrapper">
+                      <div class="symbol symbol-45px pt-2 mb-4">
+                        <img [src]="chart.icon"/>
+                      </div>
+                    </span>
+                    <div class="row d-flex text-center border border-2 border-gray-300 rounded px-8" style="border-radius: 15px !important; min-height: 155px">
+                      <!--begin::Toolbar-->
+                      <span class="text-black fw-bold fs-2 pt-12 pb-3 px-0">{{chart.amount}}</span>
+                      <div class="border-bottom-div"></div>
+                      <span class="text-gray-500 fw-bold fs-6 pt-2 pb-3 px-0">{{ chart.name | translate }}</span>
+                      <!--end::Toolbar-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="right-filter align-items-center card-toolbar-content" style="border: 1px solid #E5E5E5">
+
+              <div class="row d-flex justify-content-center pb-3" style="border-bottom: 1px solid #E5E5E5">
+                <label class="fw-bold fs-7 pt-2" style="color: #266791">Period</label>
+                <app-button [btnColor]="btnColor.graybgBluefont" [name]="'buttons.today'" [btnPadding]="btnPadding.padding"
+                            [isFullWidth]="true" class="pt-3 w-75 text-center"></app-button>
+                <app-datepicker [size]="'small'" [label]="'labels.from'"></app-datepicker>
+
+                <app-datepicker [size]="'small'" [label]="'labels.to'"></app-datepicker>
+              </div>
+
+
+              <app-columns-filter [columns]="columns">
+              </app-columns-filter>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

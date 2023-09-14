@@ -1,0 +1,20 @@
+<span (click)="openFilter.emit()" class="sort-icon" [inlineSVG]="'assets/icons/circle-plus.svg'" placement="bottom"
+  [ngbPopover]="filterMenu" #popover="ngbPopover" [autoClose]="false" [popoverClass]="'column-filter'">
+</span>
+
+<ng-template #filterMenu>
+  <div class="d-flex justify-content-between align-items-center">
+    <app-multiselect [value]="value" (onChangeValue)="applyFilter.emit($event)" [startSearch]="startSearch"
+      [resetSearch]="resetSearch" [options]="options" [placeholder]="name" [markForCheck]="markForCheck">
+    </app-multiselect>
+    <div class="action action-search" data-kt-menu-dismiss="true"
+      (click)="popover.close(); startSearch.next(valueName)">
+      <span [inlineSVG]="'assets/media/icons/duotune/general/search-white.svg'"></span>
+    </div>
+    <div (click)="popover.close(); resetSearch.next(valueName)" class="action action-reset">
+      <span [inlineSVG]="'assets/media/icons/duotune/general/reset.svg'"></span>
+    </div>
+  </div>
+</ng-template>
+
+<div *ngIf="popover.isOpen()" class="overlay" (click)="closePopover()"></div>

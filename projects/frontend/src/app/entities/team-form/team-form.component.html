@@ -1,0 +1,48 @@
+<div class="card-body pt-0">
+  <div class="row mb-12 pb-12" [formGroup]="teamGroup">
+    <div class="col-8">
+
+      <div *ngIf="description" class="fv-row py-2">
+        {{ description | translate }}
+      </div>
+
+      <div class="mb-0 pb-0 fv-row fv-plugins-icon-container">
+        <div class="d-flex gap-3">
+
+          <app-input class="row d-flex w-100 pe-2 pt-0 mx-1" formControlName="teamName" [label]="'labels.teamName'"
+            [placeholder]="'John'">
+          </app-input>
+
+        </div>
+      </div>
+
+      <div class="mb-0 fv-row fv-plugins-icon-container">
+        <div class="d-flex gap-3">
+
+          <app-select class="row d-flex pe-2 pt-0 mx-1 team-leader" [label]="'labels.teamLeader'"
+            [options]="selectOptions" formControlName="teamLeader">
+          </app-select>
+
+          <app-input class="row d-flex w-100 pe-2 pt-0 mx-1" formControlName="organisation"
+            [label]="'labels.organisation'" [placeholder]="'John'">
+          </app-input>
+
+        </div>
+      </div>
+
+      <div class="fv-row fv-plugins-icon-container px-5 pt-4 pb-0">
+        <div class="row g-3 justify-content-end pt-3 mb-12 pb-12">
+
+          <div class="col-md-3">
+            <app-button (click)="save()" [name]="'buttons.save'" [btnColor]="btnColor.blue"></app-button>
+          </div>
+
+          <div class="col-md-3">
+            <app-button (click)="cancel()" [name]="'buttons.cancel'" [btnColor]="btnColor.white"></app-button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

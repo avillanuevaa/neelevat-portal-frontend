@@ -1,0 +1,15 @@
+<!--<div class="text-center" [class.mx-3]="label && !withoutStartMargin" [class.me-3]="label && withoutStartMargin">-->
+<!--  <input (click)="onClick.emit()" class="form-check-input" type="checkbox" [value]="value" [checked]="checked">-->
+<!--  <label *ngIf="label" class="text-break col-form-label fw-semibold fs-6 py-1" (click)="onClick.emit()">{{ label | translate }}-->
+<!--    <span *ngIf="subLabel" class="text-gray-400">({{ subLabel | translate }})</span>-->
+<!--  </label>-->
+<!--</div>-->
+
+<label class="d-flex col-form-label fw-semibold fs-6 py-1 w-100 {{ checkboxClass }} gap-2">
+  <input (click)="onClick.emit()" class="text-start form-check-input" type="checkbox" [value]="value" [checked]="checked">
+  <div class="ps-2">
+  <span *ngIf="label" class="text-checkbox text-end text-black w-100">{{ label | translate }}</span>
+  <span *ngIf="subLabel" class="text-checkbox text-gray-400">({{ subLabel | translate }})</span>
+  </div>
+</label>
+

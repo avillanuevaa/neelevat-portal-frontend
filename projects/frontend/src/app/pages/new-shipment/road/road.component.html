@@ -1,0 +1,451 @@
+<app-title [title]="'pageName.newShipment'" [breadcrumbs]="breadcrumbs" [steps]="steps" [returnButton]="returnButton">
+</app-title>
+
+<div id="kt_app_content" class="app-content flex-column-fluid" *ngIf="showBackground">
+  <div id="kt_app_content_container" class="app-container container-xxl">
+    <div class="card row border-card-custom border-content margin-10">
+      <div class="card-body pt-0 pb-1 min-height-page">
+        <div id="kt_customers_table_wrapper">
+          <div class="row content mt-2 ">
+
+            <div class="px-0">
+              <!--              <div class=" fs-2 pb-2 pt-1">-->
+              <!--                <span class="red-text">{{ "newShipment.basicShipment" | translate }}</span>-->
+              <!--                <div class="border-bottom-div fw-bold fs-2 pb-0 me-1 pt-1"></div>-->
+              <!--              </div>-->
+              <mat-expansion-panel [expanded]="true">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    {{ "newShipment.basicShipment" | translate }}
+                  </mat-panel-title>
+                  <mat-panel-description>
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="mb-0 pb-0 fv-row fv-plugins-icon-container">
+                  <div class="d-flex gap-5">
+
+                    <app-select class="row d-flex w-100 pt-1 mx-0" [placeholder]="'Organisation A'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                                [label]="'labels.yourOrganisation'" [options]="">
+                    </app-select>
+
+                    <div class="w-100 px-0 text-center align-content-center">
+                      <app-navbar-modality [ngClass]="{ 'disabled': isFormEnabled }"></app-navbar-modality>
+                    </div>
+
+                    <app-select class="row d-flex w-100 pt-1 mx-0" [placeholder]="'Organisation A'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                                [label]="'labels.bookingMode'" [options]="">
+                    </app-select>
+
+                    <app-select class="row d-flex w-100 pt-1 mx-0" [placeholder]="'Organisation A'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                                [label]="'labels.warehouseSelection'" [options]="">
+                    </app-select>
+
+                    <app-input class="row d-flex w-100 pt-1 mx-0" [label]="'labels.shipmentID'" [disabled]="true"
+                               [placeholder]="''">
+                    </app-input>
+
+                  </div>
+                </div>
+
+                <div class="mb-0 pb-0 fv-row fv-plugins-icon-container">
+                  <div class="d-flex gap-5">
+
+                    <app-tag-filter class="row w-100" [label]="'labels.yourReferences'"></app-tag-filter>
+
+                    <app-select class="row d-flex w-100 mx-0" [placeholder]="'Organisation A'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                                [label]="'labels.contract'" [options]="">
+                    </app-select>
+
+                    <app-datepicker formControlName="birthday" [bgColor]="'white'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                                    class="row w-75 justify-content-start fv-row mt-0 "
+                                    [label]="'labels.todayDate'">
+                    </app-datepicker>
+
+                  </div>
+                </div>
+              </mat-expansion-panel>
+
+            </div>
+
+            <div class="px-0">
+              <!--              <div class=" fs-2 pb-2 pt-1">-->
+              <!--                <span class="red-text">{{ "newShipment.shipmentDetails" | translate }}</span>-->
+              <!--                <div class="border-bottom-div fw-bold fs-2 pb-0 me-1 pt-1"></div>-->
+              <!--              </div>-->
+
+              <mat-expansion-panel [expanded]="true">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    {{ "newShipment.shipmentDetails" | translate }}
+                  </mat-panel-title>
+                  <mat-panel-description>
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <div class="mb-0 pb-0 fv-row fv-plugins-icon-container pt-1">
+                  <div class="d-flex gap-5">
+
+                    <app-select class="row d-flex w-50 mx-0" [placeholder]="'Organisation A'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                                [label]="'labels.loadingDateSelection'" [options]="">
+                    </app-select>
+
+                    <app-datepicker formControlName="birthday" [bgColor]="'white'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                                    class="row w-75 justify-content-start fv-row mt-0"
+                                    [label]="'labels.loadingDate'">
+                    </app-datepicker>
+
+                    <app-select class="row d-flex w-50 mx-0" [placeholder]="'Organisation A'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                                [label]="'labels.unloadingDateSelection'" [options]="">
+                    </app-select>
+
+                    <app-datepicker formControlName="birthday" [bgColor]="'white'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                                    class="row w-75 justify-content-start fv-row mt-0"
+                                    [label]="'labels.unloadingDate'">
+                    </app-datepicker>
+
+                  </div>
+                </div>
+
+                <div class="mb-0 pb-0 fv-row fv-plugins-icon-container">
+                  <div class="d-flex gap-5">
+
+                    <app-select class="row d-flex w-100 mx-0 pt-1" [placeholder]="'Organisation A'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                                [label]="'labels.loadingTimeSelection'" [options]="">
+                    </app-select>
+
+                    <app-time-range class="row d-flex w-75 pt-1 mx-0" [label]="'labels.loadingTime'" [disabled]="isFormEnabled" ></app-time-range>
+
+                    <app-select class="row d-flex w-100 mx-0 pt-1" [placeholder]="'Organisation A'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                                [label]="'labels.unloadingTimeSelection'" [options]="">
+                    </app-select>
+
+                    <app-time-range class="row d-flex w-75 pt-1 mx-0" [label]="'labels.unloadingTime'" [disabled]="isFormEnabled"></app-time-range>
+
+
+                  </div>
+                </div>
+
+                <div class="mb-0 pb-0 fv-row fv-plugins-icon-container">
+                  <div class="d-flex w-100 gap-5 pt-1">
+                    <app-textarea-address class="row d-flex w-100 mx-0" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                                          [label]="'labels.sender'"></app-textarea-address>
+                    <app-textarea-address class="row d-flex w-100 mx-0" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                                          [label]="'labels.receiver'"></app-textarea-address>
+                  </div>
+                  <div class="d-flex w-100 gap-5 pt-1">
+                    <app-textarea-address class="row d-flex w-100 mx-0"
+                                          [label]="'labels.loadingAddress'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"></app-textarea-address>
+                    <app-textarea-address class="row d-flex w-100 mx-0  "
+                                          [label]="'labels.unloadingAddress'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"></app-textarea-address>
+                  </div>
+                </div>
+
+                <div class="mb-0 pb-0 fv-row fv-plugins-icon-container">
+                  <div class="d-flex gap-5">
+
+                    <app-input class="row d-flex w-100 pt-1 mx-0" [label]="'labels.loadingReference'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                               [placeholder]="''">
+                    </app-input>
+
+                    <app-input class="row d-flex w-100 pt-1 mx-0" [label]="'labels.unloadingReference'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                               [placeholder]="''">
+                    </app-input>
+
+                  </div>
+                </div>
+
+                <div class="mb-0 pb-0 fv-row fv-plugins-icon-container">
+                  <div class="d-flex gap-5">
+
+                    <app-input class="row d-flex w-100 pt-1 mx-0" [label]="'labels.loadingInstructions'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                               [placeholder]="''">
+                    </app-input>
+
+                    <app-input class="row d-flex w-100 pt-1 mx-0" [label]="'labels.unloadingInstructions'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                               [placeholder]="''">
+                    </app-input>
+
+                  </div>
+                </div>
+
+                <div class="mb-0 pb-0 fv-row fv-plugins-icon-container">
+                  <div class="d-flex gap-5">
+
+                    <app-select class="row d-flex w-25 pt-1 mx-0" [placeholder]="'Organisation A'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                                [label]="'labels.incoterm'" [options]="">
+                    </app-select>
+
+                  </div>
+                </div>
+
+                <div class="mb-0 pb-0 fv-row fv-plugins-icon-container pt-4">
+                  <div class="d-flex gap-5">
+
+                    <div class="d-flex w-100 m-0 p-0 mx-0 gap-5">
+                      <div class="row m-0 p-0">
+                        <tab-selector></tab-selector>
+                        <div class="w-100 m-0 p-0">
+                          <app-files-table
+                            class="row d-flex fv-plugins-icon-container mb-0 pb-0 px-5 mx-0 mt-5"
+                            [title]="'labels.customsDocuments'" [labelOnBlock]="true" [files]="files"
+                            [fileColumns]="filesColumn"
+                            [withoutPadding]="true">
+                          </app-files-table>
+                        </div>
+                      </div>
+
+                      <div class="w-100 m-0 p-0 mx-0 gap-5">
+                        <app-textarea class="row d-flex w-100 pt-0 mx-0 pb-3" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                                      [label]="'labels.customsDocumentsLocation'"
+                                      [rows]="4" [placeholder]="''"
+                                      formControlName="aboutDescription">
+                        </app-textarea>
+                        <app-textarea class="row d-flex w-100 pt-0 mx-0" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                                      [label]="'labels.customsDocumentInstructions'"
+                                      [placeholder]="''" [rows]="8"
+                                      formControlName="aboutDescription">
+                        </app-textarea>
+                      </div>
+                    </div>
+
+                    <app-textarea class="row d-flex w-100 pt-0 mx-0 pb-3" [label]="'labels.remarks'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                                  [placeholder]="''" [rows]="14"
+                                  formControlName="aboutDescription">
+                    </app-textarea>
+
+                  </div>
+                </div>
+              </mat-expansion-panel>
+
+
+            </div>
+
+            <div class="px-0 pb-3">
+<!--              <div class=" fs-2 pb-2 pt-1">-->
+<!--                <span class="red-text">{{ "newShipment.goodsDetails" | translate }}</span>-->
+<!--                <div class="border-bottom-div fw-bold fs-2 pb-0 me-1"></div>-->
+<!--              </div>-->
+              <mat-expansion-panel [expanded]="true">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    {{ "newShipment.goodsDetails" | translate }}
+                  </mat-panel-title>
+                  <mat-panel-description>
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="px-0 mx-0 pe-5">
+                  <div class="d-flex justify-content-between m-0 p-0 pb-1 pt-4">
+                    <div class="d-flex w-50 gap-4 m-0 p-0">
+                      <app-button class="px-0" [name]="'buttons.checkQuantity'"
+                                  (click)="checkQuantity(quantityGoodsModal)"
+                                  [btnColor]="btnColor.blue" [btnPadding]="btnPadding.padding"></app-button>
+                      <app-button class="px-0" [name]="'buttons.filter'" [iconPosition]="'left'"
+                                  [svg]="'assets/media/icons/duotune/general/icon_filter.svg'"
+                                  [ngbPopover]="popoverContent"
+                                  placement="bottom-left" [popoverClass]="'bar-filter'"
+                                  triggers="click" [btnColor]="btnColor.white"
+                                  [btnPadding]="btnPadding.padding"></app-button>
+
+                      <!-- Popover content -->
+                      <ng-template #popoverContent>
+                        <ul class="p-0 m-0">
+                          <!--                      <li class="list-style-none cursor-pointer"><a>{{ 'buttons.active' | translate }}</a></li>-->
+                          <!--                      <li class="list-style-none cursor-pointer"><a>{{ 'buttons.disabled' | translate }}</a></li>-->
+                          <!--                      <li class="list-style-none cursor-pointer"><a>{{ 'buttons.all' | translate }}</a></li>-->
+                          <li class="list-style-none cursor-pointer px-3">
+                            <app-button class="w-100 px-0" (click)="filter = 'active'; applyFilter()"
+                                        [name]="'buttons.active'" [circleColor]="circleColors.green"
+                                        [btnColor]="btnColor.whiteBorder" [btnPadding]="btnPadding.padding"></app-button>
+                          </li>
+                          <li class="list-style-none cursor-pointer px-3">
+                            <app-button class="w-100 px-0" (click)="filter = 'disabled'; applyFilter()"
+                                        [name]="'buttons.disabled'" [circleColor]="circleColors.gray"
+                                        [btnColor]="btnColor.whiteBorder" [btnPadding]="btnPadding.padding"></app-button>
+                          </li>
+                          <li class="list-style-none cursor-pointer px-3">
+                            <app-button class="w-100 px-0" (click)="filter = 'all'; applyFilter()" [name]="'buttons.all'"
+                                        [circleColor]="circleColors.blue"
+                                        [btnColor]="btnColor.whiteBorder" [btnPadding]="btnPadding.padding"></app-button>
+                          </li>
+                        </ul>
+                      </ng-template>
+                      <app-input class="w-300px form-input-login mt-0 mb-0"
+                                 [placeholder]="'Search by sku or title'"
+                                 [height]="'32px'"
+                                 [(ngModel)]="searchTerm"
+                                 (ngModelChange)="onSearchTermChange()"
+                                 [svg]="'assets/media/icons/duotune/general/search.svg'">
+                      </app-input>
+                    </div>
+                    <app-download-file class="justify-content-end d-flex align-items-center gap-2 gap-lg-3"
+                                       [finishDisplayedRows]="finishDisplayedRows" [numbersOfElements]="numbersOfElements"
+                                       [rows]="filteredStocks" [columns]="columns" [fileName]="'goods-details-table'">
+                    </app-download-file>
+                  </div>
+                  <div class="table-wrapper mt-3">
+                    <div class="table-responsive position-relative table-wrap mb-xxl-5 mb-md-2 table-height mt-2">
+                      <table class="table table-bordered table-striped table-hover mb-0 fs-6 gy-2"
+                             id="kt_customers_table">
+                        <thead class="thead-sticky bg-white">
+
+                        <tr class="text-start font-thead fw-bold fs-6 gs-0"
+                            cdkDropList cdkDropListOrientation="horizontal"
+                            (cdkDropListDropped)="onColumnDropGoodsDetails($event)">
+                          <ng-container *ngFor="let column of columns">
+                            <th *ngIf="column.display" cdkDrag class="p-lg-2 min-w-80px sorting padding-cells-thead"
+                                tabindex="0"
+                                aria-controls="kt_customers_table" rowspan="1" colspan="1">
+                              <div class="thead-block">
+                            <span class="thead-block-text">
+                              {{ column.name | translate }}
+                            </span>
+
+                                <span class="sort-icon ps-5" (click)="sortByParam(column.value)"
+                                      [inlineSVG]="'assets/media/icons/duotune/general/up-down-arrows-blue.svg'">
+                            </span>
+
+                              </div>
+                            </th>
+                          </ng-container>
+                        </tr>
+
+                        </thead>
+
+                        <tbody class="fw-semibold text-black">
+
+                        <tr class="odd min-table-height row-font-size"
+                            *ngFor="let stock of filteredStocks | slice: finishDisplayedRows - numbersOfElements: finishDisplayedRows">
+                          <ng-container *ngFor="let column of columns">
+                            <td class="padding-cells-tbody align-middle" *ngIf="column.display">
+                              <ng-container *ngIf="column.value !== 'quantity'; else quantityInput">
+                                <div class="text-nowrap">{{ stock[column.value] }}</div>
+                              </ng-container>
+                              <ng-template #quantityInput>
+                                <!--                          <div class="text-nowrap">-->
+                                <!--                            <input type="number" [(ngModel)]="stock.quantity" />-->
+                                <!--                          </div>-->
+                                <app-input class="row d-flex align-items-center p-0 m-0" [placeholder]="''" [value]="'0'"
+                                           [height]="'number-input-height'"
+                                           [type]="'number'"></app-input>
+                              </ng-template>
+                            </td>
+                          </ng-container>
+                        </tr>
+
+                        <app-spinner *ngIf="loader"></app-spinner>
+
+                        </tbody>
+                      </table>
+                    </div>
+                    <app-pagination (onChangePage)="changePage($event)"
+                                    (onChangeNumberOfElement)="changeNumberOfElement($event)" [resetPage]="resetPage"
+                                    [amountItems]="filteredStocks?.length">
+                    </app-pagination>
+                  </div>
+                </div>
+              </mat-expansion-panel>
+
+            </div>
+
+            <div  class="row g-3 justify-content-end pt-0 pb-12 my-0">
+              <div class="col-md-2">
+                <app-button class="w-100 px-0"
+                            [name]="buttonText"
+                            (click)="confirmShipment()"
+                            [btnFontSizing]="btnFontSize.sixteen"
+                            [btnColor]="btnColor.blue"
+                            [btnPadding]="btnPadding.paddingSubmitButton"></app-button>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="kt_app_content2" class="app-content flex-column-fluid" *ngIf="!showBackground">
+  <div id="kt_app_content_container2" class="app-container container-xxl">
+    <div class="card row border-card-custom border-content margin-10" style="min-height: 1000px">
+    </div>
+  </div>
+</div>
+
+<ng-template #quantityGoodsModal>
+  <div class="modal-content">
+    <div class="modal-header px-9">
+      <label class="popover-title-quantity"
+             id="ModalLabel1">{{ 'Quantity' }}</label>
+      <button type="button" class="btn-close" (click)="quantityGoodsModalRef.hide()" aria-label="Close"></button>
+    </div>
+
+    <div class="modal-body pt-3 pb-5">
+      <div class="d-flex justify-content-between m-0 p-0 pb-2">
+        <app-input class="w-300px form-input-login mt-0 mb-0"
+                   [placeholder]="'Search by sku or title'"
+                   [height]="'32px'"
+                   [(ngModel)]="searchQuantityTerm"
+                   (ngModelChange)="onSearchQuantityTermChange()"
+                   [svg]="'assets/media/icons/duotune/general/search.svg'">
+        </app-input>
+        <app-columns-filter class="border-bottom-tab d-block" style="height: 40px" (save)="saveChanges($event)"
+                            [columns]="columnsGoods">
+        </app-columns-filter>
+      </div>
+      <div class="table-responsive position-relative table-wrap mb-xxl-5 mb-md-2 table-height mt-2">
+        <table class="table table-bordered table-striped table-hover mb-0 fs-6 gy-2" id="kt_stocks_table2">
+          <thead class="thead-sticky">
+
+          <tr class="text-start font-thead fw-bold fs-6 gs-0"
+              cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="onColumnDropQuantity($event)">
+            <ng-container *ngFor="let column of columnsGoods; let columnIndex = index">
+              <th *ngIf="column.display" cdkDrag class="p-lg-2 min-w-80px sorting padding-cells-thead"
+                  tabindex="0"
+                  aria-controls="kt_customers_table" rowspan="1" colspan="1">
+                <div class="thead-block">
+                            <span class="thead-block-text">
+                              {{ column.name | translate }}
+                            </span>
+
+                  <span class="sort-icon ps-5" (click)="sortByParam(column.value)"
+                        [inlineSVG]="'assets/media/icons/duotune/general/up-down-arrows-blue.svg'">
+                            </span>
+
+                </div>
+              </th>
+            </ng-container>
+          </tr>
+
+          </thead>
+
+          <tbody class="fw-semibold text-black">
+
+          <tr class="odd min-table-height row-font-size"
+              *ngFor="let stockGood of stockGoods | slice: finishDisplayedRows - numbersOfElements: finishDisplayedRows">
+            <ng-container *ngFor="let column of columnsGoods">
+              <td class="padding-cells-tbody" *ngIf="column.display">
+                <div class="text-nowrap">{{ stockGood[column.value] }}</div>
+              </td>
+              <!--                        <td *ngIf="column.value === 'totalPallets'">{{ stock.totalPallets }}</td> &lt;!&ndash; Aquí se muestra el valor totalPallets &ndash;&gt;-->
+            </ng-container>
+          </tr>
+
+          <app-spinner *ngIf="loader"></app-spinner>
+
+          </tbody>
+        </table>
+
+      </div>
+
+      <app-pagination (onChangePage)="changePage($event)"
+                      (onChangeNumberOfElement)="changeNumberOfElement($event)" [resetPage]="resetPage"
+                      [amountItems]="filteredStocks?.length">
+      </app-pagination>
+
+    </div>
+
+  </div>
+</ng-template>
+

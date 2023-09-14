@@ -1,0 +1,164 @@
+:host {
+
+  @media (max-height: 835px) {
+    .table-height {
+      height: 24vw;
+      overflow: auto;
+    }
+  }
+  @media (max-width: 1650px) {
+    .table-height {
+      height: 24vw;
+      overflow: auto;
+    }
+  }
+  @media (min-height: 835px) {
+    .table-height {
+      height: 31vw;
+      overflow: auto;
+    }
+  }
+  @media (min-width: 1650px) {
+    .table-height {
+      height: 31vw;
+      overflow: auto;
+    }
+  }
+
+  .border-bottom-tab{
+    border-bottom: 2px solid #CCCCCC
+  }
+
+
+  .thead-sticky{
+    position: sticky;
+    top: 0;
+    z-index: 3;
+  }
+
+  .truncate-text{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .card-header {
+    padding: 0 !important;
+    margin-bottom: 20px;
+
+    .tabs-container {
+      padding: 45px 20px 20px;
+      margin-left: 11px;
+    }
+
+    .card-toolbar {
+      margin: 0 !important;
+
+      &-content {
+        gap: 5px;
+
+        app-datepicker {
+          margin-top: -11px;
+          width: 197px;
+        }
+      }
+    }
+  }
+
+  thead {
+    z-index: 3;
+    position: relative;
+    background-color: white !important;
+
+    .thead-block {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &-text {
+        white-space: nowrap;
+      }
+
+      .sort-icon {
+        margin-top: -2px;
+      }
+    }
+  }
+
+  .content {
+
+
+    @media (max-width: 1650px) {
+      .table-wrapper {
+        width: calc(80% - 7.5px);
+        height: fit-content;
+        padding: 0;
+        margin-right: 7.5px;
+      }
+
+      .right-filter {
+        width: calc(20% - 7.5px);
+        height: fit-content;
+        margin-bottom: 20px;
+        margin-left: 7.5px;
+      }
+    }
+    @media (min-width: 1650px) {
+      .table-wrapper {
+        width: calc(85% - 7.5px);
+        height: fit-content;
+        padding: 0;
+        margin-right: 7.5px;
+      }
+
+      .right-filter {
+        width: calc(15% - 7.5px);
+        height: fit-content;
+        margin-bottom: 20px;
+        margin-left: 7.5px;
+      }
+    }
+
+  }
+
+  .menu-title {
+    color: #266791;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .option {
+    span {
+      white-space: pre-line;
+      max-width: 90px;
+    }
+  }
+
+  .save-change {
+    color: #323232;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 24px;
+  }
+
+  .sort-icon {
+    cursor: pointer;
+  }
+
+  .ngb-popover-window {
+    transform: translate(-87px, -1340px) !important;
+  }
+
+  .row-font-size{
+    font-size: 0.9rem !important
+  }
+
+  .padding-rows{
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  .app-content{
+    padding-top: 10px;
+  }
+}

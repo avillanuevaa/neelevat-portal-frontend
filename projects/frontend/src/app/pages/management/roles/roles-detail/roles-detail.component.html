@@ -1,0 +1,20 @@
+<div class="modal fade show" id="kt_modal_create_app" tabindex="-1" aria-modal="true" role="dialog">
+  <div class="modal-dialog modal-dialog-centered mw-900px">
+    <div class="modal-content">
+      <div class="modal-header row border-bottom-0 pb-3">
+        <div class="fs-2 pb-2 pt-2">
+          <div class="container-fluid d-flex flex-stack border-bottom-div fw-bold fs-4 pb-2 me-4 w-100">
+            <span class="toolbar-title-text fs-5">{{ "roles.adminRoles" | translate }}</span>
+            <a class="btn bg-transparent justify-content-end btn-sm fw-normal fw-bold fs-6 px-1 mx-0"
+              (click)="closeModal()">
+              <span class="svg-icon-white svg-icon-2"
+                [inlineSVG]="'./assets/media/icons/duotune/general/close.svg'"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <app-role-table [roleData]="roleData" [onlyView]="true" class="modal-body pb-lg-10 px-lg-10 pt-3">
+      </app-role-table>
+    </div>
+  </div>
+</div>

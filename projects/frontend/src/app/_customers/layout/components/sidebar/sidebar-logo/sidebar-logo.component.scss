@@ -1,0 +1,50 @@
+:host {
+  .logo-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+
+    img {
+      margin: 0 auto;
+
+      &.oostvogels {
+        height: 50px;
+      }
+
+      &.neelevat {
+        height: 24px;
+        margin-top: -5px;
+      }
+
+      &.mammoet {
+        height: 24px;
+      }
+
+      &.nvd_asia {
+        height: 50px;
+      }
+    }
+  }
+}
+
+::ng-deep .organisations-menu {
+  .mat-mdc-menu-content {
+    padding: 0;
+    .mat-mdc-menu-item:hover,
+    .mat-mdc-menu-item-highlighted {
+      background-color: #E7F5FF;
+    }
+
+    .mdc-list-item {
+      justify-content: center;
+      padding: 13.5px 37.5px;
+      border-bottom: 1px solid #D9D9D9;
+
+      &:last-child {
+        border-bottom: none;
+        max-height: 52px;
+      }
+    }
+  }
+}

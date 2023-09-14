@@ -1,0 +1,66 @@
+:host {
+  z-index: 1003;
+
+  .menu-title {
+    color: #266791;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  app-checkbox::ng-deep label {
+    color: #323232;
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    line-height: 18px !important;
+    white-space: pre-line;
+  }
+
+  .close {
+    cursor: pointer;
+  }
+
+  app-button {
+    display: block;
+
+    &.filter-btn {
+      height: 35px;
+
+      ::ng-deep a {
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    &.save-btn {
+      width: 104px;
+      height: 35px;
+
+      ::ng-deep a {
+        height: 35px;
+        padding: 0 !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+
+  .overlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vw;
+    top: 0;
+    left: 0;
+  }
+
+  ::ng-deep {
+    .columns-filter {
+      .popover-body {
+        padding: 15px 20px 20px !important;
+      }
+    }
+  }
+}

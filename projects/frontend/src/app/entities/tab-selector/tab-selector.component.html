@@ -1,0 +1,9 @@
+<ul class="nav justify-content-center">
+  <li class="p-0 m-0">
+    <a class="nav-link w-100 h-100 first-item" [ngClass]="{'active': activeTab === 'customsRequired'}" (click)="setActiveTab('customsRequired')">
+      CUSTOMS REQUIRED</a>
+  </li>
+  <li class="p-0 m-0">
+    <a class="nav-link w-100 h-100 last-item" [ngClass]="{'active': activeTab === 'freeGoods'}" (click)="setActiveTab('freeGoods')">FREE GOODS</a>
+  </li>
+</ul>

@@ -1,0 +1,159 @@
+<form [formGroup]="organisationForm">
+  <div class="row">
+    <div class="col-12">
+      <label class="section-text pb-3">Company info</label>
+
+      <div class="mb-0 pb-0 fv-row fv-plugins-icon-container pb-2">
+        <div class="d-flex gap-3">
+
+          <app-input class="row d-flex w-100 pe-2 pt-0 mx-1" [label]="'labels.organisationName'" [placeholder]="''"
+                     formControlName="organisationName"
+                     [isInvalid]="organisationForm.controls.organisationName.invalid
+                     && (organisationForm.controls.organisationName.dirty || organisationForm.controls.organisationName.touched)">
+          </app-input>
+
+          <app-input class="row d-flex w-100 pe-2 pt-0 mx-1" [label]="'labels.organisationLegalEntity'"
+                     [placeholder]="''"
+                     formControlName="organisationLegalEntity"
+                     [isInvalid]="organisationForm.controls.organisationLegalEntity.invalid
+                     && (organisationForm.controls.organisationLegalEntity.dirty || organisationForm.controls.organisationLegalEntity.touched)">
+          </app-input>
+          <app-select formControlName="mainContactPerson" [label]="'labels.mainContactPerson'"
+                      class="row d-flex pe-2 pt-0 mx-1 w-100" [options]="mainContactPersonSelector">
+          </app-select>
+        </div>
+
+        <div class="d-flex"
+             [ngClass]="{'justify-content-end': organisationForm.controls.organisationLegalEntity.invalid && (organisationForm.controls.organisationLegalEntity.dirty || organisationForm.controls.organisationLegalEntity.touched)}">
+          <div
+            *ngIf="organisationForm.controls.organisationName.invalid && (organisationForm.controls.organisationName.dirty || organisationForm.controls.organisationName.touched)"
+            class="text-danger w-50">
+            <div *ngIf="organisationForm.controls.organisationName.errors.required">The field Organisation Name is
+              mandatory.
+            </div>
+            <div *ngIf="organisationForm.controls.organisationName.errors.pattern">The field Organisation Name accepts
+              only letters.
+            </div>
+          </div>
+          <div
+            *ngIf="organisationForm.controls.organisationLegalEntity.invalid && (organisationForm.controls.organisationLegalEntity.dirty || organisationForm.controls.organisationLegalEntity.touched)"
+            class="text-danger w-50">
+            <div *ngIf="organisationForm.controls.organisationLegalEntity.errors.required">The field Organisation Legal
+              Entity is mandatory.
+            </div>
+            <div *ngIf="organisationForm.controls.organisationLegalEntity.errors.pattern">The field Organisation Legal
+              Entity accepts only letters.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mb-0 fv-row fv-plugins-icon-container pb-2">
+        <div class="d-flex gap-3">
+
+          <app-input class="row d-flex w-100 pe-2 pt-0 mx-1" [label]="'labels.contactEmail'" [placeholder]="''"
+                     formControlName="contactEmail"
+                     [isInvalid]="organisationForm.controls.contactEmail.invalid
+                     && (organisationForm.controls.contactEmail.dirty || organisationForm.controls.contactEmail.touched)">
+          </app-input>
+
+          <app-input class="row d-flex w-100 pe-2 pt-0 mx-1" [label]="'labels.organisationAddress'" [placeholder]="''"
+                     formControlName="organisationAddress"
+                     [isInvalid]="organisationForm.controls.organisationAddress.invalid
+                     && (organisationForm.controls.organisationAddress.dirty || organisationForm.controls.organisationAddress.touched)">
+          </app-input>
+
+          <div class="mx-1 p-0 pe-2 w-100"></div>
+
+        </div>
+
+        <div
+          *ngIf="organisationForm.controls.contactEmail.invalid && (organisationForm.controls.contactEmail.dirty || organisationForm.controls.contactEmail.touched)"
+          class="text-danger w-50">
+          <div *ngIf="organisationForm.controls.contactEmail.errors.required">The field Contact Email is
+            mandatory.
+          </div>
+          <div *ngIf="organisationForm.controls.contactEmail.errors.email">The field Contact Email is invalid.
+          </div>
+        </div>
+
+      </div>
+
+
+      <label class="section-text pb-3">Address details</label>
+
+      <div class="mb-0 pb-0 fv-row fv-plugins-icon-container pb-2">
+        <div class="d-flex gap-3">
+
+          <app-input class="row d-flex w-100 pe-2 pt-0 mx-1" [label]="'labels.street'" [placeholder]="''"
+                     formControlName="street"
+                     [isInvalid]="organisationForm.controls.street.invalid
+                     && (organisationForm.controls.street.dirty || organisationForm.controls.street.touched)">
+          </app-input>
+
+          <app-input class="row d-flex w-100 pe-2 pt-0 mx-1" [label]="'labels.buildingName'" [placeholder]="''"
+                     formControlName="buildingName">
+          </app-input>
+
+          <app-input class="row d-flex w-100 pe-2 pt-0 mx-1" [label]="'labels.zipCode'" [placeholder]="''"
+                     formControlName="zipCode"
+                     [isInvalid]="organisationForm.controls.zipCode.invalid
+                     && (organisationForm.controls.zipCode.dirty || organisationForm.controls.zipCode.touched)">
+          </app-input>
+
+        </div>
+
+        <div
+          *ngIf="organisationForm.controls.street.invalid && (organisationForm.controls.street.dirty || organisationForm.controls.street.touched)"
+          class="text-danger w-50">
+          <div *ngIf="organisationForm.controls.street.errors.required">The field Street is
+            mandatory.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mb-0 fv-row fv-plugins-icon-container pb-2">
+        <div class="d-flex gap-3">
+          <app-input class="row d-flex w-100 pe-2 pt-0 mx-1" [label]="'labels.city'" [placeholder]="''"
+                     formControlName="city"
+                     [isInvalid]="organisationForm.controls.city.invalid
+                     && (organisationForm.controls.city.dirty || organisationForm.controls.city.touched)">
+          </app-input>
+
+          <app-input class="row d-flex w-100 pe-2 pt-0 mx-1" [label]="'labels.region'" [placeholder]="''"
+                     formControlName="region">
+          </app-input>
+
+          <app-select formControlName="country" [label]="'labels.country'" [placeholder]="''"
+                      class="row d-flex pe-2 pt-0 mx-1 w-100" [options]="countries">
+          </app-select>
+        </div>
+
+        <div class="d-flex"
+             [ngClass]="{'justify-content-end': organisationForm.controls.city.invalid && (organisationForm.controls.city.dirty || organisationForm.controls.city.touched)}">
+          <div
+            *ngIf="organisationForm.controls.zipCode.invalid && (organisationForm.controls.zipCode.dirty || organisationForm.controls.zipCode.touched)"
+            class="text-danger w-50">
+            <div *ngIf="organisationForm.controls.zipCode.errors.required">The Zip Code is
+              mandatory.
+            </div>
+            <div *ngIf="organisationForm.controls.zipCode.errors.pattern">The Zip Code accepts
+              only numbers.
+            </div>
+          </div>
+          <div
+            *ngIf="organisationForm.controls.city.invalid && (organisationForm.controls.city.dirty || organisationForm.controls.city.touched)"
+            class="text-danger w-50">
+            <div *ngIf="organisationForm.controls.city.errors.required">The field City is mandatory.
+            </div>
+            <div *ngIf="organisationForm.controls.city.errors.pattern">The field City accepts only letters.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</form>

@@ -1,0 +1,28 @@
+:host {
+  .col {
+
+    &-name,
+    &-portETA {
+      min-width: 100px;
+    }
+
+    &-mbl {
+      min-width: 30px;
+    }
+
+    &-type,
+    &-custom,
+    &-product {
+      min-width: 80px;
+    }
+
+    &-reference,
+    &-fileNumber,
+    &-portATA,
+    &-termETA,
+    &-termATA,
+    &-status {
+      min-width: 125px;
+    }
+  }
+}

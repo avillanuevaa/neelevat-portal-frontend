@@ -1,0 +1,9 @@
+<span class="fw-bold" [ngClass]="{'px-0 label': true, 'disabled-label': disabled}" [class.xSmall]="size === 'xSmall'">{{ label | translate }}</span>
+<div class="form-input-login mt-0 mb-0" [class.px-0]="size === 'xSmall'">
+  <span class="menu-icon-input-right opacity-50 {{ toggleClasses }}">
+    <ngx-material-timepicker-toggle matIconSuffix [for]="picker"></ngx-material-timepicker-toggle>
+  </span>
+  <input [placeholder]="placeholder || '00:00'" [disabled]="disabled"
+    class="form-control mb-2 {{ inputClasses }} {{ bgClasses }}" matInput [ngxTimepicker]="picker">
+  <ngx-material-timepicker  #picker></ngx-material-timepicker>
+</div>

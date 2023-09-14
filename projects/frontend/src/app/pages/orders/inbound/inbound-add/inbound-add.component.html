@@ -1,0 +1,539 @@
+<app-title [title]="'buttons.createOrder'" [breadcrumbs]="breadcrumbs" [steps]="steps"></app-title>
+<!--end::Toolbar-->
+<!--begin::Content-->
+<div id="kt_app_content" class="app-content flex-column-fluid">
+  <!--begin::Content container-->
+  <div id="kt_app_content_container" class="app-container container-xxl">
+    <!--begin::Card-->
+    <div class="card row border-card-custom rounded-2">
+      <!--begin::Card header-->
+      <div class="card-header border-0 mb-2 px-7">
+        <!--begin::Card title-->
+        <div class="card-title pb-0 mb-0 mt-1">
+          <div class="h-100 fs-4 pb-2 pt-10">
+            <div class="red-text fw-bold pb-0 mb-0">{{ "order.subTitle" | translate }}</div>
+          </div>
+        </div>
+        <!--begin::Card toolbar-->
+        <div class="card-toolbar pb-0 mb-0 mt-1">
+          <!--begin::Toolbar-->
+          <div class="d-flex justify-content-end pb-0 mb-0" data-kt-customer-table-toolbar="base">
+            <div class="fs-5 pb-2 pt-2">
+              <!--begin::Input group-->
+              <div class="mb-0 fv-row fv-plugins-icon-container">
+                <div class="d-flex justify-content-end gap-1">
+                  <app-input class="row d-flex w-75 pe-2 pt-0 mx-1" [label]="'tables.headers.orderId'" [disabled]="true"
+                    [placeholder]="''" value="abcd12345">
+                  </app-input>
+                </div>
+              </div>
+              <!--end::Input group-->
+            </div>
+          </div>
+          <!--end::Toolbar-->
+        </div>
+        <!--end::Card toolbar-->
+        <div class="border-bottom-div w-100"></div>
+
+      </div>
+      <!--end::Card header-->
+      <!--begin::Card body-->
+      <div class="card-body pt-0 px-6">
+        <!--begin::Input group-->
+        <div class="w-100 mb-0 pb-0 fv-row fv-plugins-icon-container">
+          <div class="d-flex gap-1">
+
+            <app-select class="row d-flex w-100 pe-2 pt-1 mx-1" [placeholder]="'Organisation A'"
+              [label]="'labels.yourOrganisation'" [options]="selectOptions" [formControl]="selectorControl">
+            </app-select>
+
+            <app-input class="row d-flex w-100 pe-2 pt-1 mx-1" [label]="'labels.yourOrderReference'" [placeholder]="''"
+              value="AB12345, CA54321">
+            </app-input>
+
+            <app-datepicker class="row d-flex w-100 pt-1 mx-0" [label]="'labels.todayDate'"></app-datepicker>
+
+          </div>
+        </div>
+        <!--end::Input group-->
+
+        <!--begin::Input group-->
+        <div class="w-100 mb-0 pb-0 fv-row fv-plugins-icon-container">
+          <div class="d-flex gap-1">
+
+            <app-input class="row d-flex w-75 pe-2 pt-1 mx-1" [label]="'labels.contactPerson'" [placeholder]="''"
+              value="John Doe">
+            </app-input>
+
+            <div class="row d-flex w-75 pe-2 pt-1 mx-1 pt-6" data-kt-customer-table-toolbar="base">
+
+              <ul class="nav nav-inbound-mode nav-stretch fw-bold flex-nowrap w-100 px-0" role="tablist">
+                <li class="tab-item tab-middle w-50 tab-first">
+                  <a class="tab-link tab-name tab-inbound fs-6 ps-3 py-xxl-1 py-xl-3" role="tab">
+                    <span class="btn-label px-xxl-1 ps-xxl-9"
+                      [inlineSVG]="'./assets/media/icons/duotune/general/inbound_mode.svg'"></span>
+                    <span class="ps-2 pt-1 mt-1">{{ "order.inboundMode" | translate }}</span>
+                  </a>
+                </li>
+                <li class="tab-item flex-grow-1 tab-middle">
+                  <a class="tab-link cursor-pointer fs-6 px-4 py-2 text-center"
+                    [ngClass]="{ active: activeTab === 'Sea' }" (click)="setActiveTab('Sea')" role="tab">
+                    {{ "order.sea" | translate }}
+                  </a>
+                </li>
+                <li class="tab-item flex-grow-1 tab-middle">
+                  <a class="tab-link cursor-pointer fs-6 px-4 py-2 text-center"
+                    [ngClass]="{ active: activeTab === 'Truck' }" (click)="setActiveTab('Truck')" role="tab">
+                    {{ "order.truck" | translate }}
+                  </a>
+                </li>
+                <li class="tab-item flex-grow-1 tab-middle">
+                  <a class="tab-link cursor-pointer fs-6 px-4 py-2 text-center"
+                    [ngClass]="{ active: activeTab === 'Air' }" (click)="setActiveTab('Air')" role="tab">
+                    {{ "order.air" | translate }}
+                  </a>
+                </li>
+                <li class="tab-item flex-grow-1 tab-last">
+                  <a class="tab-link cursor-pointer fs-6 px-5 py-2 text-center"
+                    [ngClass]="{ active: activeTab === 'Rail' }" (click)="setActiveTab('Rail')" role="tab">
+                    {{ "order.rail" | translate }}
+                  </a>
+                </li>
+              </ul>
+
+            </div>
+
+            <div class="row d-flex pe-2 pt-1 mx-1 save-draft-wrapper">
+              <app-button class="mt-5 save-draft" [btnColor]="btnColor.white" [name]="'buttons.saveDraft'"></app-button>
+            </div>
+          </div>
+        </div>
+        <!--end::Input group-->
+
+
+        <div class="tab-content">
+
+          <!-- begin:: Sea Tab -->
+          <div class="tab-pane" [ngClass]="{ active: activeTab === 'Empty' }">
+          </div>
+
+          <!-- begin:: Sea Tab -->
+          <div class="tab-pane" [ngClass]="{ active: activeTab === 'Sea' }">
+            <div class="h-100 fs-4 pb-0 pt-5 px-1">
+              <div class="gray-title-text fw-bold pb-3 mb-0">{{ "order.shipmentDetails" | translate }}</div>
+              <div class="border-bottom-div w-100">
+              </div>
+            </div>
+
+            <!--begin::Input group-->
+            <div class="mb-0 pb-0 pt-0 fv-row fv-plugins-icon-container">
+              <div class="d-flex gap-1">
+
+                <app-input class="row d-flex w-50 pe-2 pt-2 mx-1" [label]="'labels.HBL'" [placeholder]="''"
+                  value="XXXXX1234567890">
+                </app-input>
+
+                <app-input class="row d-flex w-50 pe-2 pt-2 mx-1" [label]="'labels.carrierNumber'" [placeholder]="''"
+                  value="123456789">
+                </app-input>
+
+                <div class="row d-flex w-100 pe-2 pt-1 mx-1" data-kt-customer-table-toolbar="base">
+                  <!--begin::Card toolbar-->
+                  <span class="fw-bold px-0 label">{{ "labels.freightType" | translate }}</span>
+                  <div class="card-toolbar px-5 pe-0 options-wrapper freight-type">
+                    <!--begin::Toolbar-->
+                    <div class="row d-flex w-100" data-kt-customer-table-toolbar="base">
+                      <ul class="nav nav-stretch fw-bold flex-nowrap w-100 px-0 my-2" role="tablist">
+                        <li class="tab-item flex-grow-1 tab-middle bg-white tab-first">
+                          <a class="tab-link fw-normal cursor-pointer fs-9 px-1 py-1 px-xxl-5">
+                            {{ "order.LCL" | translate }}
+                          </a>
+                        </li>
+                        <li class="tab-item flex-grow-1 tab-middle bg-white tab-fcl">
+                          <a class="tab-link fw-normal cursor-pointer fs-9 px-1 py-1 px-xxl-5">
+                            {{ "order.FCL" | translate }}
+                          </a>
+                        </li>
+                        <li class="tab-item flex-grow-1 bg-white tab-consolidated tab-last">
+                          <a class="tab-link fw-normal cursor-pointer fs-9 px-1 py-1 px-xxl-6">
+                            {{ "order.consolidated" | translate }}
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <!--end::Toolbar-->
+                  </div>
+                </div>
+
+                <app-select class="row d-flex w-50 pe-2 pt-2 mx-1" [placeholder]="'Free On Board (FOB)'"
+                  [label]="'labels.contractType'" [options]="selectOptions" [formControl]="selectorControl">
+                </app-select>
+
+              </div>
+            </div>
+            <!--end::Input group-->
+
+            <!--begin::Input group-->
+            <div class="mb-0 pb-0 fv-row fv-plugins-icon-container">
+              <div class="d-flex gap-3">
+
+                <app-select class="row d-flex w-100 pe-2 pt-2 mx-1" [placeholder]="'NLRTM (Port of Rotterdam)'"
+                  [label]="'labels.POD'" [options]="selectOptions" [formControl]="selectorControl">
+                </app-select>
+
+                <app-input class="row d-flex w-100 pe-2 pt-2 mx-1" [label]="'labels.vessel'" [placeholder]="''"
+                  value="Ren Jian 17">
+                </app-input>
+
+                <app-datepicker class="row d-flex w-100 pt-1 mx-0" [label]="'labels.ETA'"></app-datepicker>
+
+                <app-select class="row d-flex w-100 pe-2 pt-2 mx-1" [label]="'labels.haulier'"
+                  [placeholder]="'Oostvogels'" [options]="selectOptions" [formControl]="selectorControl">
+                </app-select>
+              </div>
+            </div>
+            <!--end::Input group-->
+
+            <!--begin::Input group-->
+            <div class="mb-0 pb-0 fv-row fv-plugins-icon-container">
+              <div class="d-flex gap-3">
+                <div class="d-flex w-75 fs-4 mx-1 ps-7 pe-2 mt-5 containers-created-wrapper"
+                  data-kt-customer-table-toolbar="base">
+                  <div class="w-100 py-3">
+                    {{ "order.containersCreated" | translate }}
+                  </div>
+                  <div class="w-50 py-5 px-2">
+                    <div class="bg-gray-300 text-white text-center py-0 containers-value">3</div>
+                  </div>
+                </div>
+                <div class="row d-flex w-100 pt-0 mx-1 pb-2" data-kt-customer-table-toolbar="base">
+                  <!--begin::Card toolbar-->
+                  <span class="fw-bold px-0 label">{{ "labels.bondedGoods" | translate }}</span>
+                  <div class="card-toolbar px-5 options-wrapper bonded-goods">
+                    <!--begin::Toolbar-->
+                    <div class="row d-flex w-100" data-kt-customer-table-toolbar="base">
+                      <ul class="nav nav-stretch fw-bold flex-nowrap w-100 px-0 my-7 mx-3" role="tablist">
+                        <li class="tab-item flex-grow-1 tab-middle bg-white tab-first">
+                          <a class="tab-link fw-normal cursor-pointer fs-7 px-1 px-xxl-9">
+                            {{ "order.keepBonded" | translate }}
+                          </a>
+                        </li>
+                        <li class="tab-item flex-grow-1 bg-white tab-last">
+                          <a class="tab-link fw-normal cursor-pointer fs-7 px-1 px-xxl-9">
+                            {{ "order.toBeCleared" | translate }}
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <!--end::Toolbar-->
+                  </div>
+                </div>
+                <div class="row d-flex w-100 pt-0 mx-1 pb-2" data-kt-customer-table-toolbar="base">
+                  <!--begin::Card toolbar-->
+                  <span class="fw-bold px-0 label">{{ "labels.otherItems" | translate }}</span>
+                  <div class="card-toolbar px-5 pe-0 options-wrapper other-items">
+                    <!--begin::Toolbar-->
+                    <div class="row d-flex w-100 py-1" data-kt-customer-table-toolbar="base">
+                      <!--begin::Label-->
+                      <app-switch [bigPadding]="true" [label]="'order.dangerousGoods'"></app-switch>
+
+                      <app-switch class="col-lg-8" [bigPadding]="true" [label]="'order.looseProducts'"></app-switch>
+                      <!--end::Label-->
+                    </div>
+                    <!--end::Toolbar-->
+                  </div>
+                </div>
+                <div class="row d-flex w-100 gap-0 py-0 mx-1" data-kt-customer-table-toolbar="base">
+                  <div class="overflow-auto px-0">
+                    <!--begin::Record-->
+                    <app-input class="row d-flex align-items-center p-0 m-0" [placeholder]="'Days'"
+                      [label]="'labels.demurrageFreeDays'" [type]="'number'"></app-input>
+                    <!--end::Record-->
+
+                    <!--begin::Record-->
+                    <app-input class="row d-flex align-items-center p-0 m-0" [placeholder]="'Days'"
+                      [label]="'labels.detentionFreeDays'" [type]="'number'"></app-input>
+
+                    <!--end::Record-->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--end::Input group-->
+
+            <app-files-table
+              class="row d-flex fv-plugins-icon-container border border-dashed border-gray-300 rounded mb-0 pb-0 px-2 mx-1 mt-5"
+              [title]="'labels.otherDocuments'" [labelOnBlock]="true" [withoutPadding]="true"
+              [fileColumns]="fileColumns" [files]="files">
+            </app-files-table>
+
+            <div>
+              <!-- begin:: Containers -->
+              <form action="" [formGroup]="containerForm">
+                <div formArrayName="containers">
+                  <div *ngFor="let container of containers().controls; let contIndex= index">
+                    <div class="tab-pane" [formGroupName]="contIndex">
+                      <div class="h-100 fs-4 pb-0 pt-3 px-1">
+                        <div class="d-flex justify-content-between container-title">
+                          <div class="gray-title-text fw-bold py-2 mb-0">{{"order.container" | translate: { number:
+                            contIndex + 1 } }}</div>
+                          <div class="justify-content-end">
+                            <!--begin::Primary button-->
+                            <a class="btn btn-sm fw-bold border-0 px-0" data-bs-toggle="modal" role="tab"
+                              (click)="removeContainer(contIndex)" data-bs-target="#kt_modal_create_app">
+                              <span class="btn-label"
+                                [inlineSVG]="'./assets/media/icons/duotune/general/delete-cross.svg'"></span>
+                              <span class="delete-color align-middle ps-3 fs-5">{{ "buttons.deleteContainer" | translate
+                                }}</span>
+                            </a>
+                            <!--end::Primary button-->
+                          </div>
+                        </div>
+                        <div class="border-bottom-div w-100"></div>
+                        <!--begin::Input group-->
+                        <div class="w-100 mb-0 pb-0 fv-row fv-plugins-icon-container">
+                          <div class="d-flex gap-1 justify-content-between">
+                            <app-input class="row d-flex pe-2 pt-1 mx-1 container-number"
+                              [label]="'containers.containerNumber'" [placeholder]="''" value="COSU1234567890">
+                            </app-input>
+                            <div class="row d-flex pe-2 pt-1 mx-1 container-info-tabs"
+                              data-kt-customer-table-toolbar="base">
+                              <ul class="nav nav-stretch fw-bold flex-nowrap w-100 px-0 mt-5 justify-content-end"
+                                role="tablist">
+                                <li class="tab-item tab-middle tab-first">
+                                  <a class="tab-link tab-name fs-6 ps-3 py-xxl-2 py-xl-3 px-xxl-3" role="tab">
+                                    <span class="btn-label ps-xxl-1"
+                                      [inlineSVG]="'./assets/media/icons/duotune/general/inbound_mode.svg'"></span>
+                                    <span class="ps-2 pt-1 mt-1 align-middle">{{ "labels.containerType" | translate
+                                      }}</span>
+                                  </a>
+                                </li>
+                                <li class="tab-item tab-middle">
+                                  <a class="tab-link cursor-pointer fs-6 px-2 py-2" role="tab">
+                                    10”
+                                  </a>
+                                </li>
+                                <li class="tab-item tab-middle">
+                                  <a class="tab-link cursor-pointer fs-6 px-2 py-2" role="tab">
+                                    20”
+                                  </a>
+                                </li>
+                                <li class="tab-item tab-middle">
+                                  <a class="tab-link cursor-pointer fs-6 px-2 py-2" role="tab">
+                                    20” HC
+                                  </a>
+                                </li>
+                                <li class="tab-item tab-middle">
+                                  <a class="tab-link cursor-pointer fs-6 px-2 py-2" role="tab">
+                                    40”
+                                  </a>
+                                </li>
+                                <li class="tab-item tab-last">
+                                  <a class="tab-link cursor-pointer fs-6 px-2 py-2" role="tab">
+                                    40” HC
+                                  </a>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <!--end::Input group-->
+                      </div>
+                    </div>
+                    <!-- begin:: Containers -->
+
+                    <!-- begin:: Table 1 -->
+                    <div id="kt_customers_table_wrapper2" class="pt-5">
+                      <div class="table-responsive">
+                        <table class="table table-hover container-info-table fs-6 gy-2" id="kt_customers_table2">
+                          <thead>
+
+                            <tr class="text-start w-100 text fw-bold fs-6 gs-0">
+                              <th class="{{ column.value }}"
+                                [ngClass]="column.value === 'productName' ? 'ps-4 py-2' : 'text-start sorting'"
+                                *ngFor="let column of columnsMain" tabindex="0" aria-controls="kt_customers_table"
+                                rowspan="1" colspan="1">
+                                {{ column.name | translate }}
+                              </th>
+                            </tr>
+
+                          </thead>
+
+                          <tbody class="text-black fw-semibold align-middle">
+                            <tr class="odd">
+
+                              <td class="ps-4">
+                                <app-select [placeholder]="'123456 AB12 CC12'"
+                                  [specialClasses]="'fs-6 mb-2 pb-2 py-3 px-6'" [options]="selectOptions"
+                                  [formControl]="selectorControl">
+                                </app-select>
+                              </td>
+
+                              <td>
+                                <app-select [placeholder]="'123456 AB12 CC12'"
+                                  [specialClasses]="'fs-6 mb-2 pb-2 py-3 px-6'" [options]="selectOptions"
+                                  [formControl]="selectorControl">
+                                </app-select>
+                              </td>
+
+                              <td>
+                                <app-select [placeholder]="'Cartons'" [specialClasses]="'fs-6 mb-2 pb-2 py-3 px-6'"
+                                  [options]="selectOptions" [formControl]="selectorControl">
+                                </app-select>
+                              </td>
+
+                              <td>
+                                <app-input [placeholder]="''" value="600"></app-input>
+                              </td>
+
+                              <td>
+                                <app-input [placeholder]="''" value="600"></app-input>
+                              </td>
+
+                              <td class="pe-4">
+                                <app-input [placeholder]="''" value="600"></app-input>
+                              </td>
+
+                              <td></td>
+
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                    <div formArrayName="goodsLines">
+                      <!--begin::Table 1-->
+                      <div id="kt_customers_table_wrapper3" class="pt-5">
+                        <div class="table-responsive">
+                          <table class="table table-hover fs-6 gy-2 container-additional-table"
+                            id="kt_customers_table3">
+                            <thead>
+
+                              <tr class="text-start w-100 text fw-bold fs-6 gs-0">
+                                <th class="{{ column.value }}"
+                                  [ngClass]="column.value === 'productSKU' ? 'ps-4 py-2' : 'text-start sorting'"
+                                  *ngFor="let column of columnsSecondary" aria-controls="kt_customers_table" rowspan="1"
+                                  colspan="1">
+                                  {{ column.name | translate }}
+                                </th>
+                              </tr>
+
+                            </thead>
+
+                            <tbody class="text-black fw-semibold align-middle">
+                              <tr class="odd border-opacity-50 row-additional">
+
+                                <td class="ps-4">
+                                  <app-select [placeholder]="'123456 AB12 CC12'"
+                                    [specialClasses]="'fs-6 mb-2 pb-2 py-3 px-6'" [options]="selectOptions"
+                                    [formControl]="selectorControl">
+                                  </app-select>
+                                </td>
+
+                                <td>
+                                  <app-input [placeholder]="''" value="600"></app-input>
+                                </td>
+
+                                <td>
+                                  <app-input [placeholder]="''" value="600"></app-input>
+                                </td>
+
+                                <td>
+                                  <app-input [placeholder]="''" value="600"></app-input>
+                                </td>
+
+                                <td>
+                                  <app-input [placeholder]="''" value="600"></app-input>
+                                </td>
+
+                                <td>
+                                  <app-input [placeholder]="''" value="600"></app-input>
+                                </td>
+
+                                <td>
+                                  <app-input [placeholder]="''" value="600"></app-input>
+                                </td>
+
+                                <td class="pe-3 ps-0 ms-0">
+
+                                  <app-action [name]="'delete'"></app-action>
+
+                                </td>
+
+                              </tr>
+
+                              <tr class="odd">
+                                <td class="ps-4" colspan="5">
+                                  <a class="btn btn-sm fw-bold border-0 px-0" data-bs-toggle="modal"
+                                    data-bs-target="#kt_modal_create_app">
+                                    <span class="btn-label"
+                                      [inlineSVG]="'./assets/media/icons/duotune/general/add-plus-green.svg'"></span>
+                                    <span class="green-add-color ps-3 fs-5 align-middle">
+                                      {{ "buttons.addOrderLines" | translate }}</span>
+                                  </a>
+                                </td>
+
+                                <td>
+                                  <app-input [placeholder]="''" value="600"></app-input>
+                                </td>
+
+                                <td>
+                                  <app-input [placeholder]="''" value="600"></app-input>
+                                </td>
+
+                                <td class="pe-3 ps-0 ms-0"></td>
+
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div class="fv-row fv-plugins-icon-container px-1 pt-3">
+              <!--begin::Primary button-->
+              <a class="btn btn-sm fw-bold border-0 px-0" data-bs-toggle="modal" (click)="addContainer()"
+                data-bs-target="#kt_modal_create_app">
+                <span class="btn-label" [inlineSVG]="'./assets/media/icons/duotune/general/add-plus.svg'"></span>
+                <span class="a-link-color ps-3 fs-5 align-middle">{{ "buttons.addContainer" | translate }}</span>
+              </a>
+              <!--end::Primary button-->
+            </div>
+
+
+          </div>
+          <!-- end::Sea Tab -->
+
+          <!-- begin::Truck Tab -->
+          <div class="tab-pane" [ngClass]="{ active: activeTab === 'Truck' }">
+            Test Truck
+          </div>
+          <!-- end::Truck Tab -->
+
+          <!-- begin::Air Tab -->
+          <div class="tab-pane" [ngClass]="{ active: activeTab === 'Air' }">
+            Test Air
+          </div>
+          <!-- end::Air Tab -->
+
+          <!-- begin::Rail Tab -->
+          <div class="tab-pane" [ngClass]="{ active: activeTab === 'Rail' }">
+            Test Rail
+          </div>
+          <!-- end::Rail Tab -->
+        </div>
+
+
+      </div>
+      <!--end::Card body-->
+    </div>
+    <!--end::Card-->
+  </div>
+  <!--end::Content container-->
+</div>
+<!--end::Content-->

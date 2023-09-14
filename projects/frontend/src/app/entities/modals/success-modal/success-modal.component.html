@@ -1,0 +1,21 @@
+<div class="modal-content" style="z-index: 101">
+<!--  <div class="modal-header">-->
+<!--    <span class="btn-label" [inlineSVG]="'./assets/media/icons/duotune/general/warning-popover.svg'"></span>-->
+<!--    <label class="popover-title-warning ps-3">-->
+<!--      Attention</label>-->
+<!--    <button type="button" class="btn-close"-->
+<!--            aria-label="Close"></button>-->
+<!--  </div>-->
+  <div class="modal-body">
+    <div class="submit-success-modal-body pt-8 pb-2">
+      <span class="btn-label" [inlineSVG]="'./assets/media/icons/duotune/general/submit_check.svg'"></span>
+      <div class="row m-0 p-0 text-center gap-5">
+        <label class="submit-success-title">Submission Successful</label>
+        <label class="submit-success-subtitle">Shipment ID abcd12345 has been created</label>
+      </div>
+      <app-button class="px-0" [name]="'buttons.viewShipment'"
+                  (click)="redirectToShipments()"
+                  [btnColor]="btnColor.blue" [btnPadding]="btnPadding.padding"></app-button>
+    </div>
+  </div>
+</div>
