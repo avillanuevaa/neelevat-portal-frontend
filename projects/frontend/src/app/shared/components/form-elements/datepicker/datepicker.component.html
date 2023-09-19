@@ -3,7 +3,7 @@
   <span class="menu-icon-input-right opacity-50 {{ toggleClasses }}">
     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
   </span>
-  <input [(ngModel)]="value" [placeholder]="placeholder || 'DD/MM/YYYY'" (click)="picker.open()" [disabled]="disabled"
+  <input [(ngModel)]="value" [placeholder]="placeholder || 'DD/MM/YYYY'" (click)="picker.open()" (dateChange)="newDateValue($event)" [disabled]="disabled"
     class="form-control mb-2 {{ inputClasses }} {{ bgClasses }}" type="text" name="email" matInput [matDatepicker]="picker" />
   <mat-datepicker #picker></mat-datepicker>
 </div>

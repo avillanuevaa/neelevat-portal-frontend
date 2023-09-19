@@ -16,7 +16,8 @@ export class SuccessModalComponent {
   public btnPadding: typeof EButtonPadding = EButtonPadding;
 
   constructor(public bsModalRef: BsModalRef,
-              private router: Router) {}
+              private router: Router) {
+  }
 
   redirectToShipments() {
     // Usa el servicio Router para navegar a la ruta '/shipments'

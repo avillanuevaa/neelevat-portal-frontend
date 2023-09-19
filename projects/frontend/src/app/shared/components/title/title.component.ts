@@ -32,6 +32,8 @@ import {ERightIcon} from "@shared/components/button/enums/rightIcon.enum";
 })
 export class TitleComponent implements OnInit, OnDestroy {
   @Output() public onChangeSelector: EventEmitter<string[]> = new EventEmitter<string[]>();
+  @Output() stepClick: EventEmitter<number> = new EventEmitter<number>();
+  @Output() public returnButtonClick: EventEmitter<void> = new EventEmitter<void>();
   @Input() public title: string;
   @Input() public breadcrumbs: IBreadcrumb[];
   @Input() public filterOptions: ISelect[] | Set<string>;
@@ -84,5 +86,17 @@ export class TitleComponent implements OnInit, OnDestroy {
   public ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
+  }
+
+  handleStepClick(index: number): void {
+    this.stepClick.emit(index);
+    const clickedStep = this.steps[index];
+
+    // console.log(`Yoou clicked the step: ${clickedStep.name}`);
+
+  }
+
+  onReturnButtonClick(): void {
+    this.returnButtonClick.emit();
   }
 }

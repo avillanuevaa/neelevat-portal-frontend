@@ -1,0 +1,12 @@
+<label class="header-info-title">{{ title }}</label>
+<div class="d-flex gap-10px">
+  <label class="address-name">Oostvogels Hazeldonk</label>
+  <span [inlineSVG]="'./assets/media/icons/duotune/shipment_details/add_circle_outline.svg'"
+        class="svg-icon cursor-pointer"
+        (click)="toggleAddress()"></span>
+</div>
+<!-- Address info to hide or display-->
+<div *ngIf="displayAddress">
+  <p *ngFor="let line of addressLines" class="m-0">{{ line }}</p>
+</div>
+

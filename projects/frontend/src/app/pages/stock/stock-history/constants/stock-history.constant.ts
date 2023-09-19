@@ -38,7 +38,7 @@ export const STOCK_HISTORY_FILTER_OPTIONS: ISelect[] = [
 export const STOCK_HISTORY_TITLE_BUTTON: ITitleButton = {
   name: 'buttons.newShipment',
   svg: './assets/media/icons/duotune/general/add-check.svg',
-  link: '/inbound/create',
+  link: '/new-shipment/road',
 };
 
 export const STOCK_HISTORY_COLUMNS: IColumn[] = [

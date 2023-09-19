@@ -1,0 +1,123 @@
+// valores de códigos de colores pensando en generalizarlos para solo usarlos como variables . ¡ IMPORTANTE !
+.communication_container {
+    width: 100%;
+    border: 1px solid var(--nv-text-placeholder, #e5e5e5);
+    background: var(--nv-white, #fff);
+  }
+  .nav-tabs {
+    border: 1px solid #e5e5e5;
+    background: #ebebeb;
+    padding: 0.5rem;
+  }
+  .nav-link {
+    width: 100%;
+    color: #262626;
+    &:hover {
+      cursor: pointer;
+      border: none;
+    }
+  }
+  
+  .communication_container_header {
+    border: 1px solid #e5e5e5;
+    background: #ebebeb;
+  }
+  .nav-item .nav-link.active {
+    border-bottom: 0 !important;
+    border-radius: 6px;
+    color: #266791;
+    border: 1px solid #e5e5e5;
+    background: #fff;
+    box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.06);
+  }
+  .tab-content {
+    padding: 12px 14px;
+  }
+  .tab-content_send {
+    display: flex !important;
+  }
+  .image-container {
+    .image {
+      border: 1px solid #c5c5c5;
+      border-radius: 50%;
+  
+      &-wrapper {
+        border: 4px solid #ffffff;
+        border-radius: 50%;
+      }
+    }
+  }
+  .user-container {
+    .user-name_container {
+      color: #262626;
+      text-align: start;
+      font-family: Inter;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+    .user-response_container {
+      border-radius: 0px 6px 6px 6px;
+      border: 1px solid #e5e5e5;
+    }
+  }
+  .user-date_container {
+    color: #d1d1d1;
+    text-align: center;
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .client-response_container {
+      border-radius: 6px 0px 6px 6px;
+      background: #E6F5FF;
+  }
+  .text-general{
+      color: #262626;
+  text-align: center;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  }
+  .line-content_text {
+    color: #ccc;
+    text-align: center;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+  .line-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  
+    }
+    .line-content_general {
+      stroke-width: 1px;
+      stroke: #CCC;
+      flex-grow: 1;
+      border-top: 1px solid #CCC;
+      height: 0; /* Establece la altura de la línea a 0 para que se extienda horizontalmente */
+    }
+    
+    .line-content_text {
+      white-space: nowrap;
+      padding: 0 10px; /* Espacio horizontal entre el texto y la línea (ajusta según sea necesario) */
+    }
+    
+    .chat_messenger_footer_container {
+      border: 1.03px solid #CCC;
+      max-height: 5.25rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .button-three-points{
+      fill:#266791
+    }

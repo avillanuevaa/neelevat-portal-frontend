@@ -1,29 +1,6 @@
 <div class="row content gx-5 mt-2">
 
   <div class="mb-0 pb-0 fv-row fv-plugins-icon-container">
-    <div class="d-flex gap-5">
-
-      <app-select class="row d-flex w-100 mx-0 pt-1" [placeholder]="'Organisation A'"
-                  [label]="'labels.status'" [options]="">
-      </app-select>
-
-      <app-select class="row d-flex w-50 mx-0 pt-1" [placeholder]="'Organisation A'"
-                  [label]="'labels.fileNumber'" [options]="">
-      </app-select>
-
-      <app-select class="row d-flex w-50 mx-0 pt-1" [placeholder]="'Organisation A'"
-                  [label]="'labels.reference'" [options]="">
-      </app-select>
-
-      <app-select class="row d-flex w-50 mx-0 pt-1" [placeholder]="'Organisation A'"
-                  [label]="'labels.containerN'" [options]="">
-      </app-select>
-
-      <app-select class="row d-flex w-50 mx-0 pt-1" [placeholder]="'Organisation A'"
-                  [label]="'labels.mbl'" [options]="">
-      </app-select>
-
-    </div>
 
     <div class="d-flex py-4 justify-content-center">
       <div class="row d-flex fv-row fv-plugins-icon-container px-0 py-4">
@@ -97,10 +74,10 @@
                 <th *ngIf="column.display" tabindex="0" class="align-top" aria-controls="kt_customers_table"
                     rowspan="1" colspan="1" aria-label="Row: activate to sort column ascending">
                   <div class="text-nowrap">
-<!--                    <app-multiselect (onChangeWithoutEvent)="applyColumnFilter($event, column.value)"-->
-<!--                                     [markForCheck]="markForCheck" [options]="mainFilter[column.value]"-->
-<!--                                     [value]="activeFilters[column.value]" [placeholder]="'labels.filter'">-->
-<!--                    </app-multiselect>-->
+                    <!--                    <app-multiselect (onChangeWithoutEvent)="applyColumnFilter($event, column.value)"-->
+                    <!--                                     [markForCheck]="markForCheck" [options]="mainFilter[column.value]"-->
+                    <!--                                     [value]="activeFilters[column.value]" [placeholder]="'labels.filter'">-->
+                    <!--                    </app-multiselect>-->
                   </div>
                 </th>
               </ng-container>
@@ -111,26 +88,183 @@
             <tbody class="fw-semibold text-black">
 
             <tr class="odd min-table-height row-font-size"
-                >
+                *ngFor="let container of filteredContainers | slice: finishDisplayedRows - numbersOfElements: finishDisplayedRows">
               <ng-container *ngFor="let column of columns">
-                <td class="padding-cells-tbody" *ngIf="column.display">
-                  <div class="text-nowrap"></div>
+<!--                <td class="padding-cells-tbody"-->
+<!--                    *ngIf="column.display && (column.value !== 'containerNumber' && column.value !== 'shipmentID' && column.value !== 'batch' && column.value !== 'terminal')">-->
+<!--                  <div class="text-nowrap">{{ container[column.value] }}</div>-->
+<!--                </td>-->
+                <td class="padding-cells-tbody"
+                    *ngIf="column.display && (column.value === 'containerNumber')">
+
+                    <div *ngIf="container.mbl === container.hbl">
+                      <div> {{ container.mbl / container.hbl }}</div>
+                    </div>
+                    <div>{{ container.containerNumber }}</div>
+
                 </td>
-                <!--                        <td *ngIf="column.value === 'totalPallets'">{{ stock.totalPallets }}</td> &lt;!&ndash; Aquí se muestra el valor totalPallets &ndash;&gt;-->
+<!--                <td *ngIf="column.value === 'containerNumber'" class="text-center">-->
+<!--                  <ng-container *ngIf="container.containerNumber && container.containerNumber.length > 0 && container.containerNumber.length <=3">-->
+<!--                    <ng-container *ngFor="let item of container.containerNumber; let i = index">-->
+<!--                      <span class="badge sky-blue-badge me-2">{{ item }}</span>-->
+<!--                    </ng-container>-->
+<!--&lt;!&ndash;                    <ng-container *ngIf="container.containerNumber.length > 3">&ndash;&gt;-->
+<!--&lt;!&ndash;                      <span&ndash;&gt;-->
+<!--&lt;!&ndash;                        class="badge sky-blue-badge me-2"&ndash;&gt;-->
+<!--&lt;!&ndash;                        (mouseenter)="container.showAdditionalBadges.containerNumber = true"&ndash;&gt;-->
+<!--&lt;!&ndash;                        (mouseleave)="container.showAdditionalBadges.containerNumber = false">&ndash;&gt;-->
+<!--&lt;!&ndash;                        +{{ container.containerNumber.length - 3 }}&ndash;&gt;-->
+<!--&lt;!&ndash;                      </span>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </ng-container>&ndash;&gt;-->
+<!--                  </ng-container>-->
+
+<!--                  <ng-container *ngIf="container.containerNumber && container.containerNumber.length >= 4">-->
+<!--                    <ng-container *ngFor="let badge of getBadgeContent(container.containerNumber).primary">-->
+<!--                      <span class="badge sky-blue-badge me-2">-->
+<!--                        {{ badge }}-->
+<!--                      </span>-->
+<!--                    </ng-container>-->
+<!--                    <span class="badge sky-blue-badge badge-extra-values cursor-pointer me-2" [ngbPopover]="popoverContent" [popoverClass]="'popover-badges'"-->
+<!--                          placement="top-left"-->
+<!--                          triggers="click"-->
+<!--                          *ngIf="getBadgeContent(container.containerNumber).additional"-->
+<!--                          (click)="container.showAdditionalBadges.containerNumber = true">-->
+<!--                      ({{ getBadgeContent(container.containerNumber).additional }})-->
+<!--                    </span>-->
+<!--                    <ng-template #popoverContent>-->
+<!--                    <ng-container *ngIf="container.showAdditionalBadges.containerNumber">-->
+<!--                      <ng-container *ngFor="let badge of container.containerNumber.slice(3)">-->
+<!--                        <span class="badge sky-blue-badge me-2 mt-1">-->
+<!--                          {{ badge }}-->
+<!--                        </span>-->
+<!--                      </ng-container>-->
+<!--                    </ng-container>-->
+<!--                    </ng-template>-->
+<!--                  </ng-container>-->
+<!--                </td>-->
+
+<!--                <td *ngIf="column.value === 'shipmentID'" class="text-center">-->
+<!--                  <ng-container *ngIf="container.shipmentID && container.shipmentID.length > 0 && container.shipmentID.length <=3">-->
+<!--                    <ng-container *ngFor="let item of container.shipmentID; let i = index">-->
+<!--                      <span class="badge sky-blue-badge me-2">{{ item }}</span>-->
+<!--                    </ng-container>-->
+<!--                    <ng-container *ngIf="container.shipmentID.length > 3">-->
+<!--                      <span-->
+<!--                        class="badge sky-blue-badge me-2"-->
+<!--                        (mouseenter)="container.showAdditionalBadges.shipmentID = true"-->
+<!--                        (mouseleave)="container.showAdditionalBadges.shipmentID = false">-->
+<!--                        +{{ container.shipmentID.length - 3 }}-->
+<!--                      </span>-->
+<!--                    </ng-container>-->
+<!--                  </ng-container>-->
+
+<!--                  <ng-container *ngIf="container.shipmentID && container.shipmentID.length >= 4">-->
+<!--                    <ng-container *ngFor="let badge of getBadgeContent(container.shipmentID).primary">-->
+<!--                      <span class="badge sky-blue-badge me-2">-->
+<!--                        {{ badge }}-->
+<!--                      </span>-->
+<!--                    </ng-container>-->
+<!--                    <span class="badge sky-blue-badge badge-extra-values me-2"-->
+<!--                          *ngIf="getBadgeContent(container.shipmentID).additional"-->
+<!--                          (mouseenter)="container.showAdditionalBadges.shipmentID = true"-->
+<!--                          (mouseleave)="container.showAdditionalBadges.shipmentID = false">-->
+<!--                      ({{ getBadgeContent(container.shipmentID).additional }})-->
+<!--                    </span>-->
+<!--                    <ng-container *ngIf="container.showAdditionalBadges.shipmentID">-->
+<!--                      <ng-container *ngFor="let badge of container.shipmentID.slice(3)">-->
+<!--                        <span class="badge sky-blue-badge mt-1 me-2">-->
+<!--                          {{ badge }}-->
+<!--                        </span>-->
+<!--                      </ng-container>-->
+<!--                    </ng-container>-->
+<!--                  </ng-container>-->
+<!--                </td>-->
+
+<!--                <td *ngIf="column.value === 'batch'" class="text-center">-->
+<!--                  <ng-container *ngIf="container.batch && container.batch.length > 0 && container.batch.length <=3">-->
+<!--                    <ng-container *ngFor="let item of container.batch; let i = index">-->
+<!--                      <span class="badge sky-blue-badge me-2">{{ item }}</span>-->
+<!--                    </ng-container>-->
+<!--                    <ng-container *ngIf="container.batch.length > 3">-->
+<!--                      <span-->
+<!--                        class="badge sky-blue-badge me-2"-->
+<!--                        (mouseenter)="container.showAdditionalBadges.batch = true"-->
+<!--                        (mouseleave)="container.showAdditionalBadges.batch = false">-->
+<!--                        +{{ container.batch.length - 3 }}-->
+<!--                      </span>-->
+<!--                    </ng-container>-->
+<!--                  </ng-container>-->
+
+<!--                  <ng-container *ngIf="container.batch && container.batch.length >= 4">-->
+<!--                    <ng-container *ngFor="let badge of getBadgeContent(container.batch).primary">-->
+<!--                      <span class="badge sky-blue-badge me-2">{{ badge }}-->
+<!--                      </span>-->
+<!--                    </ng-container>-->
+<!--                    <span class="badge sky-blue-badge badge-extra-values me-2"-->
+<!--                          *ngIf="getBadgeContent(container.batch).additional"-->
+<!--                          (mouseenter)="container.showAdditionalBadges.batch = true"-->
+<!--                          (mouseleave)="container.showAdditionalBadges.batch = false">-->
+<!--                      ({{ getBadgeContent(container.batch).additional }})-->
+<!--                    </span>-->
+<!--                    <ng-container *ngIf="container.showAdditionalBadges.batch">-->
+<!--                      <ng-container *ngFor="let badge of container.batch.slice(3)">-->
+<!--                        <span class="badge sky-blue-badge mt-1 me-2">-->
+<!--                        {{ badge }}-->
+<!--                        </span>-->
+<!--                      </ng-container>-->
+<!--                    </ng-container>-->
+<!--                  </ng-container>-->
+<!--                </td>-->
+
+<!--                <td *ngIf="column.value === 'terminal'" class="text-center">-->
+<!--                  <ng-container *ngIf="container.terminal && container.terminal.length > 0 && container.terminal.length <=3">-->
+<!--                    <ng-container *ngFor="let item of container.terminal; let i = index">-->
+<!--                      <span class="badge sky-blue-badge me-2">{{ item }}</span>-->
+<!--                    </ng-container>-->
+<!--                    <ng-container *ngIf="container.terminal.length > 3">-->
+<!--                      <span-->
+<!--                        class="badge sky-blue-badge me-2"-->
+<!--                        (mouseenter)="container.showAdditionalBadges.terminal = true"-->
+<!--                        (mouseleave)="container.showAdditionalBadges.terminal = false">-->
+<!--                        +{{ container.terminal.length - 3 }}-->
+<!--                      </span>-->
+<!--                    </ng-container>-->
+<!--                  </ng-container>-->
+
+<!--                  <ng-container *ngIf="container.terminal && container.terminal.length >= 4">-->
+<!--                    <ng-container *ngFor="let badge of getBadgeContent(container.terminal).primary">-->
+<!--                      <span class="badge sky-blue-badge me-2">{{ badge }}-->
+<!--                      </span>-->
+<!--                    </ng-container>-->
+<!--                    <span class="badge sky-blue-badge badge-extra-values me-2"-->
+<!--                          *ngIf="getBadgeContent(container.terminal).additional"-->
+<!--                          (mouseenter)="container.showAdditionalBadges.terminal = true"-->
+<!--                          (mouseleave)="container.showAdditionalBadges.terminal = false">-->
+<!--                      ({{ getBadgeContent(container.terminal).additional }})-->
+<!--                    </span>-->
+<!--                    <ng-container *ngIf="container.showAdditionalBadges.terminal">-->
+<!--                      <ng-container *ngFor="let badge of container.terminal.slice(3)">-->
+<!--                        <span class="badge sky-blue-badge mt-1 me-2">-->
+<!--                        {{ badge }}-->
+<!--                        </span>-->
+<!--                      </ng-container>-->
+<!--                    </ng-container>-->
+<!--                  </ng-container>-->
+<!--                </td>-->
               </ng-container>
             </tr>
 
-<!--            <app-spinner ></app-spinner>-->
+            <!--            <app-spinner ></app-spinner>-->
 
             </tbody>
           </table>
 
         </div>
 
-<!--        <app-pagination (onChangePage)="changePage($event)"-->
-<!--                        (onChangeNumberOfElement)="changeNumberOfElement($event)" [resetPage]="resetPage"-->
-<!--                        [amountItems]="filteredStocks?.length">-->
-<!--        </app-pagination>-->
+        <!--        <app-pagination (onChangePage)="changePage($event)"-->
+        <!--                        (onChangeNumberOfElement)="changeNumberOfElement($event)" [resetPage]="resetPage"-->
+        <!--                        [amountItems]="filteredStocks?.length">-->
+        <!--        </app-pagination>-->
       </div>
     </div>
 

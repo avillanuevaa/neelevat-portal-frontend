@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ISelect } from '@shared/components/title/interfaces/select.interface';
+import { IdValueInterface } from '@interfaces/value-id.interface';
 const noop = () => { };
 
 @Component({
@@ -17,11 +18,13 @@ const noop = () => { };
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SelectComponent implements ControlValueAccessor {
+
   @Input() public placeholder: string;
   @Input() public label: string;
   @Input() public svg: boolean;
   @Input() public svgPosition: 'left' | 'right' = 'right';
-  @Input() public options: ISelect[] | string;
+  @Input() public options: IdValueInterface[];
+  @Input() public optionSelected: string = null;
   @Input() public markForCheck: boolean;
   @Input() public specialClasses: string;
   @Input() public disabled: boolean;
@@ -31,16 +34,21 @@ export class SelectComponent implements ControlValueAccessor {
     this.onChange(this._value);
   }
 
+  @Output() newSelectedValue = new EventEmitter<string>();
+
   private _value: string;
 
   constructor(
     private cdr: ChangeDetectorRef,
-  ) { }
+  ) {  }
+
+  selectNewValue(event: string) {
+    this.newSelectedValue.emit(event)
+  }
 
   public get value(): string {
     return this._value;
   }
-
   public get iconClasses(): string {
     if (this.svgPosition === 'right') return 'pe-10';
   }

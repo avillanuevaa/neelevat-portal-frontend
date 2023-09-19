@@ -1,1 +1,147 @@
-<p>tab-communication works!</p>
+<div class="row p-0">
+    <div class="mb-0 pb-0 fv-row fv-plugins-icon-container">
+        <div class="d-flex gap-5">
+            <div class="communication_container">
+                <div class="overflow-auto px-0 align-items-end">
+                    <ul class="nav nav-tabs row communication_container_headers" role="tablist">
+                        <li class="nav-item col-6" role="presentation">
+                            <button class="nav-link active" id="profile-tab" data-bs-toggle="tab"
+                                data-bs-target="#profile" type="button" role="tab" aria-controls="profile"
+                                aria-selected="true">
+                                Partner Communication
+                            </button>
+                        </li>
+                        <li class="nav-item col-6" role="presentation">
+                            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact"
+                                type="button" role="tab" aria-controls="contact" aria-selected="false">
+                                Internal notes
+                            </button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="profile" role="tabpanel"
+                            aria-labelledby="profile-tab">
+                            <!-- user -->
+                            <div class="d-flex justify-content-start">
+                                <div class="symbol symbol-50px me-2 image-container position-relative">
+                                    <div class="symbol symbol-50px symbol-circle">
+                                        <span class="symbol-label bg-light-danger text-danger fs-6 fw-bolder">
+                                            <img [src]="user.avatar" alt="avatar" width="50"
+                                                class="image rounded-circle" />
+                                        </span>
+                                        <div
+                                            class="symbol-badge bg-success start-100 top-100 border-4 h-15px w-15px ms-n2 mt-n2">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="user-container">
+                                    <div class="user-name_container">Haasjmie Wong Fong Sang</div>
+                                    <div class="user-response_container mt-2 p-3 text-general">
+                                        Error: Request failed with status code 404
+                                    </div>
+                                    <div class="user-date_container d-flex justify-content-end mt-1">
+                                        05/02/2023
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- client response -->
+                            <div class="d-flex justify-content-end mt-3">
+                                <div class="client-container">
+                                    <div class="client-response_container mt-2 p-3 text-general">
+                                        Error: Request failed with status code 404
+                                    </div>
+                                    <div class="user-date_container d-flex justify-content-end mt-1">
+                                        05/02/2023
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="line-content mt-4 mb-4">
+                                <div class="line-content_general"></div>
+                                <div class="line-content_text">Today</div>
+                                <div class="line-content_general"></div>
+                            </div>
+                            <div class="d-flex justify-content-end mb-5">
+                                <div class="client-container">
+                                    <div class="client-response_container mt-2 p-3 text-general">
+                                        Error: Request failed with status code 404
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- TextArea send  init-->
+                            <div class="pt-4 chat_messenger_footer_container" id="kt_drawer_chat_messenger_footer">
+                                <div class="d-flex flex-stack">
+                                    <div class="w-100">
+                                        <textarea rows="1" data-kt-element="input" placeholder="Send a message"
+                                            class="form-control form-control-flush mb-3"></textarea>
+                                    </div>
+                                    <div class="d-flex align-items-end justify-content-end me-3 mt-3">
+                                        <button type="button" ngbtooltip="Coming soon"
+                                            class="btn btn-sm btn-icon btn-active-light-primary me-1">
+                                            <i class="fa fa-paperclip fs-3"></i>
+                                        </button>
+                                        <button type="button" data-kt-element="send"
+                                            class="btn btn-sm filter-button-bluebg fs-14px">
+                                            Send
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- TextArea send  end-->
+                        </div>
+                        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                            <!-- TextArea send  init-->
+                            <div class="pt-4 chat_messenger_footer_container" id="kt_drawer_chat_messenger_footer">
+                                <div class="d-flex flex-stack">
+                                    <div class="w-100">
+                                        <textarea rows="1" data-kt-element="input" placeholder="Enter note"
+                                            class="form-control form-control-flush mb-3"></textarea>
+                                    </div>
+                                    <div class="d-flex align-items-end justify-content-end me-3 mt-3">
+                                        <button type="button" data-kt-element="send"
+                                            class="btn btn-sm filter-button-bluebg fs-14px">
+                                            Add
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- user -->
+                            <div class="d-flex justify-content-start mt-4">
+                                <div class="symbol symbol-50px me-2 image-container position-relative">
+                                    <div class="symbol symbol-50px symbol-circle">
+                                        <span class="symbol-label bg-light-danger text-danger fs-6 fw-bolder">
+                                            <img [src]="user.avatar" alt="avatar" width="50"
+                                                class="image rounded-circle" />
+                                        </span>
+                                        <div
+                                            class="symbol-badge bg-success start-100 top-100 border-4 h-15px w-15px ms-n2 mt-n2">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="user-container w-100">
+                                    <div class="d-flex">
+                                       <div class="w-100">
+                                        <div class="user-response_container mt-2 p-3 text-general text-start">
+                                            Error: Request failed with status code 404
+                                        </div>
+                                        <div class="user-date_container d-flex justify-content-end mt-1">
+                                            05/02/2023
+                                        </div>
+
+                                       </div>
+                                       <div class="mt-4">
+                                        <span class="svg-icon-white svg-icon-2 symbol-10px details-icon"
+                                          [inlineSVG]="'./assets/media/icons/duotune/general/three-points.svg'">
+                                        </span>
+                                       </div>
+                                    </div>
+                                    <div class="user-name_container">Haasjmie Wong Fong Sang</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

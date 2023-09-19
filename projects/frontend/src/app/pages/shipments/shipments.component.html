@@ -10,8 +10,7 @@
 
       <div class="card-header row border-0 pe-3 mb-sm-1 mb-0 pb-0 min-h-50px">
         <div class="d-flex fs-2 tabs-container pb-0 p-top-5px">
-          <app-tabs [tabs]="tabs" [activeTab]="activeTab" (changeTab)="setActiveTab($event)"
-                    [width]="'150px'">
+          <app-tabs [tabs]="tabs" [activeTab]="activeTab" (changeTab)="setActiveTab($event)" [isPageTabs]="true">
           </app-tabs>
         </div>
       </div>
@@ -20,7 +19,7 @@
         <div id="kt_customers_table_wrapper">
           <div class="tab-content">
 
-            <app-road-shipments class="tab-pane" [class.active]="activeTab === 'Road'">
+            <app-road-shipments class="tab-pane" [class.active]="activeTab === 'Road'" [activeRoadShipmentDrafts]="activeRoadShipmentDrafts">
 
             </app-road-shipments>
 

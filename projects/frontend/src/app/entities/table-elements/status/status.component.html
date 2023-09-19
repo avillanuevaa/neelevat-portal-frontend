@@ -1,3 +1,4 @@
 <div class="badge {{ classes }}">
-  <div>{{ ('statuses.' + (name || 'noStatus')) | translate }}</div>
+  <div *ngIf="!isBadge">{{ ('statuses.' + (name || 'noStatus')) | translate }}</div>
+  <div *ngIf="isBadge">{{ (name || 'noStatus') | translate }}</div>
 </div>

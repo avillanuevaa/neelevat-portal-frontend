@@ -1,4 +1,4 @@
 <span *ngIf="label" [ngClass]="{'px-0 label': true, 'disabled-label': disabled, 'disabled-blue': useBlackFont}">{{ label | translate }}</span>
 
-<textarea [(ngModel)]="value" (ngModelChange)="onChange($event.trim())" [disabled]="disabled"
+<textarea [value]="value" (change)="inputNewValue($event)" [disabled]="disabled"
   class="form-control {{classes}}" [placeholder]="placeholder | translate" [rows]="rows" wrap="soft"></textarea>

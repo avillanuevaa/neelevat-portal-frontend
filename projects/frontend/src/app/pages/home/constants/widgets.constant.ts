@@ -21,7 +21,7 @@ export const WIDGETS: IWidget[] = [
     type: 'home.widgetsType.create',
     chartSvg: 'assets/media/icons/duotune/general/chart-04.svg',
     icon: '/assets/media/icons/duotune/general/create-order.svg',
-    route: '/inbound/create',
+    route: '/new-shipment/road',
   },
   {
     name: 'home.widgetsName.notifications',
@@ -111,7 +111,7 @@ export const WIDGETS_TEST: any[] = [
     type: 'home.widgetsType.create',
     chartSvg: 'assets/media/icons/duotune/general/chart-04.svg',
     icon: '/assets/media/icons/duotune/general/create-order.svg',
-    route: '/inbound/create',
+    route: '/new-shipment/road',
   },
   {
     name: 'home.widgetsName.notifications',

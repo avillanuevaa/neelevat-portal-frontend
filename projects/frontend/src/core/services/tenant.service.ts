@@ -8,10 +8,12 @@ import { TenantResponse } from '@interfaces/tenant-response';
   providedIn: 'root'
 })
 export class TenantService {
-  baseUrl: string;
+  public selectedTenant = '3fa85f64-5717-4562-b3fc-2c963f66afa7';
+
+  private readonly baseUrl: string;
 
   constructor(private http: HttpClient) {
-    this.baseUrl = environment.apiConfig.uri;
+    this.baseUrl = environment.eventSourceUrl;
   }
 
   getTenants(): Observable<TenantResponse> {

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 const noop = () => { };
 
@@ -33,11 +33,17 @@ export class InputComponent implements ControlValueAccessor {
     this.onChange(this._value);
   }
 
+  @Output() newValueEvent = new EventEmitter<string>();
+
   private _value: string;
 
   constructor(
     private cdr: ChangeDetectorRef,
   ) { }
+
+  inputNewValue(event) {
+    this.newValueEvent.emit(event.target.value);
+  }
 
   public get value(): string {
     return this._value;

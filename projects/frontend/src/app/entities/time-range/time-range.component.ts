@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import {NG_VALUE_ACCESSOR} from "@angular/forms";
 
 @Component({
@@ -19,4 +19,17 @@ export class TimeRangeComponent {
   @Input() public disabled: boolean;
   @Input() public useBlackFont: boolean;
 
+  @Input() public timeFromValue: string;
+  @Input() public timeToValue: string;
+
+  @Output() newTimeToEvent = new EventEmitter<string>();
+  @Output() newTimeFromEvent = new EventEmitter<string>();
+
+  inputNewTimeFrom(value) {
+    this.newTimeFromEvent.emit(value);
+  }
+
+  inputNewTimeTo(value) {
+    this.newTimeToEvent.emit(value);
+  }
 }

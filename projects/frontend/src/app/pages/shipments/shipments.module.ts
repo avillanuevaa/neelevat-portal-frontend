@@ -24,6 +24,10 @@ import { TabLogComponent } from './shipment-detail/tab-components/tab-log/tab-lo
 import { ContainersComponent } from './containers/containers.component';
 import { ShipmentsComponent } from './shipments.component';
 import {CdkDrag, CdkDropList} from "@angular/cdk/drag-drop";
+import {TableElementsModule} from "@entities/table-elements/table-elements.module";
+import {FilesTableModule} from "@entities/files-table/files-table.module";
+import {ToggeableAddressModule} from "@entities/toggleable-address/toggeable-address.module";
+import {NgbPopover} from "@ng-bootstrap/ng-bootstrap";
 
 
 
@@ -56,7 +60,11 @@ import {CdkDrag, CdkDropList} from "@angular/cdk/drag-drop";
     TracksModule,
     ProgressBarModule,
     CdkDropList,
-    CdkDrag
+    CdkDrag,
+    TableElementsModule,
+    FilesTableModule,
+    ToggeableAddressModule,
+    NgbPopover
   ]
 })
 export class ShipmentsModule { }

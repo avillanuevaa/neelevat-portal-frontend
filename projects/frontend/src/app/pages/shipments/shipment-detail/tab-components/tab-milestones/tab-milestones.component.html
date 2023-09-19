@@ -1,1 +1,38 @@
-<p>tab-milestones works!</p>
+<div class="row p-0">
+    <div class="mb-0 pb-0 fv-row fv-plugins-icon-container">
+        <div class="d-flex justify-content-between h-30px">
+            <buttons-filter [buttonsFilterItems]="buttonsFilterItems" (applyFilter)="applyilter($event)">
+            </buttons-filter>
+        </div>
+        <div class="row mb-0 w-100 mt-4">
+            <app-switch class="birthday-switch gap-2" [bgColor]="bgColor.gray" [checked]="true"
+                [label]="'labels.showTasks'">
+            </app-switch>
+        </div>
+        <div class="container-card_milestones ml-3">
+            <div class="d-flex">
+                <div class="container_border"></div>
+                <div class="card_milestones p-4 w-100 d-flex">
+                    <div class="pe-4">
+                        <div class="symbol symbol-32px symbol-circle">
+                            <span class="symbol-label bg-light-danger text-danger fs-6 fw-bolder">
+                                <img [src]="user.avatar" alt="avatar" width="50"
+                                    class="image rounded-circle" />
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="d-flex">
+                            <div class="title-container_complete">
+                                Complete Sender/Receiver details
+                            </div>
+                            <div>icon</div>
+                        </div>
+                        <div>Due date       : 25/01/2023</div>
+                        <div>Assigned to  : Customer</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

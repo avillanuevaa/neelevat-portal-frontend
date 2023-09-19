@@ -1,1 +1,33 @@
-<p>tab-documents works!</p>
+<div class="row p-0">
+
+  <div class="mb-0 pb-0 fv-row fv-plugins-icon-container">
+    <div class="d-flex gap-5">
+
+      <app-select class="row d-flex w-100 pe-2 pt-0 mx-1 salutation"
+                  [placeholder]="''"
+                  [label]="'labels.documentType'">
+      </app-select>
+      <app-select class="row d-flex w-100 pe-2 pt-0 mx-1 salutation"
+                  [placeholder]="''"
+                  [label]="'labels.description'">
+      </app-select>
+
+    </div>
+  </div>
+
+  <div class="mb-0 pb-0 fv-row fv-plugins-icon-container">
+
+    <app-files-table class="row d-flex fv-plugins-icon-container mb-0 pb-0 px-2 mx-1"
+                     [labelOnBlock]="true" [withoutPadding]="true" [fileColumns]="fileColumns" [files]="files">
+    </app-files-table>
+
+<!--    <div class="d-flex gap-5">-->
+
+<!--    </div>-->
+  </div>
+
+
+
+
+
+</div>

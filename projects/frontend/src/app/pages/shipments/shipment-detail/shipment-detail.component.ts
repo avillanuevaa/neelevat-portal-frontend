@@ -28,6 +28,7 @@ export class ShipmentDetailComponent implements OnInit{
   public statusTabs: ITab[] = SHIPMENT_DETAILS_STATUS_TABS;
   public steps: IStep[] = SHIPMENT_DETAILS_STEPS;
   public barSize: typeof ESizeBar = ESizeBar;
+  public displayAddress = false;
 
   public activeTabDetails: Tabs = 'Shipment';
   public activeTabStatus: Tabs = 'Milestones';
@@ -39,6 +40,10 @@ export class ShipmentDetailComponent implements OnInit{
     this.model = this.layout.getLayoutConfig(
       this.layout.getBaseLayoutTypeFromLocalStorage()
     );
+  }
+
+  public toggleAddress() {
+    this.displayAddress = !this.displayAddress;
   }
 
   public setActiveTabDetails(tab: Tabs) {

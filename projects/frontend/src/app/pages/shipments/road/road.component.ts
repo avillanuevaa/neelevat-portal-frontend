@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import {ITitleButton} from "@shared/components/title/interfaces/title-button.interface";
 import {IBreadcrumb} from "@shared/components/title/interfaces/breadcrumb.interface";
 import {ITab} from "@entities/tabs/interfaces/tabs.interfaces";
@@ -9,11 +9,12 @@ import {SHIPMENTS_TABS} from "../constants/shipments.constant";
 import {IColumn} from "@entities/columns-filter/interfaces/column.interface";
 import {IButtonInterface} from "@entities/buttons-filter/interfaces/button-interface";
 import {IStock} from "../../stock/interfaces/stock.interface";
-import {ROAD_BREADCRUMBS, ROAD_COLUMNS, ROAD_TITLE_BUTTON} from "./constants/road.constant";
+import {ROAD_BREADCRUMBS, ROAD_COLUMNS, ROAD_DATA, ROAD_TITLE_BUTTON} from "./constants/road.constant";
 import {BUTTONS_FILTER_ROAD_ITEMS} from "@entities/buttons-filter/constants/buttons-filter.constant";
 import {IRoad} from "./interfaces/road.interface";
 import {Subject} from "rxjs";
 import {TableService} from "@services/table.service";
+import { ActiveRoadShipmentDraftPageResult } from '@interfaces/eventsourcing/activeRoadShipmentDraftPageResult';
 
 @Component({
   selector: 'app-road-shipments',
@@ -22,6 +23,8 @@ import {TableService} from "@services/table.service";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RoadComponent {
+
+  @Input() activeRoadShipmentDrafts: ActiveRoadShipmentDraftPageResult;
 
 
   public breadcrumbs: IBreadcrumb[] = ROAD_BREADCRUMBS;
@@ -38,7 +41,7 @@ export class RoadComponent {
 
   public roads: IRoad[];
 
-  public filteredRoads: IRoad[];
+  public filteredRoads: IRoad[] = ROAD_DATA;
   public finishDisplayedRows: number;
 
   public numbersOfElements: number;
@@ -60,7 +63,7 @@ export class RoadComponent {
   }
 
   public sortByParam(field: string): void {
-    this.filteredRoads = this.tableService.sortByParam<IStock>(field, this.previousSortParams, this.filteredRoads);
+    this.filteredRoads = this.tableService.sortByParam<IRoad>(field, this.previousSortParams, this.filteredRoads);
 
     this.previousSortParams = field;
     this.resetPage.next();
@@ -88,7 +91,7 @@ export class RoadComponent {
   }
 
   private filterList(): void {
-    this.filteredRoads = this.tableService.filterTable<IStock>(this.activeFilters, this.roads);
+    this.filteredRoads = this.tableService.filterTable<IRoad>(this.activeFilters, this.roads);
     this.previousSortParams = '';
     this.resetPage.next();
   }

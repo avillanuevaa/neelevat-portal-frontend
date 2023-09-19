@@ -21,7 +21,7 @@ export const STOCK_SKU_BREADCRUMBS: IBreadcrumb[] = [
 export const STOCK_SKU_TITLE_BUTTON: ITitleButton = {
   name: 'buttons.newShipment',
   svg: './assets/media/icons/duotune/general/add-check.svg',
-  link: '/inbound/create',
+  link: '/new-shipment/road',
 };
 
 export const STOCK_SKU_COLUMNS: IColumn[] = [

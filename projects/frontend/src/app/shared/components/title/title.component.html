@@ -6,7 +6,7 @@
     <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
       <div class="d-flex p-0 m-0">
         <div class="m-0 p-0 pe-3" *ngIf="returnButton">
-          <app-button [svg]="returnButton.svg" [btnColor]="btnColor.whiteBorder" [btnPadding]="btnPadding.paddingBorders" [rightIcon]="rightIcons.alignCenter">
+          <app-button [svg]="returnButton.svg" [btnColor]="btnColor.whiteBorder" (click)="onReturnButtonClick()" [btnPadding]="btnPadding.paddingBorders" [rightIcon]="rightIcons.alignCenter">
           </app-button>
         </div>
         <h1 class="title-header-page-text me-2 mb-1">
@@ -76,7 +76,7 @@
     </div>
 
     <div *ngIf="steps">
-      <app-progress-bar [steps]="steps" [sizeBar]="barSize.medium"></app-progress-bar>
+      <app-progress-bar [steps]="steps" [sizeBar]="barSize.medium" (stepClick)="handleStepClick($event)"></app-progress-bar>
     </div>
   </div>
 </div>

@@ -4,7 +4,6 @@ import { MSAL_GUARD_CONFIG, MsalBroadcastService, MsalGuardConfiguration, MsalSe
 import { environment } from '../../environments/environment';
 import { RootStoreService } from './root-store.service';
 import { TranslateService } from '@ngx-translate/core';
-import { RootSelectorsService } from '@services/root-selectors.service';
 import { filter } from 'rxjs/operators';
 import {
   AccountInfo,
@@ -15,7 +14,6 @@ import {
   SsoSilentRequest
 } from '@azure/msal-browser';
 import { IdTokenClaims, PromptValue } from '@azure/msal-common';
-import { HttpClient } from '@angular/common/http';
 
 type IdTokenClaimsWithPolicyId = IdTokenClaims & {
   acr?: string,
@@ -41,9 +39,7 @@ export class AuthService {
     private translate: TranslateService,
     private msalBroadcastService: MsalBroadcastService,
     private authService: MsalService,
-    private rootStore: RootStoreService,
-    private rootSelectors: RootSelectorsService,
-    private http: HttpClient,
+    private rootStore: RootStoreService
   ) {
     this.translate.setDefaultLang('en');
     this.msalInstance = this.authService.instance;
@@ -60,7 +56,7 @@ export class AuthService {
       .pipe(
         filter((msg: EventMessage) => msg.eventType === EventType.ACCOUNT_ADDED || msg.eventType === EventType.ACCOUNT_REMOVED),
       )
-      .subscribe((result: EventMessage) => {
+      .subscribe(() => {
         if (this.authService.instance.getAllAccounts().length === 0) {
           window.location.pathname = "/";
         } else {
@@ -130,7 +126,7 @@ export class AuthService {
         if (idtoken.acr === environment.b2cPolicies.names.resetPassword || idtoken.tfp === environment.b2cPolicies.names.resetPassword) {
           let signUpSignInFlowRequest: RedirectRequest | PopupRequest  = {
             authority: environment.b2cPolicies.authorities.signUpSignIn.authority,
-            scopes: [...environment.apiConfig.scopes],
+            scopes: [...environment.protectedApiConfig.scopes],
             prompt: PromptValue.LOGIN // force user to reauthenticate with their new password
           };
 

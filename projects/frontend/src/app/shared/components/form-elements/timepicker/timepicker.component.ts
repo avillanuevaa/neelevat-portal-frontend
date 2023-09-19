@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import {FormControl, NG_VALUE_ACCESSOR} from "@angular/forms";
 
 @Component({
@@ -23,6 +23,13 @@ export class TimepickerComponent {
   @Input() public size: 'xSmall' |'small' | 'big' = 'big';
   @Input() public placeholder: string;
   @Input() public disabled: boolean;
+
+  @Input() public timeValue: string;
+  @Output() newTimeEvent = new EventEmitter<string>();
+
+  inputNewTime(value) {
+    this.newTimeEvent.emit(value);
+  }
 
   public get bgClasses(): string {
     if (this.bgColor === 'gray') return 'nv-input-gray-bg';

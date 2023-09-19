@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Input, OnInit, TemplateRef} from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
 import {FormBuilder, FormGroup, NG_VALUE_ACCESSOR, Validators} from "@angular/forms";
 import {BsModalRef, BsModalService} from "ngx-bootstrap/modal";
 import {EButtonColor} from "@shared/components/button/enums/button.enum";
@@ -22,8 +22,10 @@ export class TextareaAddressComponent implements OnInit{
   @Input() public label: string;
   @Input() public disabled: boolean;
   @Input() public useBlackFont: boolean;
+  @Input() public address: string = '';
 
-  address: string = '';
+  @Output() newValueEvent = new EventEmitter<string>();
+
   showPopover: boolean = false;
   public addressForm: FormGroup;
   public btnColor: typeof EButtonColor = EButtonColor;
@@ -46,6 +48,10 @@ export class TextareaAddressComponent implements OnInit{
 
   public ngOnInit(): void {
     this.addressFormInit();
+  }
+
+  inputNewValue(event) {
+    this.newValueEvent.emit(event.target.value);
   }
 
   // togglePopover(): void {

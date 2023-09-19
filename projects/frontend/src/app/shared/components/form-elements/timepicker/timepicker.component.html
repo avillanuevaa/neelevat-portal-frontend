@@ -3,7 +3,7 @@
   <span class="menu-icon-input-right opacity-50 {{ toggleClasses }}">
     <ngx-material-timepicker-toggle matIconSuffix [for]="picker"></ngx-material-timepicker-toggle>
   </span>
-  <input [placeholder]="placeholder || '00:00'" [disabled]="disabled"
+  <input [placeholder]="placeholder || '00:00'" [disabled]="disabled" [value]="timeValue"
     class="form-control mb-2 {{ inputClasses }} {{ bgClasses }}" matInput [ngxTimepicker]="picker">
-  <ngx-material-timepicker  #picker></ngx-material-timepicker>
+  <ngx-material-timepicker (timeChanged)="inputNewTime($event)"  #picker></ngx-material-timepicker>
 </div>

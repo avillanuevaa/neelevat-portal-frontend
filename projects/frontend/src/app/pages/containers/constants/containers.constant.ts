@@ -21,7 +21,7 @@ export const CONTAINERS_BREADCRUMBS: IBreadcrumb[] = [
 export const CONTAINERS_TITLE_BUTTON: ITitleButton = {
   name: 'buttons.createOrder',
   svg: './assets/media/icons/duotune/general/add-check.svg',
-  link: '/inbound/create',
+  link: '/new-shipment/road',
 };
 
 export const CONTAINERS_DATA: ICurrentContainer[] = [

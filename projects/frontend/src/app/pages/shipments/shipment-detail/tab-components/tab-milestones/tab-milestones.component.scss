@@ -1,0 +1,28 @@
+.filter-button-whitebg {
+    width: auto !important;
+  }
+  .container-card_milestones {
+    min-height: 130px;
+    .card_milestones {
+      border-top: 1px solid var(--nv-input-border, #e5e5e5);
+      border-right: 1px solid var(--nv-input-border, #e5e5e5);
+      border-bottom: 1px solid var(--nv-input-border, #e5e5e5);
+    }
+  }
+  .container_border {
+    width: 8px;
+    align-self: stretch;
+    border-top: 1px solid var(--nv-input-border, #e5e5e5);
+    border-bottom: 1px solid var(--nv-input-border, #e5e5e5);
+    border-left: 1px solid var(--nv-input-border, #e5e5e5);
+    background: var(--nv-primary, #266791);
+  }
+  .title-container_complete {
+    color: var(--gray-gray-9, #262626);
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22px;
+  }
+  

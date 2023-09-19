@@ -98,31 +98,31 @@ export class StockCurrentComponent implements OnInit, OnDestroy {
     this.activeFilters = this.tableService.createdFiltersObj(this.columns, false);
 
     this.stockService.getCurrentStocks()
-    //   .pipe(
-    //   map((stocks: IStock[]) => {
-    //     return stocks.map((stock, index) => {
-    //       return {...stock, index: index + 1};
-    //     })
-    //   }),
-    //   takeUntil(this.destroy$),
-    // ).subscribe((stock: IStock[]) => {
-    .then((stock: IStock[]) => {
-      this.stocks = JSON.parse(JSON.stringify(stock));
-      this.filteredStocks = JSON.parse(JSON.stringify(stock));
-      this.filteredStocksPallets = JSON.parse(JSON.stringify(stock));
-      this.filteredStocksPieces = JSON.parse(JSON.stringify(stock));
-      this.tableService.fillFilterObject<IStock>(this.mainFilter, this.stocks);
-      this.columns = this.tableService.setDisplayedColumns(this.columns, this.mainFilter);
-      this.markForCheck = !this.markForCheck;
-      this.cdr.markForCheck();
-      this.RenderChartPallets();
+      //   .pipe(
+      //   map((stocks: IStock[]) => {
+      //     return stocks.map((stock, index) => {
+      //       return {...stock, index: index + 1};
+      //     })
+      //   }),
+      //   takeUntil(this.destroy$),
+      // ).subscribe((stock: IStock[]) => {
+      .then((stock: IStock[]) => {
+        this.stocks = JSON.parse(JSON.stringify(stock));
+        this.filteredStocks = JSON.parse(JSON.stringify(stock));
+        this.filteredStocksPallets = JSON.parse(JSON.stringify(stock));
+        this.filteredStocksPieces = JSON.parse(JSON.stringify(stock));
+        this.tableService.fillFilterObject<IStock>(this.mainFilter, this.stocks);
+        this.columns = this.tableService.setDisplayedColumns(this.columns, this.mainFilter);
+        this.markForCheck = !this.markForCheck;
+        this.cdr.markForCheck();
+        this.RenderChartPallets();
 
-      this.checkRepeatedPalletIds();
+        this.checkRepeatedPalletIds();
 
-      this.calculateChartAmount();
+        this.calculateChartAmount();
 
-      this.updateChartValues()
-    });
+        this.updateChartValues()
+      });
 
   }
 
@@ -231,7 +231,7 @@ export class StockCurrentComponent implements OnInit, OnDestroy {
   }
 
   calculateChartAmount(){
-    
+
     this.totalClosing = this.filteredStocks.reduce((total, stock) => total + stock.quantityClosing, 0);
     this.totalAvailable = this.filteredStocks.reduce((total, stock) => total + stock.quantityAvailable, 0);
     this.totalToDeliver = this.filteredStocks.reduce((total, stock) => total + stock.quantityToDeliver, 0);
@@ -521,7 +521,7 @@ export class StockCurrentComponent implements OnInit, OnDestroy {
   }
 
   RenderChartPallets() {
-    
+
     this.displayLabel = false;
 
     const processedPalletsCategory = {};
@@ -735,10 +735,10 @@ export class StockCurrentComponent implements OnInit, OnDestroy {
     const backgroundColors = dataset.data.map((_, index) => {
       return index === this.selectedBarIndex ? 'rgba(255, 0, 0, 0.76)' : 'rgba(153, 98, 108, 0.76)';
     });
-  
+
     // Actualizar los colores de fondo de las barras
     dataset.backgroundColor = backgroundColors;
-  
+
     // Redibujar el gráfico con los estilos actualizados
     this.myChartWhs.update();
   }
@@ -824,3 +824,4 @@ export class StockCurrentComponent implements OnInit, OnDestroy {
     this.resetPage.next();
   }
 }
+

@@ -15,14 +15,14 @@ import { CheckboxComponent } from './components/form-elements/checkbox/checkbox.
 import { MultiselectComponent } from './components/form-elements/multiselect/multiselect.component';
 import { SelectComponent } from './components/form-elements/select/select.component';
 import { InputComponent } from './components/form-elements/input/input.component';
-import {ProgressBarModule} from "@entities/progress-bar/progress-bar.module";
+import { ProgressBarModule } from "@entities/progress-bar/progress-bar.module";
 import { TextareaComponent } from './components/form-elements/textarea/textarea.component';
 import { TimepickerComponent } from './components/form-elements/timepicker/timepicker.component';
-import {MatInputModule} from "@angular/material/input";
-import {NgxMaterialTimepickerModule} from "ngx-material-timepicker";
-import {MatIconModule} from "@angular/material/icon";
+import { MatInputModule } from "@angular/material/input";
+import { NgxMaterialTimepickerModule } from "ngx-material-timepicker";
+import { MatIconModule } from "@angular/material/icon";
 import { TextareaAddressComponent } from './components/form-elements/textarea-address/textarea-address.component';
-import {ModalModule} from "ngx-bootstrap/modal";
+import { ModalModule } from "ngx-bootstrap/modal";
 
 const MODULES = [
   TranslateModule,

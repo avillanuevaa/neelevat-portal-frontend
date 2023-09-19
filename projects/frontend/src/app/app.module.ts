@@ -34,9 +34,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import {MatSnackBarModule} from "@angular/material/snack-bar";
-import { ConfirmationModalComponent } from './entities/modals/confirmation-modal/confirmation-modal.component';
-import { SuccessModalComponent } from './entities/modals/success-modal/success-modal.component';
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 
 const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 
@@ -70,7 +68,9 @@ export function MSALInstanceFactory(): IPublicClientApplication {
 export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
   const protectedResourceMap = new Map<string, Array<string>>();
 
-  protectedResourceMap.set(environment.apiConfig.uri, environment.apiConfig.scopes);
+  environment.protectedApiConfig.urls.forEach(url => {
+    protectedResourceMap.set(url, environment.protectedApiConfig.scopes);
+  });
 
   return {
     interactionType: InteractionType.Redirect,
@@ -82,7 +82,7 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
   return {
     interactionType: InteractionType.Redirect,
     authRequest: {
-      scopes: [...environment.apiConfig.scopes],
+      scopes: [...environment.protectedApiConfig.scopes],
     },
     loginFailedRoute: '/login-failed'
   };

@@ -33,29 +33,34 @@
           </ng-container>
         </tr>
 
-        <tr class="text-start fw-bold fs-6 gs-0">
-          <ng-container *ngFor="let column of columns">
-            <th *ngIf="column.display" tabindex="0" class="align-top" aria-controls="kt_customers_table"
-                rowspan="1" colspan="1" aria-label="Row: activate to sort column ascending">
-              <div class="text-nowrap">
-                <!--                          <app-multiselect (onChangeWithoutEvent)="applyColumnFilter($event, column.value)"-->
-                <!--                                           [markForCheck]="markForCheck" [options]="mainFilter[column.value]"-->
-                <!--                                           [value]="activeFilters[column.value]" [placeholder]="'labels.filter'">-->
-                <!--                          </app-multiselect>-->
-              </div>
-            </th>
-          </ng-container>
-        </tr>
+<!--        <tr class="text-start fw-bold fs-6 gs-0">-->
+<!--          <ng-container *ngFor="let column of columns">-->
+<!--            <th *ngIf="column.display" tabindex="0" class="align-top" aria-controls="kt_customers_table"-->
+<!--                rowspan="1" colspan="1" aria-label="Row: activate to sort column ascending">-->
+<!--              <div class="text-nowrap">-->
+<!--                &lt;!&ndash;                          <app-multiselect (onChangeWithoutEvent)="applyColumnFilter($event, column.value)"&ndash;&gt;-->
+<!--                &lt;!&ndash;                                           [markForCheck]="markForCheck" [options]="mainFilter[column.value]"&ndash;&gt;-->
+<!--                &lt;!&ndash;                                           [value]="activeFilters[column.value]" [placeholder]="'labels.filter'">&ndash;&gt;-->
+<!--                &lt;!&ndash;                          </app-multiselect>&ndash;&gt;-->
+<!--              </div>-->
+<!--            </th>-->
+<!--          </ng-container>-->
+<!--        </tr>-->
 
         </thead>
 
         <tbody class="fw-semibold text-black">
 
-        <tr class="odd min-table-height row-font-size"
-            *ngFor="let stock of filteredRoads | slice: finishDisplayedRows - numbersOfElements: finishDisplayedRows">
+        <tr class="odd min-table-height row-font-size cursor-pointer" [routerLink]="'/shipments/shipment-detail'"
+            *ngFor="let road of filteredRoads | slice: finishDisplayedRows - numbersOfElements: finishDisplayedRows">
           <ng-container *ngFor="let column of columns">
-            <td class="padding-cells-tbody" *ngIf="column.display">
-              <div class="text-nowrap">{{ stock[column.value] }}</div>
+            <td  class="padding-cells-tbody" *ngIf="column.display && column.value !== 'status'">
+              <div class="text-nowrap">{{ road[column.value] }}</div>
+            </td>
+            <td *ngIf="column.value === 'status'" class="text-center">
+
+              <app-status [status]="road[column.value]"></app-status>
+
             </td>
           </ng-container>
         </tr>

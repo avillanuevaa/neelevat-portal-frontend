@@ -1,7 +1,9 @@
-<app-title [title]="'pageName.newShipment'" [breadcrumbs]="breadcrumbs" [steps]="steps" [returnButton]="returnButton">
+<app-title [title]="'pageName.newShipment'" [breadcrumbs]="breadcrumbs" [steps]="steps" [returnButton]="returnButton"
+           (stepClick)="handleStepClick($event)"
+           (returnButtonClick)="handleReturnButtonClick()">
 </app-title>
 
-<div id="kt_app_content" class="app-content flex-column-fluid" *ngIf="showBackground">
+<div id="kt_app_content" class="app-content flex-column-fluid" *ngIf="showBackground && saveRoadShipmentDraft">
   <div id="kt_app_content_container" class="app-container container-xxl">
     <div class="card row border-card-custom border-content margin-10">
       <div class="card-body pt-0 pb-1 min-height-page">
@@ -24,24 +26,29 @@
                 <div class="mb-0 pb-0 fv-row fv-plugins-icon-container">
                   <div class="d-flex gap-5">
 
-                    <app-select class="row d-flex w-100 pt-1 mx-0" [placeholder]="'Organisation A'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
-                                [label]="'labels.yourOrganisation'" [options]="">
+                    <app-select class="row d-flex w-100 pt-1 mx-0" [placeholder]="'Select Organisation'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                                [label]="'labels.yourOrganisation'" [options]="tenants"
+                                (newSelectedValue)="newStringValue('yourOrganisation', $event)">
                     </app-select>
 
                     <div class="w-100 px-0 text-center align-content-center">
                       <app-navbar-modality [ngClass]="{ 'disabled': isFormEnabled }"></app-navbar-modality>
                     </div>
 
-                    <app-select class="row d-flex w-100 pt-1 mx-0" [placeholder]="'Organisation A'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
-                                [label]="'labels.bookingMode'" [options]="">
+                    <app-select class="row d-flex w-100 pt-1 mx-0" [placeholder]="'Select'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                                [label]="'labels.bookingMode'" [options]="BookingModeConstants"
+                                [optionSelected]="saveRoadShipmentDraft?.bookingMode"
+                                (newSelectedValue)="newStringValue('bookingMode', $event)">
                     </app-select>
 
-                    <app-select class="row d-flex w-100 pt-1 mx-0" [placeholder]="'Organisation A'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
-                                [label]="'labels.warehouseSelection'" [options]="">
+                    <app-select class="row d-flex w-100 pt-1 mx-0" [placeholder]="'Select'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                                [label]="'labels.warehouseSelection'" [options]="WarehouseSelectionConstants"
+                                [optionSelected]="saveRoadShipmentDraft?.warehouse"
+                                (newSelectedValue)="newStringValue('warehouse', $event)">
                     </app-select>
 
                     <app-input class="row d-flex w-100 pt-1 mx-0" [label]="'labels.shipmentID'" [disabled]="true"
-                               [placeholder]="''">
+                               [placeholder]="nvxId">
                     </app-input>
 
                   </div>
@@ -50,14 +57,20 @@
                 <div class="mb-0 pb-0 fv-row fv-plugins-icon-container">
                   <div class="d-flex gap-5">
 
-                    <app-tag-filter class="row w-100" [label]="'labels.yourReferences'"></app-tag-filter>
+                    <app-tag-filter class="row w-100" [tags]="yourReferences"
+                                    (newItemEvent)="addYourReference($event)" (removeItemEvent)="removeYourReference($event)"
+                                    [label]="'labels.yourReferences'"></app-tag-filter>
 
-                    <app-select class="row d-flex w-100 mx-0" [placeholder]="'Organisation A'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
-                                [label]="'labels.contract'" [options]="">
+                    <app-select class="row d-flex w-100 mx-0" [placeholder]="'Select Organisation'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                                [label]="'labels.contract'" [options]="tenants"
+                                [optionSelected]="saveRoadShipmentDraft?.contract"
+                                (newSelectedValue)="newStringValue('contract', $event)">
                     </app-select>
 
-                    <app-datepicker formControlName="birthday" [bgColor]="'white'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                    <app-datepicker [bgColor]="'white'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
                                     class="row w-75 justify-content-start fv-row mt-0 "
+                                    [value]="saveRoadShipmentDraft?.todaysDate?.toString()"
+                                    (newDateEvent)="newDateValue('todaysDate', $event)"
                                     [label]="'labels.todayDate'">
                     </app-datepicker>
 
@@ -85,21 +98,29 @@
                 <div class="mb-0 pb-0 fv-row fv-plugins-icon-container pt-1">
                   <div class="d-flex gap-5">
 
-                    <app-select class="row d-flex w-50 mx-0" [placeholder]="'Organisation A'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
-                                [label]="'labels.loadingDateSelection'" [options]="">
+                    <app-select class="row d-flex w-50 mx-0" [placeholder]="'Select'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                                [label]="'labels.loadingDateSelection'" [options]="LoadingDateConstants"
+                                [optionSelected]="saveRoadShipmentDraft?.loadingDateSelection"
+                                (newSelectedValue)="newStringValue('loadingDateSelection', $event)">
                     </app-select>
 
-                    <app-datepicker formControlName="birthday" [bgColor]="'white'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                    <app-datepicker [bgColor]="'white'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
                                     class="row w-75 justify-content-start fv-row mt-0"
+                                    [value]="saveRoadShipmentDraft?.loadingDate?.toString()"
+                                    (newDateEvent)="newDateValue('loadingDate', $event)"
                                     [label]="'labels.loadingDate'">
                     </app-datepicker>
 
-                    <app-select class="row d-flex w-50 mx-0" [placeholder]="'Organisation A'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
-                                [label]="'labels.unloadingDateSelection'" [options]="">
+                    <app-select class="row d-flex w-50 mx-0" [placeholder]="'Select'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                                [label]="'labels.unloadingDateSelection'" [options]="UnLoadingDateConstants"
+                                [optionSelected]="saveRoadShipmentDraft?.unloadingDateSelection"
+                                (newSelectedValue)="newStringValue('unloadingDateSelection', $event)">
                     </app-select>
 
-                    <app-datepicker formControlName="birthday" [bgColor]="'white'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                    <app-datepicker [bgColor]="'white'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
                                     class="row w-75 justify-content-start fv-row mt-0"
+                                    [value]="saveRoadShipmentDraft?.unloadingDate?.toString()"
+                                    (newDateEvent)="newDateValue('unloadingDate', $event)"
                                     [label]="'labels.unloadingDate'">
                     </app-datepicker>
 
@@ -109,17 +130,31 @@
                 <div class="mb-0 pb-0 fv-row fv-plugins-icon-container">
                   <div class="d-flex gap-5">
 
-                    <app-select class="row d-flex w-100 mx-0 pt-1" [placeholder]="'Organisation A'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
-                                [label]="'labels.loadingTimeSelection'" [options]="">
+                    <app-select class="row d-flex w-100 mx-0 pt-1" [placeholder]="'Select'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                                [label]="'labels.loadingTimeSelection'" [options]="LoadingDateConstants"
+                                [optionSelected]="saveRoadShipmentDraft?.loadingTimeSelection?.toString()"
+                                (newSelectedValue)="newStringValue('loadingTimeSelection', $event)">
                     </app-select>
 
-                    <app-time-range class="row d-flex w-75 pt-1 mx-0" [label]="'labels.loadingTime'" [disabled]="isFormEnabled" ></app-time-range>
+                    <app-time-range class="row d-flex w-75 pt-1 mx-0" [label]="'labels.loadingTime'" [disabled]="isFormEnabled"
+                                    [timeFromValue]="saveRoadShipmentDraft?.loadingTimeFrom"
+                                    (newTimeFromEvent)="newStringValue('loadingTimeFrom', $event)"
+                                    [timeToValue]="saveRoadShipmentDraft?.loadingTimeTo"
+                                    (newTimeToEvent)="newStringValue('loadingTimeTo', $event)"
+                    ></app-time-range>
 
-                    <app-select class="row d-flex w-100 mx-0 pt-1" [placeholder]="'Organisation A'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
-                                [label]="'labels.unloadingTimeSelection'" [options]="">
+                    <app-select class="row d-flex w-100 mx-0 pt-1" [placeholder]="'Select'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                                [label]="'labels.unloadingTimeSelection'" [options]="UnLoadingDateConstants"
+                                [optionSelected]="saveRoadShipmentDraft?.unloadingTimeSelection?.toString()"
+                                (newSelectedValue)="newStringValue('unloadingTimeSelection', $event)">
                     </app-select>
 
-                    <app-time-range class="row d-flex w-75 pt-1 mx-0" [label]="'labels.unloadingTime'" [disabled]="isFormEnabled"></app-time-range>
+                    <app-time-range class="row d-flex w-75 pt-1 mx-0" [label]="'labels.unloadingTime'" [disabled]="isFormEnabled"
+                                    [timeFromValue]="saveRoadShipmentDraft?.unloadingTimeFrom"
+                                    (newTimeFromEvent)="newStringValue('unloadingTimeFrom', $event)"
+                                    [timeToValue]="saveRoadShipmentDraft?.unloadingTimeTo"
+                                    (newTimeToEvent)="newStringValue('unloadingTimeTo', $event)"
+                    ></app-time-range>
 
 
                   </div>
@@ -128,15 +163,23 @@
                 <div class="mb-0 pb-0 fv-row fv-plugins-icon-container">
                   <div class="d-flex w-100 gap-5 pt-1">
                     <app-textarea-address class="row d-flex w-100 mx-0" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                                          [address]="saveRoadShipmentDraft?.sender"
+                                          (newValueEvent)="newStringValue('sender', $event)"
                                           [label]="'labels.sender'"></app-textarea-address>
                     <app-textarea-address class="row d-flex w-100 mx-0" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                                          [address]="saveRoadShipmentDraft?.receiver"
+                                          (newValueEvent)="newStringValue('receiver', $event)"
                                           [label]="'labels.receiver'"></app-textarea-address>
                   </div>
                   <div class="d-flex w-100 gap-5 pt-1">
                     <app-textarea-address class="row d-flex w-100 mx-0"
-                                          [label]="'labels.loadingAddress'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"></app-textarea-address>
+                                          [label]="'labels.loadingAddress'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                                          [address]="saveRoadShipmentDraft?.loadingAddress"
+                                          (newValueEvent)="newStringValue('loadingAddress', $event)"></app-textarea-address>
                     <app-textarea-address class="row d-flex w-100 mx-0  "
-                                          [label]="'labels.unloadingAddress'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"></app-textarea-address>
+                                          [label]="'labels.unloadingAddress'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                                          [address]="saveRoadShipmentDraft?.unloadingAddress"
+                                          (newValueEvent)="newStringValue('unloadingAddress', $event)"></app-textarea-address>
                   </div>
                 </div>
 
@@ -144,10 +187,14 @@
                   <div class="d-flex gap-5">
 
                     <app-input class="row d-flex w-100 pt-1 mx-0" [label]="'labels.loadingReference'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                               [value]="saveRoadShipmentDraft?.loadingReference"
+                               (newValueEvent)="newStringValue('loadingReference', $event)"
                                [placeholder]="''">
                     </app-input>
 
                     <app-input class="row d-flex w-100 pt-1 mx-0" [label]="'labels.unloadingReference'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                               [value]="saveRoadShipmentDraft?.unloadingReference"
+                               (newValueEvent)="newStringValue('unloadingReference', $event)"
                                [placeholder]="''">
                     </app-input>
 
@@ -158,10 +205,14 @@
                   <div class="d-flex gap-5">
 
                     <app-input class="row d-flex w-100 pt-1 mx-0" [label]="'labels.loadingInstructions'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                               [value]="saveRoadShipmentDraft?.loadingInstructions"
+                               (newValueEvent)="newStringValue('loadingInstructions', $event)"
                                [placeholder]="''">
                     </app-input>
 
                     <app-input class="row d-flex w-100 pt-1 mx-0" [label]="'labels.unloadingInstructions'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                               [value]="saveRoadShipmentDraft?.unloadingInstructions"
+                               (newValueEvent)="newStringValue('unloadingInstructions', $event)"
                                [placeholder]="''">
                     </app-input>
 
@@ -171,8 +222,10 @@
                 <div class="mb-0 pb-0 fv-row fv-plugins-icon-container">
                   <div class="d-flex gap-5">
 
-                    <app-select class="row d-flex w-25 pt-1 mx-0" [placeholder]="'Organisation A'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
-                                [label]="'labels.incoterm'" [options]="">
+                    <app-select class="row d-flex w-25 pt-1 mx-0" [placeholder]="'Select'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                                [label]="'labels.incoterm'" [options]="IncotermsConstants"
+                                [optionSelected]="saveRoadShipmentDraft?.incoterm"
+                                (newSelectedValue)="newStringValue('incoterm', $event)">
                     </app-select>
 
                   </div>
@@ -197,20 +250,26 @@
                       <div class="w-100 m-0 p-0 mx-0 gap-5">
                         <app-textarea class="row d-flex w-100 pt-0 mx-0 pb-3" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
                                       [label]="'labels.customsDocumentsLocation'"
+                                      [value]="saveRoadShipmentDraft?.customsDocumentsLocation"
+                                      (newValueEvent)="newStringValue('customsDocumentsLocation', $event)"
                                       [rows]="4" [placeholder]="''"
-                                      formControlName="aboutDescription">
+                                      >
                         </app-textarea>
                         <app-textarea class="row d-flex w-100 pt-0 mx-0" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
                                       [label]="'labels.customsDocumentInstructions'"
+                                      [value]="saveRoadShipmentDraft?.customsDocumentsInstructions"
+                                      (newValueEvent)="newStringValue('customsDocumentsInstructions', $event)"
                                       [placeholder]="''" [rows]="8"
-                                      formControlName="aboutDescription">
+                                      >
                         </app-textarea>
                       </div>
                     </div>
 
                     <app-textarea class="row d-flex w-100 pt-0 mx-0 pb-3" [label]="'labels.remarks'" [disabled]="isFormEnabled" [useBlackFont]="useBlackFont"
+                                  [value]="saveRoadShipmentDraft?.remarks"
+                                  (newValueEvent)="newStringValue('remarks', $event)"
                                   [placeholder]="''" [rows]="14"
-                                  formControlName="aboutDescription">
+                                  >
                     </app-textarea>
 
                   </div>

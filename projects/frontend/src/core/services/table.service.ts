@@ -42,7 +42,7 @@ export class TableService {
 
   public setDisplayedColumns(cols: IColumn[], filters: {[key: string]: Set<string>}): IColumn[] {
     const columns = JSON.parse(JSON.stringify(cols));
-    columns.forEach((column: IColumn) => column.display = !!filters[column.value].size || column.value === 'index');
+    columns.forEach((column: IColumn) => column.display = !!filters[column.value]?.size || column.value === 'index');
     return columns;
   }
 

@@ -6,6 +6,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: 22px; /* 157.143% */
+    max-height: 22px;
   }
   .black-text-content{
     color: var(--gray-gray-9, #262626);
@@ -32,6 +33,56 @@
     font-style: normal;
     font-weight: 600;
     line-height: 24px; /* 150% */
+  }
+
+  .top-10px{
+    top: 10px;
+  }
+
+  span.btn-label svg{
+    border-radius: 50%;
+  }
+
+  .first-avatar{
+     height: fit-content;
+    border-radius: 50%;
+   }
+
+  .second-avatar{
+    height: fit-content;
+    left: -7px;
+    border-radius: 50%;
+  }
+
+  .third-avatar{
+    height: fit-content;
+    left: -14px;
+    border-radius: 50%;
+  }
+
+  .fourth-avatar{
+    height: fit-content;
+    left: -21px;
+    border-radius: 50%;
+  }
+
+  .timeline .timeline-line{
+    left: -50px;
+    top: 35px;
+    transform: none;
+    border-left-width: 0;
+    border-left-style: none;
+    border-left-color: transparent;
+
+    border-right-width: 2px;
+    border-right-style: dashed;
+    border-right-color: #595959;
+
+    height: calc(50% + 12px);
+  }
+
+  .z-index-1{
+    z-index: 1;
   }
 
 }

@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 
 const noop = () => { };
@@ -23,12 +23,9 @@ export class TextareaComponent implements ControlValueAccessor{
   @Input() public disabled: boolean;
   @Input() public useBlackFont: boolean;
   @Input() public label: string;
+  @Input() public value: string;
 
-
-  @Input() public set value(val: string) {
-    this._value = val;
-    this.onChange(this._value);
-  }
+  @Output() newValueEvent = new EventEmitter<string>();
 
   private _value: string;
 
@@ -36,6 +33,9 @@ export class TextareaComponent implements ControlValueAccessor{
     private cdr: ChangeDetectorRef,
   ) { }
 
+  inputNewValue(event) {
+    this.newValueEvent.emit(event.target.value);
+  }
 
   public onChange: (_: any) => void = noop;
 

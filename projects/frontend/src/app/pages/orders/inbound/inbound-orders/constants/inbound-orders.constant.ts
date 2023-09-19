@@ -35,5 +35,5 @@ export const INBOUND_ORDERS_FILTER_OPTIONS: ISelect[] = [
 export const INBOUND_ORDERS_TITLE_BUTTON: ITitleButton = {
   name: 'buttons.createOrder',
   svg: './assets/media/icons/duotune/general/add-check.svg',
-  link: '/inbound/create',
+  link: '/new-shipment/road',
 };

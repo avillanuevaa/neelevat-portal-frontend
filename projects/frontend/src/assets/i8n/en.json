@@ -85,7 +85,9 @@
     "create": "Create",
     "addLocations": "Add locations",
     "addSubsidiary": "Add subsidiary",
-    "priority": "Priority"
+    "priority": "Priority",
+    "assignedtome": "Assigned to me",
+    "assignedtopartner": "Assigned to Partner"
   },
   "home": {
     "welcome": "Welcome to {{name}}",
@@ -306,7 +308,8 @@
     "customsDocumentInstructions": "Customs Document Instructions",
     "assignedTo": "Assigned to",
     "containerN": "Container N°",
-    "mbl": "MBL"
+    "mbl": "MBL",
+    "showTasks": "Show open tasks"
   },
   "pageName": {
     "home": "Home",

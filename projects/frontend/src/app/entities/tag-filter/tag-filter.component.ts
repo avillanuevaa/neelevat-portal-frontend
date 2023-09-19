@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, ElementRef, Input, ViewChild} from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import {NG_VALUE_ACCESSOR} from "@angular/forms";
 
 @Component({
@@ -15,22 +15,26 @@ import {NG_VALUE_ACCESSOR} from "@angular/forms";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TagFilterComponent {
-
+  newTag: string = '';
   @ViewChild('tagInput') tagInput!: ElementRef<HTMLInputElement>;
 
-  tags: string[] = [];
-  newTag: string = '';
   @Input() public label: string;
+  @Input() tags: string[] = [];
+
+  @Output() newItemEvent = new EventEmitter<string>();
+  @Output() removeItemEvent = new EventEmitter<number>();
 
   addTag() {
     if (this.newTag.trim() !== '') {
-      this.tags.push(this.newTag.trim());
+      this.newItemEvent.emit(this.newTag.trim())
+      // this.tags.push(this.newTag.trim());
       this.newTag = '';
     }
   }
 
   removeTag(index: number) {
-    this.tags.splice(index, 1);
+    this.removeItemEvent.emit(index);
+    // this.tags.splice(index, 1);
   }
 
   handleKeyDown(event: KeyboardEvent) {

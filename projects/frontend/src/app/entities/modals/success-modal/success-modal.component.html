@@ -11,7 +11,7 @@
       <span class="btn-label" [inlineSVG]="'./assets/media/icons/duotune/general/submit_check.svg'"></span>
       <div class="row m-0 p-0 text-center gap-5">
         <label class="submit-success-title">Submission Successful</label>
-        <label class="submit-success-subtitle">Shipment ID abcd12345 has been created</label>
+        <label class="submit-success-subtitle">Shipment ID {{bsModalRef.content?.message}} has been created</label>
       </div>
       <app-button class="px-0" [name]="'buttons.viewShipment'"
                   (click)="redirectToShipments()"

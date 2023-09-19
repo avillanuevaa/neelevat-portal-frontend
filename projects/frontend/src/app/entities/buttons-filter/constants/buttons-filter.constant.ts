@@ -69,5 +69,22 @@ export const BUTTONS_FILTER_ROAD_ITEMS: IButtonInterface[] = [
     active: 'true',
     filterType: 'delivered'
   },
+  
 ];
-
+export const BUTTONS_FILTER_MILENSTONES_ITEMS: IButtonInterface[] = [
+  {
+    name: 'buttons.all',
+    active: 'true',
+    filterType: 'all'
+  },
+  {
+    name: 'buttons.assignedtome',
+    active: 'false',
+    filterType: 'assignedtome'
+  },
+  {
+    name: 'buttons.assignedtopartner',
+    active: 'false',
+    filterType: 'assignedtopartner'
+  },
+];

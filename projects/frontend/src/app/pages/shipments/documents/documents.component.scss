@@ -1,0 +1,45 @@
+:host{
+
+  .border-chart{
+    border-radius: 10px;
+    border: 1px solid var(--nv-text-placeholder, #C5C5C5);
+    background: var(--nv-white, #FFF);
+    width: 145px;
+    height: 85px;
+  }
+
+  .chart-number{
+    color: #323232;
+    text-align: center;
+    font-family: Inter, 'sans-serif';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 100% */
+
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .chart-label{
+    color: var(--nv-text-sub-icons, #8191A4);
+    text-align: center;
+    font-family: Inter, 'sans-serif';
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .w-65px{
+    width: 65px;
+  }
+
+  .icon-chart-statistics {
+    transform: translateX(14.5px);
+  }
+
+}

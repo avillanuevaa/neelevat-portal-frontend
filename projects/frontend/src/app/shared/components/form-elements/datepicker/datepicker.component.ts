@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 const noop = () => { };
 
@@ -27,11 +27,19 @@ export class DatepickerComponent implements ControlValueAccessor {
     this.onChange(this._value);
   }
 
+  @Output() newDateEvent = new EventEmitter<Date>();
+
   private _value: string;
 
   constructor(
     private cdr: ChangeDetectorRef,
   ) { }
+
+  newDateValue(event) {
+    const dateValue = new Date(event.target.value);
+    const utcDate = new Date(Date.UTC(dateValue.getFullYear(), dateValue.getMonth(), dateValue.getDate(), 0, 0, 0));
+    this.newDateEvent.emit(utcDate);
+  }
 
   public get value(): string {
     return this._value;

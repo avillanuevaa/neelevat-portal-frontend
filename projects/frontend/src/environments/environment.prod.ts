@@ -1,15 +1,16 @@
 export const environment = {
   production: true,
   apiUrl: 'https://lspportal-dev.azurewebsites.net/api/',
+  eventSourceUrl: 'https://vm-agent-portal-01-eeahbabmeadkg5e6.z01.azurefd.net',
   graphEndpoint: 'https://graph.microsoft.com/',
   msalConfig: {
     auth: {
       clientId: '17725e8f-7220-4274-abc1-c0734c06c715',
     }
   },
-  apiConfig: {
+  protectedApiConfig: {
     scopes: ['openid', 'https://neelevatcustomer.onmicrosoft.com/agent-portal-api/read.all'],
-    uri: 'http://vm-agent-portal-01.westeurope.cloudapp.azure.com'
+    urls: ['https://vm-agent-portal-01-eeahbabmeadkg5e6.z01.azurefd.net', 'https://lspportal-dev.azurewebsites.net']
   },
   b2cPolicies: {
     names: {

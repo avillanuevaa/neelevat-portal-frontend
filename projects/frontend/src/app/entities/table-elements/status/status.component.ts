@@ -11,6 +11,8 @@ export class StatusComponent {
     this.setProperty(value);
   }
 
+  @Input() public isBadge: boolean;
+
   public name: string;
   public classes: string;
 
@@ -31,7 +33,7 @@ export class StatusComponent {
         this.classes = 'badge-light-danger';
         break;
       default:
-        this.classes = 'badge-light-secondary text-gray-400';
+        this.classes = 'bg-primary';
         break;
     };
   }

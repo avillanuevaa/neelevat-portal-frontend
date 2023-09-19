@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {IStep} from "@entities/progress-bar/interfaces/progress-bar.interface";
 import {EContainerBar, ELiClass, ESizeBar} from "@entities/progress-bar/enums/progress-bar.enums";
 
@@ -16,6 +16,8 @@ export class ProgressBarComponent {
 
   @Input() public containerBar: EContainerBar = EContainerBar.default;
 
+  @Output() stepClick: EventEmitter<number> = new EventEmitter<number>();
+
   @Input() public liClassBar: ELiClass = ELiClass.default;
 
   public containerBarStyle: typeof EContainerBar = EContainerBar;
@@ -23,6 +25,10 @@ export class ProgressBarComponent {
   public liClassStyle: typeof ELiClass = ELiClass;
 
   public barStyle: typeof ESizeBar = ESizeBar;
+
+  handleStepClick(index: number): void {
+    this.stepClick.emit(index);
+  }
 
   public get barClass(): string {
     switch (this.sizeBar) {

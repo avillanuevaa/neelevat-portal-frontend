@@ -2,6 +2,10 @@
   {{ label | translate }}
 </span>
 <div class="range-border d-flex pt-0 pb-2 gap-2">
-  <app-timepicker [disabled]="disabled" class="row w-100 fv-row mt-0 px-1" [bgColor]="'white'" [label]="'labels.from'"></app-timepicker>
-  <app-timepicker [disabled]="disabled" class="row w-100 fv-row mt-0 px-1" [bgColor]="'white'" [label]="'labels.to'"></app-timepicker>
+  <app-timepicker [disabled]="disabled" class="row w-100 fv-row mt-0 px-1" [bgColor]="'white'" [label]="'labels.from'"
+                  [timeValue]="timeFromValue" (newTimeEvent)="inputNewTimeFrom($event)"
+  ></app-timepicker>
+  <app-timepicker [disabled]="disabled" class="row w-100 fv-row mt-0 px-1" [bgColor]="'white'" [label]="'labels.to'"
+                  [timeValue]="timeToValue" (newTimeEvent)="inputNewTimeTo($event)"
+  ></app-timepicker>
 </div>

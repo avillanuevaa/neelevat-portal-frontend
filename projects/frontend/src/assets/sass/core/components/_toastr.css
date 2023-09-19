@@ -141,6 +141,19 @@ button.toast-close-button {
   margin-right: 10px; /* Puedes ajustar este valor para espaciar el círculo del texto */
 }
 
+.popover-badges{
+  background-color: #d4eeff;
+}
+
+.popover-badges .popover-body{
+  padding: 3px 3px 7px 10px;
+}
+
+.popover-badges .popover-arrow::after,
+.popover-badges .popover-arrow::before {
+  border-top-color: #d4eeff;
+}
+
 
 
 
