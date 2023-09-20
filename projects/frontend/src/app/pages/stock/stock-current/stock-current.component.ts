@@ -107,10 +107,11 @@ export class StockCurrentComponent implements OnInit, OnDestroy {
       //   takeUntil(this.destroy$),
       // ).subscribe((stock: IStock[]) => {
       .then((stock: IStock[]) => {
-        this.stocks = JSON.parse(JSON.stringify(stock));
-        this.filteredStocks = JSON.parse(JSON.stringify(stock));
-        this.filteredStocksPallets = JSON.parse(JSON.stringify(stock));
-        this.filteredStocksPieces = JSON.parse(JSON.stringify(stock));
+        const dataStock = JSON.parse(JSON.stringify(stock))
+        this.stocks = dataStock?.data;
+        this.filteredStocks = dataStock?.data;
+        this.filteredStocksPallets = dataStock?.data;
+        this.filteredStocksPieces = dataStock?.data;
         this.tableService.fillFilterObject<IStock>(this.mainFilter, this.stocks);
         this.columns = this.tableService.setDisplayedColumns(this.columns, this.mainFilter);
         this.markForCheck = !this.markForCheck;
@@ -253,7 +254,7 @@ export class StockCurrentComponent implements OnInit, OnDestroy {
   }
 
 
-  applyStyleSelectedBar(clickedIndex: number){
+  applyStyleSelectedBar(clickedIndex: number, chart: Chart){
     if (this.selectedBarIndex === clickedIndex) {
       this.selectedBarIndex = -1;
     } else {
@@ -261,7 +262,7 @@ export class StockCurrentComponent implements OnInit, OnDestroy {
     }
 
     // Actualizar el estilo de las barras
-    this.updateBarStyles();
+    this.updateBarStyles(chart);
   }
 
   // Graphics filter
@@ -322,7 +323,7 @@ export class StockCurrentComponent implements OnInit, OnDestroy {
 
     const sumByCategory = {};
 
-    this.filteredStocks.forEach((stock) => {
+    this.stocks.forEach((stock) => {
       const {category, quantityClosing, quantityAvailable, quantityToDeliver} = stock;
 
       const sumOfPieces = quantityClosing + quantityAvailable + quantityToDeliver;
@@ -376,6 +377,7 @@ export class StockCurrentComponent implements OnInit, OnDestroy {
             const label = this.categoryLabels[clickedIndex];
 
             this.applyTableFilter(label);
+            this.applyStyleSelectedBar(clickedIndex, this.myChartCategory);
           }
         },
         plugins: {
@@ -479,7 +481,7 @@ export class StockCurrentComponent implements OnInit, OnDestroy {
 
             this.applyTableFilter(label);
 
-            this.applyStyleSelectedBar(clickedIndex);
+            this.applyStyleSelectedBar(clickedIndex, this.myChartWhs);
           }
         },
         plugins: {
@@ -528,7 +530,7 @@ export class StockCurrentComponent implements OnInit, OnDestroy {
 
     const sumByCategory: { [category: string]: number } = {};
 
-    this.filteredStocks.forEach(stock => {
+    this.stocks.forEach(stock => {
       const category = stock.category;
       const numberOfPallets = stock.numberOfPallets;
       const palletID = stock.palletId;
@@ -582,6 +584,7 @@ export class StockCurrentComponent implements OnInit, OnDestroy {
             const clickedIndex = elements[0].index;
             const label = this.categoryLabels[clickedIndex];
             this.applyTableFilter(label);
+            this.applyStyleSelectedBar(clickedIndex, this.myChartCategory);
           }
         },
         plugins: {
@@ -689,7 +692,7 @@ export class StockCurrentComponent implements OnInit, OnDestroy {
 
             this.applyTableFilter(label);
 
-            this.applyStyleSelectedBar(clickedIndex);
+            this.applyStyleSelectedBar(clickedIndex, this.myChartWhs);
           }
         },
         plugins: {
@@ -730,8 +733,8 @@ export class StockCurrentComponent implements OnInit, OnDestroy {
     });
   }
 
-  updateBarStyles() {
-    const dataset = this.myChartWhs.data.datasets[0];
+  updateBarStyles(chart: Chart) {
+    const dataset = chart.data.datasets[0];
     const backgroundColors = dataset.data.map((_, index) => {
       return index === this.selectedBarIndex ? 'rgba(255, 0, 0, 0.76)' : 'rgba(153, 98, 108, 0.76)';
     });
@@ -740,7 +743,7 @@ export class StockCurrentComponent implements OnInit, OnDestroy {
     dataset.backgroundColor = backgroundColors;
 
     // Redibujar el gráfico con los estilos actualizados
-    this.myChartWhs.update();
+    chart.update();
   }
 
   public ngOnDestroy(): void {
